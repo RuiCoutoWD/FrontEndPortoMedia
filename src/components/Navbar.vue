@@ -15,20 +15,36 @@
         <b-navbar-nav>
           <a class="navBarItem p-3" href="#">Quem Somos</a>
           <a class="navBarItem p-3" href="#">Outdoors</a>
-          <a class="navBarItem p-3" href="#">Contactos</a>  
+          <a class="navBarItem p-3" href="#">Contactos</a>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
-        <b-navbar-nav class="ml-auto userImg ms-auto p-3">
-          <a href="#">
-            <img
-              src="../assets/user.png"
-              class="m-3"
-              height="30px"
-              width="30px"
-            />
-          </a>
-        </b-navbar-nav>
+        <b-dropdown
+          size="lg"
+          variant="link"
+          toggle-class="text-decoration-none"
+          no-caret
+          class="userImg ms-auto p-5 align-items-center"
+        >
+          <template #button-content>
+            <span class="sr-only"
+              ><img
+                src="../assets/user.png"
+                class="m-3"
+                height="30px"
+                width="30px"
+            /></span>
+          </template>
+          <b-dropdown-item
+            ><a href="#" class="userButton">Perfil</a></b-dropdown-item
+          >
+          <b-dropdown-divider></b-dropdown-divider>
+          <b-dropdown-item
+            ><a href="#" class="userButton logOutButton"
+              >Sair</a
+            ></b-dropdown-item
+          >
+        </b-dropdown>
       </b-collapse>
     </b-navbar>
   </div>
@@ -44,7 +60,7 @@
 
 .logo {
   padding: 0;
-  margin-left: 3rem;
+  margin-left: 6rem;
 }
 
 .navBarItem {
@@ -63,5 +79,16 @@
 .userImg {
   position: relative;
   margin-right: 1rem;
+}
+
+.userButton {
+  font-family: Kayak Sans;
+  font-size: 15pt;
+  text-decoration: none;
+  color: #000000;
+}
+
+.logOutButton {
+  color: red;
 }
 </style>
