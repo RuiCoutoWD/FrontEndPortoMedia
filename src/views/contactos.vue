@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col-lg-6">
-      <h1>LOCALIZAÇÃO</h1>
+      <h1 class="header">LOCALIZAÇÃO</h1>
     </div>
   </div>
 </template>
@@ -18,4 +18,16 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.header {
+  font-family: Kayak Sans;
+  font-size: 35px;
+  color: #a58c57;
+  text-decoration: none;
+  text-align: left;
+  margin-top: 40px;
+}
+
+
+</style>
+

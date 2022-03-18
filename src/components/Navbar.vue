@@ -10,9 +10,9 @@
           height="60px"
           class="logo"
         /></router-link>
-          <router-link to="/about"><span class="navBarItem">Quem somos</span></router-link>
-          <router-link to="/outdoors"><span class="navBarItem">Outdoors</span></router-link>
-          <router-link to="/contacts"><span class="navBarItem">Contactos</span></router-link>
+          <router-link to="/about" class="link"><span class="navBarItem">Quem somos</span></router-link>
+          <router-link to="/outdoors" class="link"><span class="navBarItem">Outdoors</span></router-link>
+          <router-link to="/contacts" class="link"><span class="navBarItem">Contactos</span></router-link>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
@@ -56,6 +56,11 @@ export default {
 
 
 <style scoped>
+
+.link{
+  text-decoration: none;
+}
+
 .navbar {
   background-color: #000000;
   opacity: 79%;
@@ -73,7 +78,7 @@ export default {
   font-size: 25px;
   margin-left: 1rem;
   color: #fcfff7;
-  text-decoration: none;
+    flex-direction: column;
 }
 
 .navBarItem:hover {
