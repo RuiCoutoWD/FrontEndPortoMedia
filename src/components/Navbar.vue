@@ -32,7 +32,7 @@
                 width="30px"
             /></span>
           </template>
-          <b-dropdown-item
+          <b-dropdown-item class="dropdown"
             ><a href="#" class="userButton">Perfil</a></b-dropdown-item
           >
           <b-dropdown-divider></b-dropdown-divider>
@@ -59,6 +59,8 @@ export default {
 
 .link{
   text-decoration: none;
+  margin-top: 10px;
+
 }
 
 .navbar {
@@ -78,7 +80,6 @@ export default {
   font-size: 25px;
   margin-left: 1rem;
   color: #fcfff7;
-    flex-direction: column;
 }
 
 .navBarItem:hover {
@@ -100,5 +101,9 @@ export default {
 
 .logOutButton {
   color: red;
+}
+
+.dropdown{
+  
 }
 </style>
