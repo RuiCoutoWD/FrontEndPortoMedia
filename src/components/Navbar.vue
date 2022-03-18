@@ -11,8 +11,8 @@
           class="logo"
         /></router-link>
           <router-link to="/about"><span class="navBarItem">Quem somos</span></router-link>
-          <router-link to="/about"><span class="navBarItem">Outdoors</span></router-link>
-          <router-link to="/about"><span class="navBarItem">Contactos</span></router-link>
+          <router-link to="/outdoors"><span class="navBarItem">Outdoors</span></router-link>
+          <router-link to="/contacts"><span class="navBarItem">Contactos</span></router-link>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
