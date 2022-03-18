@@ -1,21 +1,18 @@
 <template>
   <div id="navbar">
     <b-navbar toggleable="lg" type="dark" class="navbar d-flex">
-      <b-navbar-brand href="#">
-        <img
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav>
+          <router-link to="/"><img
           src="../assets/logo_portomedia_white.png"
           width="60px"
           height="60px"
           class="logo"
-        />
-      </b-navbar-brand>
-
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-      <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav>
-          <a class="navBarItem p-3" href="#">Quem Somos</a>
-          <a class="navBarItem p-3" href="#">Outdoors</a>
-          <a class="navBarItem p-3" href="#">Contactos</a>
+        /></router-link>
+          <router-link to="/about"><span class="navBarItem">Quem somos</span></router-link>
+          <router-link to="/about"><span class="navBarItem">Outdoors</span></router-link>
+          <router-link to="/about"><span class="navBarItem">Contactos</span></router-link>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
@@ -49,6 +46,14 @@
     </b-navbar>
   </div>
 </template>
+
+<script>
+export default {
+  name: "Navbar",
+
+}
+</script>
+
 
 <style scoped>
 .navbar {

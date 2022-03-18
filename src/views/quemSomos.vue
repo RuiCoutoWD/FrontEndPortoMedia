@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <Navbar />
 
     <div class="quemsomos">
       <b-container class="bv-example-row">
@@ -52,12 +51,12 @@
 
 <script>
 // @ is an alias to /src
-import Navbar from "@/components/Navbar.vue";
+//import Navbar from "@/components/Navbar.vue";
 
 export default {
-  name: "Home",
+  name: "About",
   components: {
-    Navbar,
+    //Navbar,
   },
 };
 </script>
