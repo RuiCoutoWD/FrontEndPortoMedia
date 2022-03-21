@@ -57,6 +57,7 @@ export default {
 
 <style scoped>
 
+
 .link{
   text-decoration: none;
   margin-top: 10px;
@@ -103,7 +104,4 @@ export default {
   color: red;
 }
 
-.dropdown{
-  
-}
 </style>
