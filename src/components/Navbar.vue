@@ -98,7 +98,7 @@
             >
             <b-nav-item href="#" class="logOutSmallNavItem"
               ><span class="smallNavbarItem logOutSmallNav"
-                >Terminar Sessão</span
+                >Sair</span
               ></b-nav-item
             >
           </b-navbar-nav>
