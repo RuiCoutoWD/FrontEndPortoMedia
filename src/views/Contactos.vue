@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="home">
 
     <div class="quemsomos">
       <b-container class="bv-example-row">
