@@ -1,31 +1,49 @@
 <template>
   <div class="home">
-
     <div class="quemsomos">
       <b-container class="bv-example-row">
         <b-row>
           <b-col>
             <h1 class="header">LOCALIZAÇÃO</h1>
-            <h1 class="header">MISSÃO</h1>
-            <p class="historia">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. <br />
-              Lorem Ipsum has been the industry's standard dummy text ever since
-              the<br />
-              1500s, when an unknown printer took a galley of type and scrambled
-              it to<br />
-              make a type specimen book. It has survived not only five
-              centuries, but also<br />
-              the leap into electronic typesetting, remaining essentially
-              unchanged. It was<br />
-              popularised in the 1960s with the release of Letraset sheets
-              containing<br />
-              Lorem Ipsum passages, and more recently with desktop publishing
-              software<br />
-              like Aldus PageMaker including versions of Lorem Ipsum.
-            </p></b-col>
+            <div class="contactos">
+              <img src="../assets/mapa.png" class="img" />
+              <p class="morada">
+                Zona Industrial Arcos do Sardão, Avenida Arcos do Sardão,<br />
+                Nº 391-A, 4430-434, Vila Nova de Gaia
+              </p>
+            </div>
+            <h1 class="header">CONTACTOS</h1>
+            <div class="contactos">
+              <img src="../assets/email.png" alt="email" class="icons" />
+              <a>: mail@planetapublicidade.com </a>
+              <p></p>
+              <img src="../assets/telefone.png" alt="telefone" class="icons" />
+              <a>: 22 145 01 20</a>
+            </div>
+          </b-col>
           <b-col>
-            <h1 class="header">PARCEIROS</h1></b-col>
+            <h1 class="header">CONTACTE-NOS</h1>
+            <div class="contactos">
+              <input v-model="message" class="edittext" placeholder="Nome*" />
+              <p class="space"></p>
+              <input v-model="message" class="edittext" placeholder="Email*" />
+              <p class="space"></p>
+              <input v-model="message" class="edittext" placeholder="Número" />
+              <p class="space"></p>
+              <textarea
+                v-model="message"
+                class="edittext2"
+                placeholder="Mensagem"
+              ></textarea>
+              <p></p>
+              <button class="botao">Enviar</button>
+            </div>
+            <div class="historia">
+              <h1 class="header">REDES SOCIAIS</h1>
+              <a href="https://www.instagram.com/planetapublicidade/" target="_blank"><img src="../assets/instagram.png" class="icons" /></a>
+              <a href="https://www.facebook.com/planetapublicidadeexterior/" target="_blank"><img src="../assets/facebook.png" class="facebook"></a>
+            </div>
+          </b-col>
         </b-row>
       </b-container>
     </div>
@@ -45,6 +63,20 @@ export default {
 </script>
 
 <style scoped>
+.icons {
+  width: 30px;
+  height: 30px;
+}
+
+.facebook {
+  width: 30px;
+  height: 30px;
+  margin-left: 1rem;
+}
+
+.contactos {
+  text-align: left;
+}
 .header {
   font-family: Kayak Sans;
   font-size: 35px;
@@ -57,5 +89,45 @@ export default {
 .historia {
   text-align: left;
 }
+
+.img {
+  width: 450px;
+  height: 280px;
+}
+
+.edittext {
+  width: 500px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.space {
+  height: 6px;
+}
+
+.edittext2 {
+  width: 500px;
+  height: 130px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.morada {
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.botao {
+  background-color: #fcfff7;
+  color: #303d7a;
+  width: 100px;
+  border-width: 1px;
+}
+
+.botao:hover {
+  background-color: #303d7a;
+  color: #fcfff7;
+}
+
 </style>
 
