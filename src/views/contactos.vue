@@ -6,26 +6,13 @@
         <b-row>
           <b-col>
             <h1 class="header">LOCALIZAÇÃO</h1>
-            <h1 class="header">MISSÃO</h1>
-            <p class="historia">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. <br />
-              Lorem Ipsum has been the industry's standard dummy text ever since
-              the<br />
-              1500s, when an unknown printer took a galley of type and scrambled
-              it to<br />
-              make a type specimen book. It has survived not only five
-              centuries, but also<br />
-              the leap into electronic typesetting, remaining essentially
-              unchanged. It was<br />
-              popularised in the 1960s with the release of Letraset sheets
-              containing<br />
-              Lorem Ipsum passages, and more recently with desktop publishing
-              software<br />
-              like Aldus PageMaker including versions of Lorem Ipsum.
-            </p></b-col>
+            <h1 class="header">CONTACTOS</h1>
+            <div class="contactos">
+              <img src="../assets/email.png" alt="email" class="email">
+            </div>
+          </b-col>
           <b-col>
-            <h1 class="header">PARCEIROS</h1></b-col>
+            <h1 class="header">CONTACTE-NOS</h1></b-col>
         </b-row>
       </b-container>
     </div>
@@ -45,6 +32,15 @@ export default {
 </script>
 
 <style scoped>
+
+.email {
+  width: 30px;
+  height: 30px;
+}
+
+.contactos {
+text-align: left;
+}
 .header {
   font-family: Kayak Sans;
   font-size: 35px;

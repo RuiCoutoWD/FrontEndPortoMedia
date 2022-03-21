@@ -6,7 +6,7 @@
         <b-row>
           <b-col>
             <h1 class="header">LOCALIZAÇÃO</h1>
-            <h1 class="header">MISSÃO</h1>
+            <h1 class="header">CONTACTOS</h1>
             <p class="historia">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. <br />
@@ -25,7 +25,7 @@
               like Aldus PageMaker including versions of Lorem Ipsum.
             </p></b-col>
           <b-col>
-            <h1 class="header">PARCEIROS</h1></b-col>
+            <h1 class="header">CONTACTE-NOS</h1></b-col>
         </b-row>
       </b-container>
     </div>
