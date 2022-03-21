@@ -3,7 +3,7 @@ import VueRouter from "vue-router";
 
 import Home from "../views/Home.vue";
 import About from "../views/quemSomos.vue";
-import Contacts from "../views/Contactos.vue"
+import Contacts from "../views/contactos.vue"
 import Outdoors from "../views/outdoors.vue"
 
 
