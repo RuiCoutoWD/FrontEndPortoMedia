@@ -15,7 +15,7 @@
             <h1 class="header">CONTACTOS</h1>
             <div class="contactos">
               <img src="../assets/email.png" alt="email" class="icons" />
-              <a>: mail@planetapublicidade.com</a>
+              <a>: mail@planetapublicidade.com </a>
               <p></p>
               <img src="../assets/telefone.png" alt="telefone" class="icons" />
               <a>: 22 145 01 20</a>
@@ -38,7 +38,11 @@
               <p></p>
               <button class="botao">Enviar</button>
             </div>
-            <p class="space"></p>
+            <div class="historia">
+              <h1 class="header">REDES SOCIAIS</h1>
+              <a href="https://www.instagram.com/planetapublicidade/"><img src="../assets/instagram.png" class="icons" /></a>
+              <img src="../assets/facebook.png" class="facebook">
+            </div>
           </b-col>
         </b-row>
       </b-container>
@@ -62,6 +66,12 @@ export default {
 .icons {
   width: 30px;
   height: 30px;
+}
+
+.facebook {
+  width: 30px;
+  height: 30px;
+  margin-left: 1rem;
 }
 
 .contactos {
@@ -92,7 +102,7 @@ export default {
 }
 
 .space {
-  height: 10px;
+  height: 6px;
 }
 
 .edittext2 {
