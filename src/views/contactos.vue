@@ -113,5 +113,6 @@ export default {
   width: 100px;
   border-width: 1px;
 }
+
 </style>
 
