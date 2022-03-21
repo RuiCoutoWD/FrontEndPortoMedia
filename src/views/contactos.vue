@@ -40,8 +40,8 @@
             </div>
             <div class="historia">
               <h1 class="header">REDES SOCIAIS</h1>
-              <a href="https://www.instagram.com/planetapublicidade/"><img src="../assets/instagram.png" class="icons" /></a>
-              <img src="../assets/facebook.png" class="facebook">
+              <a href="https://www.instagram.com/planetapublicidade/" target="_blank"><img src="../assets/instagram.png" class="icons" /></a>
+              <a href="https://www.facebook.com/planetapublicidadeexterior/" target="_blank"><img src="../assets/facebook.png" class="facebook"></a>
             </div>
           </b-col>
         </b-row>
@@ -107,7 +107,7 @@ export default {
 
 .edittext2 {
   width: 500px;
-  height: 120px;
+  height: 130px;
   font-weight: bold;
   font-size: 14px;
 }
@@ -122,6 +122,11 @@ export default {
   color: #303d7a;
   width: 100px;
   border-width: 1px;
+}
+
+.botao:hover {
+  background-color: #303d7a;
+  color: #fcfff7;
 }
 
 </style>
