@@ -33,6 +33,6 @@ export default {
   color: #a58c57;
   text-decoration: none;
   text-align: left;
-  margin-top: 40px;
+  margin-top: 9rem;
 }
 </style>

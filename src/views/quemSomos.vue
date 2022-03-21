@@ -23,7 +23,7 @@
               software<br />
               like Aldus PageMaker including versions of Lorem Ipsum.
             </p>
-            <h1 class="header">MISSÃO</h1>
+            <h1 class="header2">MISSÃO</h1>
             <p class="historia">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. <br />
@@ -62,13 +62,23 @@ export default {
 </script>
 
 <style scoped>
+
 .header {
   font-family: Kayak Sans;
   font-size: 35px;
   color: #a58c57;
   text-decoration: none;
   text-align: left;
-  margin-top: 40px;
+  margin-top: 9rem;
+}
+
+.header2 {
+  font-family: Kayak Sans;
+  font-size: 35px;
+  color: #a58c57;
+  text-decoration: none;
+  text-align: left;
+  margin-top: 2rem;
 }
 
 .historia {

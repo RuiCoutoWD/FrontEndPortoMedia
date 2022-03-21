@@ -12,7 +12,7 @@
                 Nº 391-A, 4430-434, Vila Nova de Gaia
               </p>
             </div>
-            <h1 class="header">CONTACTOS</h1>
+            <h1 class="header2">CONTACTOS</h1>
             <div class="contactos">
               <img src="../assets/email.png" alt="email" class="icons" />
               <a>: mail@planetapublicidade.com </a>
@@ -38,8 +38,8 @@
               <p></p>
               <button class="botao">Enviar</button>
             </div>
-            <div class="historia">
-              <h1 class="header">REDES SOCIAIS</h1>
+            <div class="redes">
+              <h1 class="header2">REDES SOCIAIS</h1>
               <a href="https://www.instagram.com/planetapublicidade/" target="_blank"><img src="../assets/instagram.png" class="icons" /></a>
               <a href="https://www.facebook.com/planetapublicidadeexterior/" target="_blank"><img src="../assets/facebook.png" class="facebook"></a>
             </div>
@@ -83,11 +83,25 @@ export default {
   color: #a58c57;
   text-decoration: none;
   text-align: left;
-  margin-top: 40px;
+  margin-top: 9rem;
+}
+
+.header2 {
+  font-family: Kayak Sans;
+  font-size: 35px;
+  color: #a58c57;
+  text-decoration: none;
+  text-align: left;
+  margin-top: 2rem;
 }
 
 .historia {
   text-align: left;
+}
+
+.redes {
+  text-align: left;
+  margin-bottom: 1rem;
 }
 
 .img {
