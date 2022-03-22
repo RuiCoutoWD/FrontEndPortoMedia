@@ -41,7 +41,7 @@
                 /></span>
               </template>
               <b-dropdown-item class="dropdown"
-                ><a href="#" class="userButton">Perfil</a></b-dropdown-item
+                ><router-link to="/profile" class="link"><a class="userButton">Perfil</a></router-link></b-dropdown-item
               >
               <b-dropdown-divider></b-dropdown-divider>
               <b-dropdown-item
@@ -115,6 +115,10 @@ export default {
 </script>
 
 <style scoped>
+link.router-link-active {
+  color: #a58c57;
+}
+
 .link {
   text-decoration: none;
   margin-top: 10px;

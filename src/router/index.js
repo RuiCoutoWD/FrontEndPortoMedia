@@ -3,8 +3,9 @@ import VueRouter from "vue-router";
 
 import Home from "../views/Home.vue";
 import About from "../views/quemSomos.vue";
-import Contacts from "../views/contactos.vue"
-import Outdoors from "../views/outdoors.vue"
+import Contacts from "../views/contactos.vue";
+import Outdoors from "../views/outdoors.vue";
+import Profile from "../views/perfil.vue";
 
 
 Vue.use(VueRouter);
@@ -30,6 +31,11 @@ const routes = [
     path: "/outdoors",
     name: "Outdoors",
     component: Outdoors,
+  },
+  {
+    path: "/profile",
+    name: "Profile",
+    component: Profile,
   }
 ];
 
