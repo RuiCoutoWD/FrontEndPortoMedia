@@ -37,12 +37,7 @@
               <p class="space"></p>
               <input v-model="message" class="edittext2" placeholder="Repetir Nova Palavra Passe"/>
               <p></p>
-              <b-button
-                  class="confirmar"
-                  block
-                  @click="hideModal"
-                  >Confirmar</b-button
-              >
+              <button @click="hideModal" class="confirmar">Confirmar</button>
               </b-modal>
             </div>
             <h1 class="header2">FAVORITOS</h1>
@@ -88,6 +83,14 @@ export default {
 .confirmar {
   color: #303d7a;
   background-color: #fcfff7;
+  margin-left: 23.6rem;
+
+}
+
+.confirmar:hover {
+  background-color: #303d7a;
+  color: #fcfff7;
+  margin-left: 23.6rem;
 
 }
 
