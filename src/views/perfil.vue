@@ -18,7 +18,32 @@
               <p class="space"></p>
               <input v-model="message" class="edittext" placeholder="Empresa" />
               <p></p>
-              <button class="botao">Editar</button>
+              <div class="btn">
+              <button class="botao" @click="showModal">Editar</button></div>
+              <b-modal
+                ref="my-modal"
+                hide-footer
+                centered title="Edite os seus dados pessoais"
+              >
+              <input v-model="message" class="edittext2" placeholder="Nome" />
+              <p class="space"></p>
+              <input v-model="message" class="edittext2" placeholder="Email" />
+              <p class="space"></p>
+              <input v-model="message" class="edittext2" placeholder="Número" />
+              <p class="space"></p>
+              <input v-model="message" class="edittext2" placeholder="Empresa" />
+              <p class="space"></p>
+              <input v-model="message" class="edittext2" placeholder="Nova Palavra Passe"/>
+              <p class="space"></p>
+              <input v-model="message" class="edittext2" placeholder="Repetir Nova Palavra Passe"/>
+              <p></p>
+              <b-button
+                  class="confirmar"
+                  block
+                  @click="hideModal"
+                  >Confirmar</b-button
+              >
+              </b-modal>
             </div>
             <h1 class="header2">FAVORITOS</h1>
           </b-col>
@@ -37,10 +62,35 @@ export default {
   components: {
     //Navbar,
   },
+  methods: {
+      showModal() {
+        this.$refs['my-modal'].show()
+      },
+      hideModal() {
+        this.$refs['my-modal'].hide()
+      },
+      toggleModal() {
+        // We pass the ID of the button that we want to return focus to
+        // when the modal has hidden
+        this.$refs['my-modal'].toggle('#toggle-btn')
+      },
+  }
 };
 </script>
 
 <style scoped>
+
+
+.btn {
+  margin-left: 24.2rem;
+}
+
+.confirmar {
+  color: #303d7a;
+  background-color: #fcfff7;
+
+}
+
 .header {
   font-family: Kayak Sans;
   font-size: 35px;
@@ -69,6 +119,12 @@ export default {
   font-size: 14px;
 }
 
+.edittext2 {
+  width: 465px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
 .botao {
   background-color: #fcfff7;
   color: #303d7a;
@@ -84,5 +140,4 @@ export default {
 .space {
   height: 6px;
 }
-
 </style>
