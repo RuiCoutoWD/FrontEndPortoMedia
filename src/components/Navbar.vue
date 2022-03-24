@@ -23,13 +23,12 @@
                 ><span class="navBarItem p-2">Contactos</span></router-link
               >
             </b-navbar-nav>
-
             <b-dropdown
               size="lg"
               variant="link"
               toggle-class="text-decoration-none"
               no-caret
-              class="userImg ms-auto align-items-center"
+              class="userImg ms-auto align-items-center invisible"
             >
               <template #button-content>
                 <span class="sr-only"
@@ -41,7 +40,9 @@
                 /></span>
               </template>
               <b-dropdown-item class="dropdown"
-                ><router-link to="/profile" class="link"><a class="userButton">Perfil</a></router-link></b-dropdown-item
+                ><router-link to="/profile" class="link"
+                  ><a class="userButton">Perfil</a></router-link
+                ></b-dropdown-item
               >
               <b-dropdown-divider></b-dropdown-divider>
               <b-dropdown-item
@@ -50,6 +51,13 @@
                 ></b-dropdown-item
               >
             </b-dropdown>
+            <div>
+              <b-button class="logInButton" v-b-modal.modal-1>Entrar</b-button>
+
+              <b-modal id="modal-1" class="modal" title="LOGIN">
+                <p class="my-4 loginText">LOGIN</p>
+              </b-modal>
+            </div>
           </b-collapse>
         </b-container>
       </b-navbar>
@@ -210,5 +218,31 @@ link.router-link-active {
 
 .routerSmallNav {
   text-decoration: none;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.logInButton {
+  background-color: transparent;
+  font-family: Kayak Sans;
+  font-size: 25px;
+  border: none;
+}
+
+.logInButton:hover {
+  background-color: transparent;
+  color: #a58c57;
+}
+
+.loginText {
+  font-family: Kayak Sans;
+  font-size: 25pt;
+}
+
+.modal {
+  font-family: Kayak Sans;
+  font-size: 25pt
 }
 </style>
