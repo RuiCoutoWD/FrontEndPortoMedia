@@ -12,10 +12,13 @@
                 <b-col>
                     <h2 class="header3">Impressão em papel</h2>
                     <p>É o tipo de outdoor <b>mais comum no mercado e que apresenta o menor custo </b> , além de ter produção e impressão mais rápidas. Em geral, o outdoor de papel tem um custo cerca de 85% menor que o de lona. Contudo, o principal problema desse tipo de outdoor é a durabilidade, afinal, o papel <b> não apresenta uma grande resistência e dificilmente essa impressão aguentará mais do que 14 dias.</b></p>
+                    <p class="space"></p>
+                    <img src="../assets/papel.jpg" width="300px" height="300px">
                 </b-col>
                 <b-col>
                     <h2 class="header3">Impressão em lona</h2>
                     <p>Esse outdoor é o que possui valor mais alto, principalmente devido às técnicas de impressão em lona, que são mais diferenciadas. A grande vantagem, contudo, <b> é a sua durabilidade que é bem superior ao papel. </b> No mercado, existem vários tipos de lonas e o valor está relacionado à qualidade do material. O tempo médio de duração da lona varia <b> de 6 meses a 3 anos </b>, dependendo das características climáticas do local onde o outdoor está instalado.</p>
+                    <img src="../assets/lona.jpg" width="300px" height="300px">
                 </b-col>
             </b-row>
             <h1 class="header2">Dicas de como fazer um outdoor</h1>
@@ -23,6 +26,10 @@
             <p class="p">Antes de qualquer coisa, é preciso que sua equipe de criação tenha <b> bem claro qual a mensagem que precisa ser passada </b>, afinal, ela é a estrela do seu outdoor. Outro ponto importante é que o <b>produto ou serviço esteja em destaque, assim como o nome e logo da sua empresa. </b> Se alguém se interessar pelo o que está sendo anunciado, a pessoa <b> não pode ter dificuldades para descobrir quem é o dono daquela campanha e como entrar em contato ou procurar por ele. </b></p>
             <h1 class="header4">Simplicidade</h1>
             <p class="p">É preciso ser <b> assertivo e direto </b> e assim, prefira artes simples e impactantes. Coloque somente as <b> informações essenciais, da maneira mais sucinta possível e aposte em imagens cativantes.</b></p>
+            <h1 class="header4">Equilibrio de elementos</h1>
+            <p class="p">Cada centímetro de outdoor é valioso, por isso, faça bom uso do seu espaço e ocupe o que puder, mesmo que apenas com um toque de cor.</p>
+            <h1 class="header4">Legibilidade</h1>
+            <p class="p">É totalmente possível ter um outdoor criativo e que chame a atenção usando palavras, mas é preciso que seja feito do jeito certo e que ele seja, acima de tudo, legível.</p>
           </b-col>
         </b-row>
       </b-container>
@@ -56,6 +63,10 @@ export default {
 </script>
 
 <style scoped>
+.space {
+    margin-top: 1rem;
+}
+
 .p {
     text-align: left;
 }
