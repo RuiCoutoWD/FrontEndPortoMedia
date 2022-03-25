@@ -7,6 +7,8 @@ import Contacts from "../views/contactos.vue";
 import Outdoors from "../views/outdoors.vue";
 import Profile from "../views/perfil.vue";
 import Admin from "../views/admin.vue";
+import Support from "../views/support.vue"
+// import { getSupportInfo } from "prettier";
 
 
 Vue.use(VueRouter);
@@ -42,6 +44,11 @@ const routes = [
     path: "/admin",
     name: "Admin",
     component: Admin,
+  },
+  {
+    path: "/support",
+    name: "Support",
+    component: Support,
   }
 ];
 
