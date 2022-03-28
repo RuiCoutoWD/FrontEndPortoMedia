@@ -5,19 +5,15 @@
         <b-row>
           <b-col>
             <h1 class="header">OS NOSSOS OUTDOORS</h1>
-            <div @click="showModal()">
+            <div @click="showModal()" class="div">
               <b-card
-                img-alt="Image"
-                img-height="200px"
-                img-top
-                tag="article"
                 style="max-width: 20rem"
                 class="mb-2 border-0"
               >
               <img src="../assets/Face1.png" class="face">
               </b-card>
             </div>
-                        <div @click="showModal()">
+                        <div @click="showModal()" class="div">
               <b-card
                 img-alt="Image"
                 img-height="200px"
@@ -29,7 +25,7 @@
               <img src="../assets/Face4.png" class="face">
               </b-card>
             </div>
-                        <div @click="showModal()">
+                        <div @click="showModal()" class="div">
               <b-card
                 
                 img-alt="Image"
@@ -42,7 +38,7 @@
               <img src="../assets/Face7.png" class="face">
               </b-card>
             </div>
-                        <div @click="showModal()">
+                        <div @click="showModal()" class="div">
               <b-card
                 
                 img-alt="Image"
@@ -55,7 +51,7 @@
               <img src="../assets/Face10.png" class="face">
               </b-card>
             </div>
-                        <div @click="showModal()">
+                        <div @click="showModal()" class="div">
               <b-card
                 
                 img-alt="Image"
@@ -71,7 +67,7 @@
 
           </b-col>
           <b-col class="space">
-                        <div @click="showModal()">
+                        <div @click="showModal()" class="div">
               <b-card
                 img-alt="Image"
                 img-height="200px"
@@ -83,7 +79,7 @@
               <img src="../assets/Face2.png" class="face">
               </b-card>
                         </div> 
-                                    <div @click="showModal()">
+                                    <div @click="showModal()" class="div">
               <b-card
                 
                 img-alt="Image"
@@ -96,7 +92,7 @@
               <img src="../assets/Face5.png" class="face">
               </b-card>
             </div>
-                        <div @click="showModal()">
+                        <div @click="showModal()" class="div">
               <b-card
                 
                 img-alt="Image"
@@ -109,7 +105,7 @@
               <img src="../assets/Face8.png" class="face">
               </b-card>
             </div>
-                        <div @click="showModal()">
+                        <div @click="showModal()" class="div">
               <b-card
                 
                 img-alt="Image"
@@ -122,7 +118,7 @@
               <img src="../assets/Face11.png" class="face">
               </b-card>
             </div>
-                        <div @click="showModal()">
+                        <div @click="showModal()" class="div">
               <b-card
                 
                 img-alt="Image"
@@ -138,7 +134,7 @@
 
              </b-col>
           <b-col class="space"> 
-                        <div @click="showModal()">
+                        <div @click="showModal()" class="div">
               <b-card
                 
                 img-alt="Image"
@@ -151,7 +147,7 @@
               <img src="../assets/Face3.png" class="face">
               </b-card>
                         </div>
-                                    <div @click="showModal()">
+                                    <div @click="showModal()" class="div">
               <b-card
                 
                 img-alt="Image"
@@ -164,7 +160,7 @@
               <img src="../assets/Face6.png" class="face">
               </b-card>
             </div>
-                        <div @click="showModal()">
+                        <div @click="showModal()" class="div">
               <b-card
                
                 img-alt="Image"
@@ -177,7 +173,7 @@
               <img src="../assets/Face9.png" class="face">
               </b-card>
             </div>
-                        <div @click="showModal()">
+                        <div @click="showModal()" class="div">
               <b-card
                 
                 img-alt="Image"
@@ -190,7 +186,7 @@
               <img src="../assets/Face12.png" class="face">
               </b-card>
             </div>
-                        <div @click="showModal()">
+                        <div @click="showModal()" class="div">
               <b-card
                 
                 img-alt="Image"
@@ -221,13 +217,14 @@
               </b-modal>
 
               <b-modal
-              size=""
                 ref="my-modal2"
                 hide-footer
                 centered
-                title="Edite os seus dados pessoais"
                 class="modal"
               >
+              <template #modal-header>
+                <span class="nome">Pedir Orçamento</span>
+              </template>
               <div class="contactos">
               <input v-model="message" class="edittext" placeholder="Nome*" />
               <p></p>
@@ -241,7 +238,7 @@
                 placeholder="Mensagem"
               ></textarea>
               <p></p>
-              <button class="botao">Enviar</button>
+              <button class="confirmar2" @click="pedidoAlert()">Enviar</button>
             </div>
               </b-modal>
       </b-container>
@@ -269,11 +266,27 @@ export default {
     hideModal2() {
       this.$refs["my-modal2"].hide();
     },
+    pedidoAlert() {
+      // this.logInModalShow = false;
+      // this.registerModalShow = false;
+      this.$swal.fire({
+        icon: "success",
+        title:
+          "<div style='font-family:ChaletComprime CologneEighty;color:#a58c57;font-size:35pt;font-weight:400'>Pedido de orçamento enviado com sucesso!</div>",
+        showConfirmButton: false,
+        timer: 4000,
+        timerProgressBar: true,
+      });
+    },
   },
 };
 </script>
 
 <style scoped>
+.div:hover{
+  cursor: pointer;
+}
+
 .nome {
   font-family: ChaletComprime CologneEighty;
   font-size: 28pt;
@@ -290,6 +303,8 @@ export default {
   width: 400px;
   height: 280px;
 }
+
+
 
 .space {
   margin-top: 12rem;
@@ -318,10 +333,27 @@ export default {
   border-width: 1px;
 }
 
+.confirmar2 {
+  background-color: #fcfff7;
+  color: #e80b0b;
+  margin-left: 17.7rem;
+  width: 180px;
+  border-radius: 6px;
+  border-color: #e80b0b;
+  border-width: 1px;
+}
+
 .confirmar:hover {
   color: #fcfff7;
   background-color: #e80b0b;
   margin-left: 36.6rem;
+  width: 180px;
+  border-radius: 6px;
+}
+
+.confirmar2:hover {
+  color: #fcfff7;
+  background-color: #e80b0b;
   width: 180px;
   border-radius: 6px;
 }
