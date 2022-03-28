@@ -23,7 +23,9 @@
               software<br />
               like Aldus PageMaker including versions of Lorem Ipsum.
             </p>
-            <h1 class="header2">MISSÃO</h1>
+            </b-col>
+          <b-col>
+            <h1 class="header">MISSÃO</h1>
             <p class="historia">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. <br />
@@ -41,8 +43,6 @@
               software<br />
               like Aldus PageMaker including versions of Lorem Ipsum.
             </p></b-col>
-          <b-col>
-            <h1 class="header">PARCEIROS</h1></b-col>
         </b-row>
       </b-container>
     </div>
