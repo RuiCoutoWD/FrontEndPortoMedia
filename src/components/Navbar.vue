@@ -65,9 +65,16 @@
             </div>
             <div>
               <!-- Log in button (appears when the user is logged OFF) -->
-              <b-button class="logInButton" v-b-modal.modal-1>Entrar</b-button>
+              <b-button class="logInButton" v-b-modal.logInModal
+                >Entrar</b-button
+              >
               <!-- Login modal -->
-              <b-modal id="modal-1" hide-footer centered>
+              <b-modal
+                id="logInModal"
+                hide-footer
+                centered
+                v-if="logInModalShow"
+              >
                 <template #modal-header
                   ><span class="modalTitle mx-3">ENTRAR</span></template
                 >
@@ -80,12 +87,14 @@
                   <input type="text" id="passwordInput" class="modalInput" />
                   <b-row class="mt-2">
                     <b-col>
-                      <p class="modalText" v-b-modal.modal-2>
+                      <p class="modalText" v-b-modal.registerModal>
                         Não tem conta? Registe-se!
                       </p>
                     </b-col>
                     <b-col class="recoverPassword">
-                      <p class="modalText">Recuperar Password</p>
+                      <p class="modalText" v-b-modal.lostPasswordModal>
+                        Recuperar Password
+                      </p>
                     </b-col>
                   </b-row>
                   <b-row class="divModalButton">
@@ -94,24 +103,61 @@
                 </b-container>
               </b-modal>
               <!-- Register Modal -->
-              <b-modal id="modal-2" hide-footer centered>
+              <b-modal
+                id="registerModal"
+                hide-footer
+                centered
+                v-if="registerModalShow"
+              >
                 <template #modal-header
                   ><span class="modalTitle mx-3">CRIAR CONTA</span></template
                 >
                 <b-container fluid>
-                  <label for="emailInput" class="modalLabel">Email</label><br />
-                  <input type="text" id="emailInput" class="modalInput" /><br />
-                  <label for="passwordInput" class="modalLabel mt-4"
+                  <label for="emailInput2" class="modalLabel">Email</label
+                  ><br />
+                  <input
+                    type="text"
+                    id="emailInput2"
+                    class="modalInput"
+                  /><br />
+                  <label for="repeatEmailInput" class="modalLabel mt-4"
                     >Repetir Email</label
                   ><br />
-                  <input type="text" id="passwordInput" class="modalInput" />
+                  <input type="text" id="repeatEmailInput" class="modalInput" />
                   <b-row class="mt-2 divRegisterText">
                     <p class="registerText">
                       Será-lhe enviado um email com uma palavra passe!
                     </p>
                   </b-row>
                   <b-row class="divModalButton">
-                    <button class="modalButton mx-3">Registar</button>
+                    <button class="modalButton mx-3" @click="registerAlert()">
+                      Registar
+                    </button>
+                  </b-row>
+                </b-container>
+              </b-modal>
+              <!-- Lost password modal -->
+              <b-modal id="lostPasswordModal" hide-footer centered>
+                <template #modal-header
+                  ><span class="modalTitle mx-3"
+                    >RECUPERAR PASSWORD</span
+                  ></template
+                >
+                <b-container fluid>
+                  <label for="lostEmailInput" class="modalLabel">Email</label
+                  ><br />
+                  <input
+                    type="text"
+                    id="lostEmailInput"
+                    class="modalInput"
+                  /><br />
+                  <b-row class="divModalButton mt-3 mb-2">
+                    <button
+                      class="modalButton mx-3"
+                      @click="recoverPasswordAlert()"
+                    >
+                      Recuperar
+                    </button>
                   </b-row>
                 </b-container>
               </b-modal>
@@ -186,6 +232,38 @@
 <script>
 export default {
   name: "Navbar",
+  data() {
+    return {
+      logInModalShow: true,
+      registerModalShow: true,
+    };
+  },
+  methods: {
+    registerAlert() {
+      // this.logInModalShow = false;
+      // this.registerModalShow = false;
+      this.$swal.fire({
+        icon: "success",
+        title:
+          "<div style='font-family:ChaletComprime CologneEighty;color:#a58c57;font-size:35pt;font-weight:400'>Registado com sucesso!</div>",
+        html: "<div style='font-family:Kayak Sans;font-size:16pt'>Foi-lhe enviado um email com a sua password!</div>",
+        showConfirmButton: false,
+        timer: 4000,
+        timerProgressBar: true,
+      });
+    },
+    recoverPasswordAlert() {
+      this.$swal.fire({
+        icon: "success",
+        title:
+          "<div style='font-family:ChaletComprime CologneEighty;color:#a58c57;font-size:35pt;font-weight:400'>Recuperar Password</div>",
+        html: "<div style='font-family:Kayak Sans;font-size:16pt'>Foi-lhe enviado um email para poder repor a sua password!</div>",
+        showConfirmButton: false,
+        timer: 4000,
+        timerProgressBar: true,
+      });
+    },
+  },
 };
 </script>
 
