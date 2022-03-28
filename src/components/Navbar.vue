@@ -51,7 +51,7 @@
                 >
                 <b-dropdown-divider></b-dropdown-divider>
                 <b-dropdown-item class="dropdown"
-                  ><router-link to="/profile" class="link"
+                  ><router-link to="/support" class="link"
                     ><a class="userButton">Centro de Apoio</a></router-link
                   ></b-dropdown-item
                 >
@@ -66,12 +66,54 @@
             <div>
               <!-- Log in button (appears when the user is logged OFF) -->
               <b-button class="logInButton" v-b-modal.modal-1>Entrar</b-button>
-              <!-- Login / Register modal -->
-              <b-modal id="modal-1" centered>
+              <!-- Login modal -->
+              <b-modal id="modal-1" hide-footer centered>
                 <template #modal-header
-                  ><span class="modalTitle mx-3">LOGIN</span></template
+                  ><span class="modalTitle mx-3">ENTRAR</span></template
                 >
-                <p class="my-4">LOGIN</p>
+                <b-container fluid>
+                  <label for="emailInput" class="modalLabel">Email</label><br />
+                  <input type="text" id="emailInput" class="modalInput" /><br />
+                  <label for="passwordInput" class="modalLabel mt-4"
+                    >Password</label
+                  ><br />
+                  <input type="text" id="passwordInput" class="modalInput" />
+                  <b-row class="mt-2">
+                    <b-col>
+                      <p class="modalText" v-b-modal.modal-2>
+                        Não tem conta? Registe-se!
+                      </p>
+                    </b-col>
+                    <b-col class="recoverPassword">
+                      <p class="modalText">Recuperar Password</p>
+                    </b-col>
+                  </b-row>
+                  <b-row class="divModalButton">
+                    <button class="modalButton mx-3">Entrar</button>
+                  </b-row>
+                </b-container>
+              </b-modal>
+              <!-- Register Modal -->
+              <b-modal id="modal-2" hide-footer centered>
+                <template #modal-header
+                  ><span class="modalTitle mx-3">CRIAR CONTA</span></template
+                >
+                <b-container fluid>
+                  <label for="emailInput" class="modalLabel">Email</label><br />
+                  <input type="text" id="emailInput" class="modalInput" /><br />
+                  <label for="passwordInput" class="modalLabel mt-4"
+                    >Repetir Email</label
+                  ><br />
+                  <input type="text" id="passwordInput" class="modalInput" />
+                  <b-row class="mt-2 divRegisterText">
+                    <p class="registerText">
+                      Será-lhe enviado um email com uma palavra passe!
+                    </p>
+                  </b-row>
+                  <b-row class="divModalButton">
+                    <button class="modalButton mx-3">Registar</button>
+                  </b-row>
+                </b-container>
               </b-modal>
             </div>
           </b-collapse>
@@ -123,7 +165,7 @@
               ></b-nav-item
             >
             <b-nav-item href="#"
-              ><router-link to="/perfil" class="routerSmallNav"
+              ><router-link to="/support" class="routerSmallNav"
                 ><span class="smallNavbarItem"
                   >Centro de Apoio</span
                 ></router-link
@@ -226,17 +268,73 @@ link.router-link-active {
   color: #a58c57;
 }
 
-/* Login / Register modal */
-.modal {
-  font-family: Kayak Sans;
-  font-size: 25pt;
-}
-
 /* Modal Title */
 .modalTitle {
-  font-family: Kayak Sans;
-  font-size: 25pt;
+  font-family: ChaletComprime CologneEighty;
+  font-size: 35pt;
   color: #a58c57;
+}
+
+/* Modal Inputs */
+.modalInput {
+  width: 100%;
+  font-family: Kayak Sans;
+  font-size: 20px;
+  border-radius: 8px;
+  border-width: 1px;
+}
+
+/* Modal Lable */
+.modalLabel {
+  font-family: Kayak Sans;
+  font-size: 20px;
+}
+
+/* Modal Text */
+.modalText {
+  font-family: Kayak Sans;
+  font-size: 15px;
+  color: #155baa;
+  text-decoration: underline;
+}
+
+.modalText:hover {
+  cursor: pointer;
+}
+
+/* Recover password text */
+.recoverPassword {
+  text-align: end;
+}
+
+/* Modal's log in buttons */
+.modalButton {
+  font-family: Kayak Sans;
+  font-size: 20px;
+  border-radius: 6px;
+  border-width: 1px;
+  border-color: #155baa;
+  color: #155baa;
+  width: 100px;
+}
+
+.modalButton:hover {
+  background-color: #155baa;
+  color: white;
+}
+
+.divModalButton {
+  justify-content: end;
+}
+
+/* Register Text */
+.registerText {
+  font-family: Kayak Sans;
+  font-size: 15px;
+}
+
+.divRegisterText {
+  text-align: center;
 }
 
 /* --------------- SMALL NAVBAR ----------------------- */
