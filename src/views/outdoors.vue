@@ -217,7 +217,7 @@
               </template>
               <img src="../assets/Face1.png" width="766px" overlay>
                 <p></p>
-                <button @click="hideModal"  class="confirmar border-0">Pedir Orçamento</button>
+                <button @click="hideModal"  class="confirmar">Pedir Orçamento</button>
               </b-modal>
 
               <b-modal
@@ -277,6 +277,7 @@ export default {
 .nome {
   font-family: ChaletComprime CologneEighty;
   font-size: 28pt;
+  color: #a58c57;
 }
 
 .edittext {
@@ -308,9 +309,20 @@ export default {
 }
 
 .confirmar {
+  background-color: #fcfff7;
+  color: #e80b0b;
+  margin-left: 36.6rem;
+  width: 180px;
+  border-radius: 6px;
+  border-color: #e80b0b;
+  border-width: 1px;
+}
+
+.confirmar:hover {
   color: #fcfff7;
   background-color: #e80b0b;
   margin-left: 36.6rem;
   width: 180px;
+  border-radius: 6px;
 }
 </style>
