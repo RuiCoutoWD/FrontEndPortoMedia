@@ -230,7 +230,7 @@
               <p></p>
               <input v-model="message" class="edittext" placeholder="Email*" />
               <p></p>
-              <input v-model="message" class="edittext" placeholder="Número" />
+              <input v-model="message" class="edittext" placeholder="Contacto" />
               <p></p>
               <textarea
                 v-model="message"
