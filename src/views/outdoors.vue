@@ -6,12 +6,28 @@
           <b-col>
             <h1 class="header">OS NOSSOS OUTDOORS</h1>
             <div @click="showModal()" class="div">
-              <b-card style="max-width: 20rem" class="mb-2 border-0">
+              <b-card
+                no-body
+                title="Image Overlay"
+                img-alt="Image"
+                img-height="200px"
+                img-top
+                tag="article"
+                style="max-width: 20rem"
+                class="mb-2 border-0 card"
+                footer-tag="footer"
+              >
                 <img src="../assets/Face1.png" class="face" />
+                <template #footer>
+                  <span class="foot">Footer</span>
+                </template>
               </b-card>
             </div>
             <div @click="showModal()" class="div">
               <b-card
+                no-body
+                overlay:true
+                title="Image Overlay"
                 img-alt="Image"
                 img-height="200px"
                 img-top
@@ -24,6 +40,7 @@
             </div>
             <div @click="showModal()" class="div">
               <b-card
+                no-body
                 img-alt="Image"
                 img-height="200px"
                 img-top
@@ -36,6 +53,7 @@
             </div>
             <div @click="showModal()" class="div">
               <b-card
+                no-body
                 img-alt="Image"
                 img-height="200px"
                 img-top
@@ -48,6 +66,7 @@
             </div>
             <div @click="showModal()" class="div">
               <b-card
+                no-body
                 img-alt="Image"
                 img-height="200px"
                 img-top
@@ -62,6 +81,7 @@
           <b-col class="space">
             <div @click="showModal()" class="div">
               <b-card
+                no-body
                 img-alt="Image"
                 img-height="200px"
                 img-top
@@ -74,6 +94,7 @@
             </div>
             <div @click="showModal()" class="div">
               <b-card
+                no-body
                 img-alt="Image"
                 img-height="200px"
                 img-top
@@ -86,6 +107,7 @@
             </div>
             <div @click="showModal()" class="div">
               <b-card
+                no-body
                 img-alt="Image"
                 img-height="200px"
                 img-top
@@ -98,6 +120,7 @@
             </div>
             <div @click="showModal()" class="div">
               <b-card
+                no-body
                 img-alt="Image"
                 img-height="200px"
                 img-top
@@ -110,6 +133,7 @@
             </div>
             <div @click="showModal()" class="div">
               <b-card
+                no-body
                 img-alt="Image"
                 img-height="200px"
                 img-top
@@ -124,6 +148,7 @@
           <b-col class="space">
             <div @click="showModal()" class="div">
               <b-card
+                no-body
                 img-alt="Image"
                 img-height="200px"
                 img-top
@@ -136,6 +161,7 @@
             </div>
             <div @click="showModal()" class="div">
               <b-card
+                no-body
                 img-alt="Image"
                 img-height="200px"
                 img-top
@@ -148,6 +174,7 @@
             </div>
             <div @click="showModal()" class="div">
               <b-card
+                no-body
                 img-alt="Image"
                 img-height="200px"
                 img-top
@@ -160,6 +187,7 @@
             </div>
             <div @click="showModal()" class="div">
               <b-card
+                no-body
                 img-alt="Image"
                 img-height="200px"
                 img-top
@@ -172,6 +200,7 @@
             </div>
             <div @click="showModal()" class="div">
               <b-card
+                no-body
                 img-alt="Image"
                 img-height="200px"
                 img-top
@@ -225,7 +254,6 @@
               data-dismiss="modal"
               aria-label="Close"
               @click="hideModal2()"
-              
             >
               X
             </button>
@@ -291,6 +319,7 @@ export default {
 </script>
 
 <style scoped>
+
 .contactos {
   text-align: right;
 }
