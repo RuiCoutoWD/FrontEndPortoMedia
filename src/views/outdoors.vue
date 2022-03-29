@@ -3,83 +3,184 @@
     <div class="quemsomos">
       <b-container class="bv-example-row">
         <b-row>
-          <b-col class="space2">
+          <b-col>
             <h1 class="header">OS NOSSOS OUTDOORS</h1>
-            <div @click="showModal()" class="container">
-              <img src="../assets/Face1.png" class="face" />
-              <div class="bottom-left">Bottom Left</div>
+            <div @click="showModal()" class="div">
+              <b-card style="max-width: 20rem" class="mb-2 border-0">
+                <img src="../assets/Face1.png" class="face" />
+              </b-card>
             </div>
-            <p></p>
-            <div class="container" @click="showModal()">
+            <div @click="showModal()" class="div">
+              <b-card
+                img-alt="Image"
+                img-height="200px"
+                img-top
+                tag="article"
+                style="max-width: 20rem"
+                class="mb-2 border-0"
+              >
                 <img src="../assets/Face4.png" class="face" />
-                <div class="bottom-left">Bottom Left</div>
+              </b-card>
             </div>
-            <p></p>
-            <div @click="showModal()" class="container">
-              <img src="../assets/Face7.png" class="face"/>
-              <div class="bottom-left">Bottom Left</div>
+            <div @click="showModal()" class="div">
+              <b-card
+                img-alt="Image"
+                img-height="200px"
+                img-top
+                tag="article"
+                style="max-width: 20rem"
+                class="mb-2 border-0"
+              >
+                <img src="../assets/Face7.png" class="face" />
+              </b-card>
             </div>
-            <p></p>
-            <div @click="showModal()" class="container">
+            <div @click="showModal()" class="div">
+              <b-card
+                img-alt="Image"
+                img-height="200px"
+                img-top
+                tag="article"
+                style="max-width: 20rem"
+                class="mb-2 border-0"
+              >
                 <img src="../assets/Face10.png" class="face" />
-                <div class="bottom-left">Bottom Left</div>
+              </b-card>
             </div>
-            <p></p>
-            <div @click="showModal()" class="container">
-              <img src="../assets/Face13.png" class="face" />
-              <div class="bottom-left">Bottom Left</div>
+            <div @click="showModal()" class="div">
+              <b-card
+                img-alt="Image"
+                img-height="200px"
+                img-top
+                tag="article"
+                style="max-width: 20rem"
+                class="mb-2 border-0"
+              >
+                <img src="../assets/Face13.png" class="face" />
+              </b-card>
             </div>
           </b-col>
           <b-col class="space">
-            <div @click="showModal()" class="container">
-              <img src="../assets/Face2.png" class="face" />
-              <div class="bottom-left">Bottom Left</div>
+            <div @click="showModal()" class="div">
+              <b-card
+                img-alt="Image"
+                img-height="200px"
+                img-top
+                tag="article"
+                style="max-width: 20rem"
+                class="mb-2 border-0"
+              >
+                <img src="../assets/Face2.png" class="face" />
+              </b-card>
             </div>
-            <p></p>
-            <div @click="showModal()" class="container">
+            <div @click="showModal()" class="div">
+              <b-card
+                img-alt="Image"
+                img-height="200px"
+                img-top
+                tag="article"
+                style="max-width: 20rem"
+                class="mb-2 border-0"
+              >
                 <img src="../assets/Face5.png" class="face" />
-                <div class="bottom-left">Bottom Left</div>
+              </b-card>
             </div>
-            <p></p>
-            <div @click="showModal()" class="container">
+            <div @click="showModal()" class="div">
+              <b-card
+                img-alt="Image"
+                img-height="200px"
+                img-top
+                tag="article"
+                style="max-width: 20rem"
+                class="mb-2 border-0"
+              >
                 <img src="../assets/Face8.png" class="face" />
-                <div class="bottom-left">Bottom Left</div>
+              </b-card>
             </div>
-            <p></p>
-            <div @click="showModal()" class="container">
+            <div @click="showModal()" class="div">
+              <b-card
+                img-alt="Image"
+                img-height="200px"
+                img-top
+                tag="article"
+                style="max-width: 20rem"
+                class="mb-2 border-0"
+              >
                 <img src="../assets/Face11.png" class="face" />
-                <div class="bottom-left">Bottom Left</div>
+              </b-card>
             </div>
-            <p></p>
-            <div @click="showModal()" class="container">
+            <div @click="showModal()" class="div">
+              <b-card
+                img-alt="Image"
+                img-height="200px"
+                img-top
+                tag="article"
+                style="max-width: 20rem"
+                class="mb-2 border-0"
+              >
                 <img src="../assets/Face14.png" class="face" />
-                <div class="bottom-left">Bottom Left</div>
+              </b-card>
             </div>
           </b-col>
           <b-col class="space">
-            <div @click="showModal()" class="container">
+            <div @click="showModal()" class="div">
+              <b-card
+                img-alt="Image"
+                img-height="200px"
+                img-top
+                tag="article"
+                style="max-width: 20rem"
+                class="mb-2 border-0"
+              >
                 <img src="../assets/Face3.png" class="face" />
-                <div class="bottom-left">Bottom Left</div>
+              </b-card>
             </div>
-            <p></p>
-            <div @click="showModal()" class="container">
+            <div @click="showModal()" class="div">
+              <b-card
+                img-alt="Image"
+                img-height="200px"
+                img-top
+                tag="article"
+                style="max-width: 20rem"
+                class="mb-2 border-0"
+              >
                 <img src="../assets/Face6.png" class="face" />
-                <div class="bottom-left">Bottom Left</div>
+              </b-card>
             </div>
-            <p></p>
-            <div @click="showModal()" class="container">
+            <div @click="showModal()" class="div">
+              <b-card
+                img-alt="Image"
+                img-height="200px"
+                img-top
+                tag="article"
+                style="max-width: 20rem"
+                class="mb-2 border-0"
+              >
                 <img src="../assets/Face9.png" class="face" />
-                <div class="bottom-left">Bottom Left</div>
+              </b-card>
             </div>
-            <p></p>
-            <div @click="showModal()" class="container">
+            <div @click="showModal()" class="div">
+              <b-card
+                img-alt="Image"
+                img-height="200px"
+                img-top
+                tag="article"
+                style="max-width: 20rem"
+                class="mb-2 border-0"
+              >
                 <img src="../assets/Face12.png" class="face" />
-                <div class="bottom-left">Bottom Left</div>
+              </b-card>
             </div>
-            <p></p>
-            <div @click="showModal()" class="container">
+            <div @click="showModal()" class="div">
+              <b-card
+                img-alt="Image"
+                img-height="200px"
+                img-top
+                tag="article"
+                style="max-width: 20rem"
+                class="mb-2 border-0"
+              >
                 <img src="../assets/Face15.png" class="face" />
-                <div class="bottom-left">Bottom Left</div>
+              </b-card>
             </div>
           </b-col>
         </b-row>
@@ -190,27 +291,6 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  position: relative;
-  text-align: center;
-  color: white;
-  z-index: -1;
-}
-
-.container:hover {
-  position: relative;
-  text-align: center;
-  color: white;
-  cursor: pointer;
-}
-
-/* Bottom left text */
-.bottom-left {
-  position: absolute;
-  bottom: 8px;
-  left: 16px;
-}
-
 .contactos {
   text-align: right;
 }
@@ -250,11 +330,6 @@ export default {
 
 .space {
   margin-top: 12rem;
-  width: 100px;
-}
-
-.space2 {
-  width: 100px;
 }
 
 .card {
