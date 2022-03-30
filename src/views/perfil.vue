@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <div class="quemsomos">
+      <img src="../assets/Fundosimagem-08.png" class="fundo" />
       <b-container class="bv-example-row">
         <b-row>
           <b-col>
@@ -19,34 +20,157 @@
               <input v-model="message" class="edittext" placeholder="Empresa" />
               <p></p>
               <div class="btn">
-              <button class="botao" @click="showModal">Editar</button></div>
+                <button class="botao" @click="showModal">Editar</button>
+              </div>
               <b-modal
                 ref="my-modal"
                 hide-footer
-                centered title="Edite os seus dados pessoais"
+                centered
+                title="Edite os seus dados pessoais"
+                class="mod"
               >
-              <input v-model="message" class="edittext2" placeholder="Nome" />
-              <p class="space"></p>
-              <input v-model="message" class="edittext2" placeholder="Email" />
-              <p class="space"></p>
-              <input v-model="message" class="edittext2" placeholder="Número" />
-              <p class="space"></p>
-              <input v-model="message" class="edittext2" placeholder="Empresa" />
-              <p class="space"></p>
-              <input v-model="message" class="edittext2" placeholder="Nova Palavra Passe"/>
-              <p class="space"></p>
-              <input v-model="message" class="edittext2" placeholder="Repetir Nova Palavra Passe"/>
-              <p></p>
-              <button @click="hideModal" class="confirmar">Confirmar</button>
+                <input v-model="message" class="edittext2" placeholder="Nome" />
+                <p class="space"></p>
+                <input
+                  v-model="message"
+                  class="edittext2"
+                  placeholder="Email"
+                />
+                <p class="space"></p>
+                <input
+                  v-model="message"
+                  class="edittext2"
+                  placeholder="Número"
+                />
+                <p class="space"></p>
+                <input
+                  v-model="message"
+                  class="edittext2"
+                  placeholder="Empresa"
+                />
+                <p class="space"></p>
+                <input
+                  v-model="message"
+                  class="edittext2"
+                  placeholder="Nova Palavra Passe"
+                />
+                <p class="space"></p>
+                <input
+                  v-model="message"
+                  class="edittext2"
+                  placeholder="Repetir Nova Palavra Passe"
+                />
+                <p></p>
+                <div class="buttons">
+                  <button @click="hideModal" class="confirmar">Confirmar</button>
+                </div>
+                
               </b-modal>
             </div>
             <h1 class="header2">FAVORITOS</h1>
+            <div class="span">
+              <p></p>
+              <span @click="showModal2()" class="txt"
+                >Veja os seus favoritos</span
+              >
+            </div>
+            <b-modal
+              ref="my-modal2"
+              hide-footer
+              centered
+              title="Os seus favoritos"
+            >
+              <b-row>
+                <b-col>
+                  <div class="div">
+                    <b-card
+                      no-body
+                      @click="showModalFav()"
+                      title="Image Overlay"
+                      img-alt="Image"
+                      img-height="200px"
+                      img-top
+                      tag="article"
+                      style="
+                        max-width: 200px;
+                        text-align: left;
+                        background-color: #303d7a;
+                      "
+                      class="mb-2 border-0 card"
+                      footer-tag="footer"
+                    >
+                      <img src="../assets/Face1.png" class="face" />
+                      <template #footer>
+                        <span class="foot">Face 001</span>
+                      </template>
+                    </b-card>
+                  </div>
+                </b-col>
+                <b-col>
+                  <div class="div">
+                    <b-card
+                      no-body
+                      @click="showModalFav()"
+                      title="Image Overlay"
+                      img-alt="Image"
+                      img-height="200px"
+                      img-top
+                      tag="article"
+                      style="
+                        max-width: 200px;
+                        text-align: left;
+                        background-color: #303d7a;
+                      "
+                      class="mb-2 border-0 card"
+                      footer-tag="footer"
+                    >
+                      <img src="../assets/Face1.png" class="face" />
+                      <template #footer>
+                        <span class="foot">Face 001</span>
+                      </template>
+                    </b-card>
+                  </div>
+                </b-col>
+              </b-row>
+            </b-modal>
           </b-col>
         </b-row>
       </b-container>
+      <b-modal size="lg" ref="my-modalfav" hide-footer centered class="modal">
+        <template #modal-header>
+          <span class="nome">Face 01</span>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+            @click="hideModalFav()"
+          >
+            X
+          </button>
+        </template>
+        <img src="../assets/Face1.png" width="766px" overlay />
+        <p></p>
+        <div class="buttons">
+          <b-row>
+            <b-col>
+              <img src="../assets/exportar.png" class="export" />
+            </b-col>
+            <b-col>
+              <button class="favorito">Remover dos Favoritos</button>
+            </b-col>
+            <b-col>
+              <button @click="hideModalFav()" class="confirmar2">
+                Pedir Orçamento
+              </button>
+            </b-col>
+          </b-row>
+        </div>
+      </b-modal>
     </div>
   </div>
 </template>
+
 
 <script>
 // @ is an alias to /src
@@ -58,40 +182,142 @@ export default {
     //Navbar,
   },
   methods: {
-      showModal() {
-        this.$refs['my-modal'].show()
-      },
-      hideModal() {
-        this.$refs['my-modal'].hide()
-      },
-      toggleModal() {
-        // We pass the ID of the button that we want to return focus to
-        // when the modal has hidden
-        this.$refs['my-modal'].toggle('#toggle-btn')
-      },
-  }
+    showModalFav() {
+      this.$refs["my-modalfav"].show();
+    },
+    showModal() {
+      this.$refs["my-modal"].show();
+    },
+    showModal2() {
+      this.$refs["my-modal2"].show();
+    },
+    hideModal() {
+      this.$refs["my-modal"].hide();
+    },
+    hideModalFav() {
+      this.$refs["my-modalfav"].hide();
+    },
+    toggleModal() {
+      // We pass the ID of the button that we want to return focus to
+      // when the modal has hidden
+      this.$refs["my-modal"].toggle("#toggle-btn");
+    },
+  },
 };
 </script>
 
 <style scoped>
+.buttons{
+  text-align: right;
+}
 
+.txt {
+  text-decoration: underline;
+  color: #303d7a;
+}
+
+.txt:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #303d7a;
+}
+
+.span {
+  text-align: left;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.confirmar2 {
+  background-color: #fcfff7;
+  color: #e80b0b;
+  width: 180px;
+  border-radius: 6px;
+  border-color: #e80b0b;
+  border-width: 1px;
+}
+
+.favorito {
+  background-color: #fcfff7;
+  color: #a58c57;
+  margin-left: 15.6rem;
+  width: 200px;
+  border-radius: 6px;
+  border-color: #a58c57;
+  border-width: 1px;
+}
+
+.favorito:hover {
+  color: #fcfff7;
+  background-color: #a58c57;
+  width: 200px;
+  border-radius: 6px;
+  border-color: #a58c57;
+  border-width: 1px;
+}
+
+.confirmar2:hover {
+  color: #fcfff7;
+  background-color: #e80b0b;
+  width: 180px;
+  border-radius: 6px;
+}
+
+.nome {
+  font-family: ChaletComprime CologneEighty;
+  font-size: 28pt;
+  color: #a58c57;
+}
+
+.close {
+  font-size: 20px;
+  border-width: 0px;
+  background-color: #ffffff;
+  align-content: space-between;
+  color: #e80b0b;
+}
+
+.export {
+  width: 30px;
+}
+
+.fundo {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  opacity: 40%;
+}
+
+.foot {
+  color: #fcfff7;
+  font-family: Kayak Sans;
+  font-size: 20px;
+  font-weight: bold;
+}
 
 .btn {
   margin-left: 24.2rem;
 }
 
 .confirmar {
-  color: #303d7a;
   background-color: #fcfff7;
-  margin-left: 23.6rem;
-
+  color: #e80b0b;
+  width: 180px;
+  border-radius: 6px;
+  border-color: #e80b0b;
+  border-width: 1px;
 }
 
 .confirmar:hover {
-  background-color: #303d7a;
   color: #fcfff7;
-  margin-left: 23.6rem;
-
+  background-color: #e80b0b;
+  width: 180px;
+  border-radius: 6px;
 }
 
 .header {
