@@ -437,7 +437,7 @@ export default {
 
 .navbar {
   background-color: #000000;
-  opacity: 90%;
+  opacity: 79%;
   height: 65px;
   margin-top: 3rem;
   width: 100%;

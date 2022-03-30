@@ -46,6 +46,10 @@
             </p>
           </div>
         </b-row>
+        <b-row class="mt-4 mb-4">
+          <h1 class="title text-center">PARCEIROS</h1>
+          
+        </b-row>
       </b-container>
     </div>
   </div>
@@ -65,7 +69,7 @@ export default {
 
 <style scoped>
 .mainDiv {
-  position: fixed;
+  position: absolute;
   margin-top: 10rem;
   z-index: -1;
 }
@@ -73,7 +77,7 @@ export default {
 .backgroundLarge {
   transform: translateX(calc((100% - 100vw) / 2));
   min-width: 100%;
-  height: 100vh;
+  height: 100%;
   position: fixed;
   z-index: -2;
   bottom: 0;
@@ -84,7 +88,7 @@ export default {
 .backgroundMedium {
   transform: translateX(calc((70% - 100vw) / 2));
   min-width: 100%;
-  height: 100vh;
+  height: 100%;
   position: fixed;
   z-index: -2;
   bottom: 0;
@@ -95,7 +99,7 @@ export default {
 .backgroundSmall {
   transform: translateX(calc((50% - 100vw) / 2));
   min-width: 100%;
-  height: 100vh;
+  height: 100%;
   position: fixed;
   z-index: -2;
   bottom: 0;
@@ -109,7 +113,6 @@ export default {
   color: #a58c57;
   text-decoration: none;
   text-align: left;
-  /* margin-top: 9rem; */
 }
 
 .text {
