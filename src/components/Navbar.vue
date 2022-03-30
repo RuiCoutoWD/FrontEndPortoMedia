@@ -27,7 +27,10 @@
               >
             </b-navbar-nav>
             <!-- Profile icon (appears when the user is logged) -->
-            <div class="userImg ms-auto align-items-center invisible">
+            <div
+              id="profileIcon"
+              class="userImg ms-auto align-items-center invisible"
+            >
               <b-dropdown
                 size="lg"
                 variant="link"
@@ -56,14 +59,14 @@
                   ></b-dropdown-item
                 >
                 <b-dropdown-divider></b-dropdown-divider>
-                <b-dropdown-item
+                <b-dropdown-item @click="logOut()"
                   ><a href="#" class="dropdown userButton logOutButton"
                     >Sair</a
                   ></b-dropdown-item
                 >
               </b-dropdown>
             </div>
-            <div>
+            <div id="logInIcon">
               <!-- Log in button (appears when the user is logged OFF) -->
               <b-button class="logInButton" v-b-modal.logInModal
                 >Entrar</b-button
@@ -84,7 +87,11 @@
                   <label for="passwordInput" class="modalLabel mt-4"
                     >Password</label
                   ><br />
-                  <input type="text" id="passwordInput" class="modalInput" />
+                  <input
+                    type="password"
+                    id="passwordInput"
+                    class="modalInput"
+                  />
                   <b-row class="mt-2">
                     <b-col>
                       <p class="modalText" v-b-modal.registerModal>
@@ -98,7 +105,12 @@
                     </b-col>
                   </b-row>
                   <b-row class="divModalButton">
-                    <button class="modalButton mx-3">Entrar</button>
+                    <button
+                      class="modalButton mx-3"
+                      @click="loginSuccessAlert()"
+                    >
+                      Entrar
+                    </button>
                   </b-row>
                 </b-container>
               </b-modal>
@@ -125,12 +137,15 @@
                   ><br />
                   <input type="text" id="repeatEmailInput" class="modalInput" />
                   <b-row class="mt-2 divRegisterText">
-                    <p class="registerText">
+                    <!-- <p class="registerText">
                       Será-lhe enviado um email com uma palavra passe!
-                    </p>
+                    </p> -->
                   </b-row>
                   <b-row class="divModalButton">
-                    <button class="modalButton mx-3" @click="registerAlert()">
+                    <button
+                      class="modalButton mx-3 mt-3"
+                      @click="registerFailedAlert()"
+                    >
                       Registar
                     </button>
                   </b-row>
@@ -154,7 +169,7 @@
                   <b-row class="divModalButton mt-3 mb-2">
                     <button
                       class="modalButton mx-3"
-                      @click="recoverPasswordAlert()"
+                      @click="recoverPasswordFailedAlert()"
                     >
                       Recuperar
                     </button>
@@ -190,38 +205,47 @@
         <!-- Hamburguer menu -->
         <b-collapse id="navbar-toggle-collapse" is-nav>
           <b-navbar-nav class="ml-auto">
-            <b-nav-item href="#"
-              ><router-link to="/about" class="routerSmallNav"
-                ><span class="smallNavbarItem">Quem Somos</span></router-link
-              ></b-nav-item
-            >
-            <b-nav-item href="#"
-              ><router-link to="/outdoors" class="routerSmallNav"
-                ><span class="smallNavbarItem">Outdoors</span></router-link
-              ></b-nav-item
-            >
-            <b-nav-item href="#"
-              ><router-link to="/contacts" class="routerSmallNav"
-                ><span class="smallNavbarItem">Contactos</span></router-link
-              ></b-nav-item
-            >
-            <b-nav-item href="#"
-              ><router-link to="/perfil" class="routerSmallNav"
-                ><span class="smallNavbarItem">Perfil</span></router-link
-              ></b-nav-item
-            >
-            <b-nav-item href="#"
-              ><router-link to="/support" class="routerSmallNav"
-                ><span class="smallNavbarItem"
-                  >Centro de Apoio</span
-                ></router-link
-              ></b-nav-item
-            >
-            <b-nav-item href="#" class="logOutSmallNavItem"
-              ><span class="smallNavbarItem logOutSmallNav"
-                >Sair</span
-              ></b-nav-item
-            >
+            <div class="hambMenu">
+              <b-nav-item href="#"
+                ><router-link to="/about" class="routerSmallNav"
+                  ><span class="smallNavbarItem">Quem Somos</span></router-link
+                ></b-nav-item
+              >
+              <b-nav-item href="#"
+                ><router-link to="/outdoors" class="routerSmallNav"
+                  ><span class="smallNavbarItem">Outdoors</span></router-link
+                ></b-nav-item
+              >
+              <b-nav-item href="#"
+                ><router-link to="/contacts" class="routerSmallNav"
+                  ><span class="smallNavbarItem">Contactos</span></router-link
+                ></b-nav-item
+              >
+              <div id="logInDiv">
+                <b-nav-item href="#" v-b-modal.logInModal>
+                  <span class="smallNavbarItem">Entrar</span></b-nav-item
+                >
+              </div>
+            </div>
+            <div id="loggedDiv" class="invisible">
+              <b-nav-item href="#"
+                ><router-link to="/perfil" class="routerSmallNav"
+                  ><span class="smallNavbarItem">Perfil</span></router-link
+                ></b-nav-item
+              >
+              <b-nav-item href="#"
+                ><router-link to="/support" class="routerSmallNav"
+                  ><span class="smallNavbarItem"
+                    >Centro de Apoio</span
+                  ></router-link
+                ></b-nav-item
+              >
+              <b-nav-item href="#" class="logOutSmallNavItem" @click="logOut()"
+                ><span class="smallNavbarItem logOutSmallNav"
+                  >Sair</span
+                ></b-nav-item
+              >
+            </div>
           </b-navbar-nav>
         </b-collapse>
       </b-navbar>
@@ -239,7 +263,44 @@ export default {
     };
   },
   methods: {
-    registerAlert() {
+    // Alert that shows when the user makes a successfull log in.
+    loginSuccessAlert() {
+      this.$swal.fire({
+        icon: "success",
+        title:
+          "<div style='font-family:ChaletComprime CologneEighty;color:#a58c57;font-size:35pt;font-weight:400'>Login efetuado com sucesso!</div>",
+        showConfirmButton: false,
+        timer: 4000,
+        timerProgressBar: true,
+      });
+
+      // For big navbar
+      const divLogInIcon = document.getElementById("logInIcon");
+      const divProfileIcon = document.getElementById("profileIcon");
+      divLogInIcon.classList.add("invisible");
+      divProfileIcon.classList.remove("invisible");
+
+      // For small navbar
+      const loggedDiv = document.getElementById("loggedDiv");
+      const logInDiv = document.getElementById("logInDiv");
+      loggedDiv.classList.remove("invisible");
+      loggedDiv.classList.add("hambMenu");
+      logInDiv.classList.add("invisible");
+    },
+    // Alert that shows when the user makes a mistake trying to log in.
+    loginFailedAlert() {
+      this.$swal.fire({
+        icon: "error",
+        title:
+          "<div style='font-family:ChaletComprime CologneEighty;color:#a58c57;font-size:35pt;font-weight:400'>Login não efetuado</div>",
+        html: "<div style='font-family:Kayak Sans;font-size:16pt'>Email ou password incorretos!</div>",
+        showConfirmButton: false,
+        timer: 4000,
+        timerProgressBar: true,
+      });
+    },
+    // Alert that shows when the user makes a successfull register.
+    registerSuccessAlert() {
       // this.logInModalShow = false;
       // this.registerModalShow = false;
       this.$swal.fire({
@@ -252,7 +313,20 @@ export default {
         timerProgressBar: true,
       });
     },
-    recoverPasswordAlert() {
+    // Alert that shows when the user makes a mistake trying to log in.
+    registerFailedAlert() {
+      this.$swal.fire({
+        icon: "error",
+        title:
+          "<div style='font-family:ChaletComprime CologneEighty;color:#a58c57;font-size:35pt;font-weight:400'>Registo não efetuado</div>",
+        html: "<div style='font-family:Kayak Sans;font-size:16pt'>O email que inseriu já se encontra em uso!</div>",
+        showConfirmButton: false,
+        timer: 4000,
+        timerProgressBar: true,
+      });
+    },
+    // Alert that shows when the user makes a successfull password recovery.
+    recoverPasswordSuccessAlert() {
       this.$swal.fire({
         icon: "success",
         title:
@@ -262,6 +336,58 @@ export default {
         timer: 4000,
         timerProgressBar: true,
       });
+    },
+    // Alert that shows when the email the user inserted doesn't exist in the database.
+    recoverPasswordFailedAlert() {
+      this.$swal.fire({
+        icon: "error",
+        title:
+          "<div style='font-family:ChaletComprime CologneEighty;color:#a58c57;font-size:35pt;font-weight:400'>Recuperação não efetuada!</div>",
+        html: "<div style='font-family:Kayak Sans;font-size:16pt'>O email que inseriu não está registado!</div>",
+        showConfirmButton: false,
+        timer: 4000,
+        timerProgressBar: true,
+      });
+    },
+    // Alert that shows when the user logs out.
+    logOut() {
+      this.$swal
+        .fire({
+          icon: "warning",
+          title:
+            "<div style='font-family:ChaletComprime CologneEighty;color:#a58c57;font-size:35pt;font-weight:400'>Tem a certeza que pretende terminar sessão?</div>",
+          showConfirmButton: true,
+          // showCancelButton: true,
+          showDenyButton: true,
+          denyButtonText: "Sair",
+          confirmButtonText: "Cancelar",
+        })
+        .then((result) => {
+          if (result.isDenied) {
+            this.$swal.fire({
+              icon: "success",
+              title:
+                "<div style='font-family:ChaletComprime CologneEighty;color:#a58c57;font-size:35pt;font-weight:400'>Sessão Terminada</div>",
+              timer: 3000,
+              timerProgressBar: true,
+            });
+
+            // For big navbar
+            const divLogInIcon = document.getElementById("logInIcon");
+            const divProfileIcon = document.getElementById("profileIcon");
+            divLogInIcon.classList.remove("invisible");
+            divProfileIcon.classList.add("invisible");
+
+            // For small navbar
+            const loggedDiv = document.getElementById("loggedDiv");
+            const logInDiv = document.getElementById("logInDiv");
+            loggedDiv.classList.add("invisible");
+            loggedDiv.classList.remove("hambMenu");
+            logInDiv.classList.remove("invisible");
+
+            this.$router.push({ name: "Home" });
+          }
+        });
     },
   },
 };
@@ -318,7 +444,7 @@ link.router-link-active {
 /* Profile icon */
 .userImg {
   position: relative;
-  margin-right: -2rem;
+  margin-right: -6rem;
 }
 
 /* Dropdown menu items */
@@ -362,6 +488,10 @@ link.router-link-active {
   border-width: 1px;
 }
 
+#passwordInput {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 /* Modal Lable */
 .modalLabel {
   font-family: Kayak Sans;
@@ -393,6 +523,7 @@ link.router-link-active {
   border-width: 1px;
   border-color: #155baa;
   color: #155baa;
+  background-color: white;
   width: 100px;
 }
 
@@ -430,6 +561,9 @@ link.router-link-active {
 
 /* Hamburguer menu */
 #navbar-toggle-collapse {
+}
+
+.hambMenu {
   background-color: #000000;
   width: 100%;
   margin-top: -0.5 rem;
@@ -463,8 +597,16 @@ link.router-link-active {
   text-decoration: none;
 }
 
+#loggedDiv {
+  margin-top: -2.9rem;
+}
+
 /* Make something invisible */
 .invisible {
   visibility: hidden;
+}
+
+.transparent {
+  background-color: transparent;
 }
 </style>
