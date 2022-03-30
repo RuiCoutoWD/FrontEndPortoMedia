@@ -136,6 +136,8 @@ export default {
   color: #303d7a;
   width: 100px;
   border-width: 1px;
+  margin-left: 25rem;
+  border-radius: 6px;
 }
 
 .botao:hover {

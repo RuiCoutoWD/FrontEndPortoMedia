@@ -396,6 +396,7 @@ export default {
 <style scoped>
 /* --------------- BIG NAVBAR ----------------------- */
 /* Navbar for large devices */
+
 .navbar {
   background-color: #000000;
   opacity: 90%;
