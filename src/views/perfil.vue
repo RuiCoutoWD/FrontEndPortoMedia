@@ -19,16 +19,14 @@
               <p class="space"></p>
               <input v-model="message" class="edittext" placeholder="Empresa" />
               <p></p>
-              <div class="btn">
+              <div class="d-flex mx-auto justify-content-end">
                 <button class="botao" @click="showModal">Editar</button>
               </div>
-              <b-modal
-                ref="my-modal"
-                hide-footer
-                centered
-                title="Edite os seus dados pessoais"
-                class="mod"
-              >
+              <b-modal ref="my-modal" hide-footer centered class="mod">
+                <template #modal-header>
+            <span class="nome">Editar os seus dados pessoais</span>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="hideModal()">X</button>
+          </template>
                 <input v-model="message" class="edittext2" placeholder="Nome" />
                 <p class="space"></p>
                 <input
@@ -62,7 +60,7 @@
                 />
                 <p></p>
                 <div class="buttons">
-                  <button @click="hideModal" class="confirmar">Confirmar</button>
+                  <button @click="pedidoAlert()" class="confirmar">Confirmar</button>
                 </div>
                 
               </b-modal>
@@ -202,6 +200,18 @@ export default {
       // when the modal has hidden
       this.$refs["my-modal"].toggle("#toggle-btn");
     },
+    pedidoAlert() {
+      // this.logInModalShow = false;
+      // this.registerModalShow = false;
+      this.$swal.fire({
+        icon: "success",
+        title:
+          "<div style='font-family:ChaletComprime CologneEighty;color:#a58c57;font-size:35pt;font-weight:400'>Dados editados com sucesso!</div>",
+        showConfirmButton: false,
+        timer: 4000,
+        timerProgressBar: true,
+      });
+    },
   },
 };
 </script>
@@ -301,7 +311,7 @@ export default {
 }
 
 .btn {
-  margin-left: 24.2rem;
+  text-align: right;
 }
 
 .confirmar {
@@ -343,13 +353,13 @@ export default {
 }
 
 .edittext {
-  width: 500px;
+  width: 100%;
   font-weight: bold;
   font-size: 14px;
 }
 
 .edittext2 {
-  width: 465px;
+  width: 100%;
   font-weight: bold;
   font-size: 14px;
 }
@@ -359,6 +369,7 @@ export default {
   color: #303d7a;
   width: 100px;
   border-width: 1px;
+  border-radius: 6px;
 }
 
 .botao:hover {

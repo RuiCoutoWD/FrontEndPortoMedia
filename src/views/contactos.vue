@@ -38,7 +38,9 @@
               <p class="space"></p>
               <textarea v-model="message" class="edittext2" placeholder="Mensagem"></textarea>
               <p></p>
-              <button class="botao">Enviar</button>
+              <div class="divb">
+                <button class="botao">Enviar</button>
+              </div>
             </div>
 
             <!-- Secção das redes sociais ------------------------------------- -->
@@ -131,7 +133,7 @@ export default {
 
 /* ------------------------------------- Edittext ------------------------------------- */
 .edittext {
-  width: 500px;
+  width: 100%;
   font-weight: bold;
   font-size: 14px;
 }
@@ -143,7 +145,7 @@ export default {
 
 /* ------------------------------------- Edittext ------------------------------------- */
 .edittext2 {
-  width: 500px;
+  width: 100%;
   height: 130px;
   font-weight: bold;
   font-size: 14px;
@@ -161,13 +163,17 @@ export default {
   color: #303d7a;
   width: 100px;
   border-width: 1px;
-  margin-left: 25rem;
   border-radius: 6px;
 }
 
 .botao:hover {
   background-color: #303d7a;
   color: #fcfff7;
+}
+
+/* ------------------------------------- Área do botão enviar ------------------------------------- */
+.divb{
+  text-align: right;
 }
 
 </style>
