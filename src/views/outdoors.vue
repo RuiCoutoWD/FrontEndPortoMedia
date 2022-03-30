@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <div class="quemsomos">
+      <img src="../assets/Fundosimagem-08.png" class="fundo">
       <b-container class="bv-example-row">
         <b-row>
           <b-col>
@@ -13,13 +14,14 @@
                 img-height="200px"
                 img-top
                 tag="article"
-                style="max-width: 20rem"
+                style="max-width: 400.3px; text-align: left; background-color: #303d7a"
                 class="mb-2 border-0 card"
                 footer-tag="footer"
+                
               >
                 <img src="../assets/Face1.png" class="face" />
                 <template #footer>
-                  <span class="foot">Footer</span>
+                  <span class="foot">Face 001</span>
                 </template>
               </b-card>
             </div>
@@ -32,10 +34,14 @@
                 img-height="200px"
                 img-top
                 tag="article"
-                style="max-width: 20rem"
+                style="max-width: 400.3px; text-align: left; background-color: #303d7a"
                 class="mb-2 border-0"
+                footer-bg-variant="transparent"
               >
                 <img src="../assets/Face4.png" class="face" />
+                <template #footer>
+                  <span class="foot">Face 004</span>
+                </template>
               </b-card>
             </div>
             <div @click="showModal()" class="div">
@@ -45,10 +51,14 @@
                 img-height="200px"
                 img-top
                 tag="article"
-                style="max-width: 20rem"
+                style="max-width: 400.3px; text-align: left; background-color: #303d7a"
                 class="mb-2 border-0"
+                footer-bg-variant="transparent"
               >
                 <img src="../assets/Face7.png" class="face" />
+                <template #footer>
+                  <span class="foot">Face 007</span>
+                </template>
               </b-card>
             </div>
             <div @click="showModal()" class="div">
@@ -58,10 +68,14 @@
                 img-height="200px"
                 img-top
                 tag="article"
-                style="max-width: 20rem"
+                style="max-width: 400.3px; text-align: left; background-color: #303d7a"
                 class="mb-2 border-0"
+                footer-bg-variant="transparent"
               >
                 <img src="../assets/Face10.png" class="face" />
+                <template #footer>
+                  <span class="foot">Face 010</span>
+                </template>
               </b-card>
             </div>
             <div @click="showModal()" class="div">
@@ -71,10 +85,14 @@
                 img-height="200px"
                 img-top
                 tag="article"
-                style="max-width: 20rem"
+                style="max-width: 400.3px; text-align: left; background-color: #303d7a"
                 class="mb-2 border-0"
+                footer-bg-variant="transparent"
               >
                 <img src="../assets/Face13.png" class="face" />
+                <template #footer>
+                  <span class="foot">Face 013</span>
+                </template>
               </b-card>
             </div>
           </b-col>
@@ -86,10 +104,14 @@
                 img-height="200px"
                 img-top
                 tag="article"
-                style="max-width: 20rem"
+                style="max-width: 400.3px; text-align: left; background-color: #303d7a"
                 class="mb-2 border-0"
+                footer-bg-variant="transparent"
               >
                 <img src="../assets/Face2.png" class="face" />
+                <template #footer>
+                  <span class="foot">Face 002</span>
+                </template>
               </b-card>
             </div>
             <div @click="showModal()" class="div">
@@ -99,10 +121,14 @@
                 img-height="200px"
                 img-top
                 tag="article"
-                style="max-width: 20rem"
+                style="max-width: 400.3px; text-align: left; background-color: #303d7a"
                 class="mb-2 border-0"
+                footer-bg-variant="transparent"
               >
                 <img src="../assets/Face5.png" class="face" />
+                <template #footer>
+                  <span class="foot">Face 005</span>
+                </template>
               </b-card>
             </div>
             <div @click="showModal()" class="div">
@@ -112,10 +138,14 @@
                 img-height="200px"
                 img-top
                 tag="article"
-                style="max-width: 20rem"
+                style="max-width: 400.3px; text-align: left; background-color: #303d7a"
                 class="mb-2 border-0"
+                footer-bg-variant="transparent"
               >
                 <img src="../assets/Face8.png" class="face" />
+                <template #footer>
+                  <span class="foot">Face 008</span>
+                </template>
               </b-card>
             </div>
             <div @click="showModal()" class="div">
@@ -125,10 +155,14 @@
                 img-height="200px"
                 img-top
                 tag="article"
-                style="max-width: 20rem"
+                style="max-width: 400.3px; text-align: left; background-color: #303d7a"
                 class="mb-2 border-0"
+                footer-bg-variant="transparent"
               >
                 <img src="../assets/Face11.png" class="face" />
+                <template #footer>
+                  <span class="foot">Face 011</span>
+                </template>
               </b-card>
             </div>
             <div @click="showModal()" class="div">
@@ -138,10 +172,14 @@
                 img-height="200px"
                 img-top
                 tag="article"
-                style="max-width: 20rem"
+                style="max-width: 400.3px; text-align: left; background-color: #303d7a"
                 class="mb-2 border-0"
+                footer-bg-variant="transparent"
               >
                 <img src="../assets/Face14.png" class="face" />
+                <template #footer>
+                  <span class="foot">Face 014</span>
+                </template>
               </b-card>
             </div>
           </b-col>
@@ -153,10 +191,14 @@
                 img-height="200px"
                 img-top
                 tag="article"
-                style="max-width: 20rem"
+                style="max-width: 400.3px; text-align: left; background-color: #303d7a"
                 class="mb-2 border-0"
+                footer-bg-variant="transparent"
               >
                 <img src="../assets/Face3.png" class="face" />
+                <template #footer>
+                  <span class="foot">Face 003</span>
+                </template>
               </b-card>
             </div>
             <div @click="showModal()" class="div">
@@ -166,10 +208,14 @@
                 img-height="200px"
                 img-top
                 tag="article"
-                style="max-width: 20rem"
+                style="max-width: 400.3px; text-align: left; background-color: #303d7a"
                 class="mb-2 border-0"
+                footer-bg-variant="transparent"
               >
                 <img src="../assets/Face6.png" class="face" />
+                <template #footer>
+                  <span class="foot">Face 006</span>
+                </template>
               </b-card>
             </div>
             <div @click="showModal()" class="div">
@@ -179,10 +225,14 @@
                 img-height="200px"
                 img-top
                 tag="article"
-                style="max-width: 20rem"
+                style="max-width: 400.3px; text-align: left; background-color: #303d7a"
                 class="mb-2 border-0"
+                footer-bg-variant="transparent"
               >
                 <img src="../assets/Face9.png" class="face" />
+                <template #footer>
+                  <span class="foot">Face 009</span>
+                </template>
               </b-card>
             </div>
             <div @click="showModal()" class="div">
@@ -192,10 +242,14 @@
                 img-height="200px"
                 img-top
                 tag="article"
-                style="max-width: 20rem"
+                style="max-width: 400.3px; text-align: left; background-color: #303d7a"
                 class="mb-2 border-0"
+                footer-bg-variant="transparent"
               >
                 <img src="../assets/Face12.png" class="face" />
+                <template #footer>
+                  <span class="foot">Face 012</span>
+                </template>
               </b-card>
             </div>
             <div @click="showModal()" class="div">
@@ -205,10 +259,14 @@
                 img-height="200px"
                 img-top
                 tag="article"
-                style="max-width: 20rem"
+                style="max-width: 400.3px; text-align: left; background-color: #303d7a"
                 class="mb-2 border-0"
+                footer-bg-variant="transparent"
               >
                 <img src="../assets/Face15.png" class="face" />
+                <template #footer>
+                  <span class="foot">Face 015</span>
+                </template>
               </b-card>
             </div>
           </b-col>
@@ -319,6 +377,23 @@ export default {
 </script>
 
 <style scoped>
+.fundo{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  opacity: 40%;
+}
+
+.foot{
+  color: #fcfff7;
+  font-family: Kayak Sans;
+  font-size: 20px;
+  font-weight: bold;
+}
+
 
 .contactos {
   text-align: right;
@@ -371,7 +446,7 @@ export default {
   color: #a58c57;
   text-decoration: none;
   text-align: left;
-  margin-top: 9rem;
+  margin-top: 8.9rem;
 }
 
 .confirmar {

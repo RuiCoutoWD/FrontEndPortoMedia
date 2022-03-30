@@ -2,6 +2,7 @@
   <div class="home">
 
     <div class="quemsomos">
+      <img src="../assets/Fundosimagem-08.png" class="fundo">
       <b-container class="bv-example-row">
         <b-row>
           <b-col>
@@ -62,6 +63,15 @@ export default {
 </script>
 
 <style scoped>
+.fundo{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  opacity: 40%;
+}
 
 .header {
   font-family: Kayak Sans;
