@@ -1,268 +1,146 @@
 <template>
   <div class="home">
     <div class="quemsomos">
+      <!-- ------------------------------------- Imagens de fundo ------------------------------------- -->
       <img src="../assets/Fundosimagem-08.png" class="fundo">
       <b-container class="bv-example-row">
         <b-row>
+          <!-- ------------------------------------- Cards para as 15 faces ------------------------------------- -->
           <b-col>
             <h1 class="header">OS NOSSOS OUTDOORS</h1>
+
             <div @click="showModal()" class="div">
-              <b-card
-                no-body
-                title="Image Overlay"
-                img-alt="Image"
-                img-height="200px"
-                img-top
-                tag="article"
-                style="max-width: 400.3px; text-align: left; background-color: #303d7a"
-                class="mb-2 border-0 card"
-                footer-tag="footer"
-                
-              >
+              <b-card no-body title="Image Overlay" img-alt="Image" img-height="200px" img-top tag="article" style="max-width: 400.3px; text-align: left; background-color: #303d7a" class="mb-2 border-0 card" footer-tag="footer">
                 <img src="../assets/Face1.png" class="face" />
                 <template #footer>
                   <span class="foot">Face 001</span>
                 </template>
               </b-card>
             </div>
+
             <div @click="showModal()" class="div">
-              <b-card
-                no-body
-                overlay:true
-                title="Image Overlay"
-                img-alt="Image"
-                img-height="200px"
-                img-top
-                tag="article"
-                style="max-width: 400.3px; text-align: left; background-color: #303d7a"
-                class="mb-2 border-0"
-                footer-bg-variant="transparent"
-              >
+              <b-card no-body overlay:true title="Image Overlay" img-alt="Image" img-height="200px" img-top tag="article" style="max-width: 400.3px; text-align: left; background-color: #303d7a" class="mb-2 border-0" footer-bg-variant="transparent">
                 <img src="../assets/Face4.png" class="face" />
                 <template #footer>
                   <span class="foot">Face 004</span>
                 </template>
               </b-card>
             </div>
+
             <div @click="showModal()" class="div">
-              <b-card
-                no-body
-                img-alt="Image"
-                img-height="200px"
-                img-top
-                tag="article"
-                style="max-width: 400.3px; text-align: left; background-color: #303d7a"
-                class="mb-2 border-0"
-                footer-bg-variant="transparent"
-              >
+              <b-card no-body img-alt="Image" img-height="200px" img-top tag="article" style="max-width: 400.3px; text-align: left; background-color: #303d7a" class="mb-2 border-0" footer-bg-variant="transparent">
                 <img src="../assets/Face7.png" class="face" />
                 <template #footer>
                   <span class="foot">Face 007</span>
                 </template>
               </b-card>
             </div>
+
             <div @click="showModal()" class="div">
-              <b-card
-                no-body
-                img-alt="Image"
-                img-height="200px"
-                img-top
-                tag="article"
-                style="max-width: 400.3px; text-align: left; background-color: #303d7a"
-                class="mb-2 border-0"
-                footer-bg-variant="transparent"
-              >
+              <b-card no-body img-alt="Image" img-height="200px" img-top tag="article" style="max-width: 400.3px; text-align: left; background-color: #303d7a" class="mb-2 border-0" footer-bg-variant="transparent">
                 <img src="../assets/Face10.png" class="face" />
                 <template #footer>
                   <span class="foot">Face 010</span>
                 </template>
               </b-card>
             </div>
+
             <div @click="showModal()" class="div">
-              <b-card
-                no-body
-                img-alt="Image"
-                img-height="200px"
-                img-top
-                tag="article"
-                style="max-width: 400.3px; text-align: left; background-color: #303d7a"
-                class="mb-2 border-0"
-                footer-bg-variant="transparent"
-              >
+              <b-card no-body img-alt="Image" img-height="200px" img-top tag="article" style="max-width: 400.3px; text-align: left; background-color: #303d7a" class="mb-2 border-0" footer-bg-variant="transparent">
                 <img src="../assets/Face13.png" class="face" />
                 <template #footer>
                   <span class="foot">Face 013</span>
                 </template>
               </b-card>
             </div>
+
           </b-col>
           <b-col class="space">
             <div @click="showModal()" class="div">
-              <b-card
-                no-body
-                img-alt="Image"
-                img-height="200px"
-                img-top
-                tag="article"
-                style="max-width: 400.3px; text-align: left; background-color: #303d7a"
-                class="mb-2 border-0"
-                footer-bg-variant="transparent"
-              >
+              <b-card no-body img-alt="Image" img-height="200px" img-top tag="article" style="max-width: 400.3px; text-align: left; background-color: #303d7a" class="mb-2 border-0" footer-bg-variant="transparent">
                 <img src="../assets/Face2.png" class="face" />
                 <template #footer>
                   <span class="foot">Face 002</span>
                 </template>
               </b-card>
             </div>
+
             <div @click="showModal()" class="div">
-              <b-card
-                no-body
-                img-alt="Image"
-                img-height="200px"
-                img-top
-                tag="article"
-                style="max-width: 400.3px; text-align: left; background-color: #303d7a"
-                class="mb-2 border-0"
-                footer-bg-variant="transparent"
-              >
+              <b-card no-body img-alt="Image" img-height="200px" img-top tag="article" style="max-width: 400.3px; text-align: left; background-color: #303d7a" class="mb-2 border-0" footer-bg-variant="transparent">
                 <img src="../assets/Face5.png" class="face" />
                 <template #footer>
                   <span class="foot">Face 005</span>
                 </template>
               </b-card>
             </div>
+
             <div @click="showModal()" class="div">
-              <b-card
-                no-body
-                img-alt="Image"
-                img-height="200px"
-                img-top
-                tag="article"
-                style="max-width: 400.3px; text-align: left; background-color: #303d7a"
-                class="mb-2 border-0"
-                footer-bg-variant="transparent"
-              >
+              <b-card no-body img-alt="Image" img-height="200px" img-top tag="article" style="max-width: 400.3px; text-align: left; background-color: #303d7a" class="mb-2 border-0" footer-bg-variant="transparent">
                 <img src="../assets/Face8.png" class="face" />
                 <template #footer>
                   <span class="foot">Face 008</span>
                 </template>
               </b-card>
             </div>
+
             <div @click="showModal()" class="div">
-              <b-card
-                no-body
-                img-alt="Image"
-                img-height="200px"
-                img-top
-                tag="article"
-                style="max-width: 400.3px; text-align: left; background-color: #303d7a"
-                class="mb-2 border-0"
-                footer-bg-variant="transparent"
-              >
+              <b-card no-body img-alt="Image" img-height="200px" img-top tag="article" style="max-width: 400.3px; text-align: left; background-color: #303d7a" class="mb-2 border-0" footer-bg-variant="transparent">
                 <img src="../assets/Face11.png" class="face" />
                 <template #footer>
                   <span class="foot">Face 011</span>
                 </template>
               </b-card>
             </div>
+
             <div @click="showModal()" class="div">
-              <b-card
-                no-body
-                img-alt="Image"
-                img-height="200px"
-                img-top
-                tag="article"
-                style="max-width: 400.3px; text-align: left; background-color: #303d7a"
-                class="mb-2 border-0"
-                footer-bg-variant="transparent"
-              >
+              <b-card no-body img-alt="Image" img-height="200px" img-top tag="article" style="max-width: 400.3px; text-align: left; background-color: #303d7a" class="mb-2 border-0" footer-bg-variant="transparent">
                 <img src="../assets/Face14.png" class="face" />
                 <template #footer>
                   <span class="foot">Face 014</span>
                 </template>
               </b-card>
             </div>
+
           </b-col>
           <b-col class="space">
             <div @click="showModal()" class="div">
-              <b-card
-                no-body
-                img-alt="Image"
-                img-height="200px"
-                img-top
-                tag="article"
-                style="max-width: 400.3px; text-align: left; background-color: #303d7a"
-                class="mb-2 border-0"
-                footer-bg-variant="transparent"
-              >
+              <b-card no-body img-alt="Image" img-height="200px" img-top tag="article" style="max-width: 400.3px; text-align: left; background-color: #303d7a" class="mb-2 border-0" footer-bg-variant="transparent">
                 <img src="../assets/Face3.png" class="face" />
                 <template #footer>
                   <span class="foot">Face 003</span>
                 </template>
               </b-card>
             </div>
+
             <div @click="showModal()" class="div">
-              <b-card
-                no-body
-                img-alt="Image"
-                img-height="200px"
-                img-top
-                tag="article"
-                style="max-width: 400.3px; text-align: left; background-color: #303d7a"
-                class="mb-2 border-0"
-                footer-bg-variant="transparent"
-              >
+              <b-card no-body img-alt="Image" img-height="200px" img-top tag="article" style="max-width: 400.3px; text-align: left; background-color: #303d7a" class="mb-2 border-0" footer-bg-variant="transparent" >
                 <img src="../assets/Face6.png" class="face" />
                 <template #footer>
                   <span class="foot">Face 006</span>
                 </template>
               </b-card>
             </div>
+
             <div @click="showModal()" class="div">
-              <b-card
-                no-body
-                img-alt="Image"
-                img-height="200px"
-                img-top
-                tag="article"
-                style="max-width: 400.3px; text-align: left; background-color: #303d7a"
-                class="mb-2 border-0"
-                footer-bg-variant="transparent"
-              >
+              <b-card no-body img-alt="Image" img-height="200px" img-top tag="article" style="max-width: 400.3px; text-align: left; background-color: #303d7a" class="mb-2 border-0" footer-bg-variant="transparent">
                 <img src="../assets/Face9.png" class="face" />
                 <template #footer>
                   <span class="foot">Face 009</span>
                 </template>
               </b-card>
             </div>
+
             <div @click="showModal()" class="div">
-              <b-card
-                no-body
-                img-alt="Image"
-                img-height="200px"
-                img-top
-                tag="article"
-                style="max-width: 400.3px; text-align: left; background-color: #303d7a"
-                class="mb-2 border-0"
-                footer-bg-variant="transparent"
-              >
+              <b-card no-body img-alt="Image" img-height="200px" img-top tag="article" style="max-width: 400.3px; text-align: left; background-color: #303d7a" class="mb-2 border-0" footer-bg-variant="transparent">
                 <img src="../assets/Face12.png" class="face" />
                 <template #footer>
                   <span class="foot">Face 012</span>
                 </template>
               </b-card>
             </div>
+
             <div @click="showModal()" class="div">
-              <b-card
-                no-body
-                img-alt="Image"
-                img-height="200px"
-                img-top
-                tag="article"
-                style="max-width: 400.3px; text-align: left; background-color: #303d7a"
-                class="mb-2 border-0"
-                footer-bg-variant="transparent"
-              >
+              <b-card no-body img-alt="Image" img-height="200px" img-top tag="article" style="max-width: 400.3px; text-align: left; background-color: #303d7a" class="mb-2 border-0" footer-bg-variant="transparent">
                 <img src="../assets/Face15.png" class="face" />
                 <template #footer>
                   <span class="foot">Face 015</span>
@@ -271,18 +149,13 @@
             </div>
           </b-col>
         </b-row>
+
+        <!-- ------------------------------------- Modal das faces ------------------------------------- -->
+
         <b-modal size="lg" ref="my-modal" hide-footer centered class="modal">
           <template #modal-header>
             <span class="nome">Face 01</span>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-              @click="hideModal3()"
-            >
-              X
-            </button>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="hideModal3()">X</button>
           </template>
           <img src="../assets/Face1.png" width="766px" overlay />
           <p></p>
@@ -295,26 +168,18 @@
                 <button class="favorito">Adicionar aos Favoritos</button>
               </b-col>
               <b-col>
-                <button @click="hideModal" class="confirmar">
-                  Pedir Orçamento
-                </button>
+                <button @click="hideModal" class="confirmar">Pedir Orçamento</button>
               </b-col>
             </b-row>
           </div>
         </b-modal>
 
+        <!-- ------------------------------------- Modal para os orçamentos ------------------------------------- -->
+
         <b-modal ref="my-modal2" hide-footer centered class="modal">
           <template #modal-header>
             <span class="nome">Pedir Orçamento</span>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-              @click="hideModal2()"
-            >
-              X
-            </button>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="hideModal2()">X</button>
           </template>
           <div class="contactos">
             <input v-model="message" class="edittext" placeholder="Nome*" />
@@ -323,11 +188,7 @@
             <p></p>
             <input v-model="message" class="edittext" placeholder="Contacto" />
             <p></p>
-            <textarea
-              v-model="message"
-              class="edittext"
-              placeholder="Mensagem"
-            ></textarea>
+            <textarea v-model="message" class="edittext" placeholder="Mensagem"></textarea>
             <p></p>
             <button class="confirmar2" @click="pedidoAlert()">Enviar</button>
           </div>
@@ -347,19 +208,24 @@ export default {
     //Navbar,
   },
   methods: {
+    // ------------------------------------- Abrir modal das faces -------------------------------------
     showModal() {
       this.$refs["my-modal"].show();
     },
+    // ------------------------------------- Abrir modal do orçamento e fechar o das faces -------------------------------------
     hideModal() {
       this.$refs["my-modal"].hide();
       this.$refs["my-modal2"].show();
     },
+    // ------------------------------------- Fechar modas das faces -------------------------------------
     hideModal3() {
       this.$refs["my-modal"].hide();
     },
+    // ------------------------------------- Fechar modal do orçamento -------------------------------------
     hideModal2() {
       this.$refs["my-modal2"].hide();
     },
+    // ------------------------------------- Função do SweetAlert -------------------------------------
     pedidoAlert() {
       // this.logInModalShow = false;
       // this.registerModalShow = false;
@@ -377,6 +243,8 @@ export default {
 </script>
 
 <style scoped>
+
+/* ------------------------------------- Estilização da imagem de fundo ------------------------------------- */
 .fundo{
   width: 100%;
   height: 100%;
@@ -387,6 +255,7 @@ export default {
   opacity: 40%;
 }
 
+/* ------------------------------------- Estilização do footer das faces ------------------------------------- */
 .foot{
   color: #fcfff7;
   font-family: Kayak Sans;
@@ -394,11 +263,12 @@ export default {
   font-weight: bold;
 }
 
-
+/* ------------------------------------- Estilização da área dos edit text ------------------------------------- */
 .contactos {
   text-align: right;
 }
 
+/* ------------------------------------- Estilização do botão de fechar modal ------------------------------------- */
 .close {
   font-size: 20px;
   border-width: 0px;
@@ -407,39 +277,47 @@ export default {
   color: #e80b0b;
 }
 
+/* ------------------------------------- Estilização do botão de exportar ------------------------------------- */
 .export {
   width: 30px;
 }
 
+/* ------------------------------------- Hover das faces ------------------------------------- */
 .div:hover {
   cursor: pointer;
 }
 
+/* ------------------------------------- Títulos dos modals ------------------------------------- */
 .nome {
   font-family: ChaletComprime CologneEighty;
   font-size: 28pt;
   color: #a58c57;
 }
 
+/* ------------------------------------- EditText ------------------------------------- */
 .edittext {
   width: 100%;
   font-weight: bold;
   font-size: 14px;
 }
 
+/* ------------------------------------- Faces ------------------------------------- */
 .face {
   width: 400px;
   height: 280px;
 }
 
+/* ------------------------------------- Espaços entre objetos ------------------------------------- */
 .space {
   margin-top: 12rem;
 }
 
+/* ------------------------------------- Posição dos cards ------------------------------------- */
 .card {
   z-index: -1;
 }
 
+/* ------------------------------------- Título das páginas ------------------------------------- */
 .header {
   font-family: Kayak Sans;
   font-size: 35px;
@@ -449,6 +327,7 @@ export default {
   margin-top: 8.9rem;
 }
 
+/* ------------------------------------- Botão ------------------------------------- */
 .confirmar {
   background-color: #fcfff7;
   color: #e80b0b;
@@ -458,6 +337,14 @@ export default {
   border-width: 1px;
 }
 
+.confirmar:hover {
+  color: #fcfff7;
+  background-color: #e80b0b;
+  width: 180px;
+  border-radius: 6px;
+}
+
+/* ------------------------------------- Botão de favoritos ------------------------------------- */
 .favorito {
   background-color: #fcfff7;
   color: #a58c57;
@@ -477,6 +364,7 @@ export default {
   border-width: 1px;
 }
 
+/* ------------------------------------- Botão ------------------------------------- */
 .confirmar2 {
   background-color: #fcfff7;
   color: #e80b0b;
@@ -485,13 +373,6 @@ export default {
   border-color: #e80b0b;
   border-width: 1px;
   align-content: flex-end;
-}
-
-.confirmar:hover {
-  color: #fcfff7;
-  background-color: #e80b0b;
-  width: 180px;
-  border-radius: 6px;
 }
 
 .confirmar2:hover {
