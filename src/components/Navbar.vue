@@ -14,16 +14,23 @@
                   width="60px"
                   height="60px"
                   class="logo"
+                  @click="setActiveNavItem('home')"
               /></router-link>
               <!-- Navbar items -->
               <router-link to="/about" class="link"
-                ><span class="navBarItem p-2">Quem somos</span></router-link
+                ><span class="navBarItem p-2" @click="setActiveNavItem(0)"
+                  >Quem somos</span
+                ></router-link
               >
               <router-link to="/outdoors" class="link"
-                ><span class="navBarItem p-2">Outdoors</span></router-link
+                ><span class="navBarItem p-2" @click="setActiveNavItem(1)"
+                  >Outdoors</span
+                ></router-link
               >
               <router-link to="/contacts" class="link"
-                ><span class="navBarItem p-2">Contactos</span></router-link
+                ><span class="navBarItem p-2" @click="setActiveNavItem(2)"
+                  >Contactos</span
+                ></router-link
               >
             </b-navbar-nav>
             <!-- Profile icon (appears when the user is logged) -->
@@ -72,12 +79,7 @@
                 >Entrar</b-button
               >
               <!-- Login modal -->
-              <b-modal
-                id="logInModal"
-                hide-footer
-                centered
-                v-if="logInModalShow"
-              >
+              <b-modal id="logInModal" hide-footer centered ref="logInModal">
                 <template #modal-header
                   ><span class="modalTitle mx-3">ENTRAR</span></template
                 >
@@ -94,12 +96,20 @@
                   />
                   <b-row class="mt-2">
                     <b-col>
-                      <p class="modalText" v-b-modal.registerModal>
+                      <p
+                        class="modalText"
+                        v-b-modal.registerModal
+                        @click="hideModal('logInModal')"
+                      >
                         Não tem conta? Registe-se!
                       </p>
                     </b-col>
                     <b-col class="recoverPassword">
-                      <p class="modalText" v-b-modal.lostPasswordModal>
+                      <p
+                        class="modalText"
+                        v-b-modal.lostPasswordModal
+                        @click="hideModal('logInModal')"
+                      >
                         Recuperar Password
                       </p>
                     </b-col>
@@ -119,7 +129,7 @@
                 id="registerModal"
                 hide-footer
                 centered
-                v-if="registerModalShow"
+                ref="registerModal"
               >
                 <template #modal-header
                   ><span class="modalTitle mx-3">CRIAR CONTA</span></template
@@ -152,7 +162,12 @@
                 </b-container>
               </b-modal>
               <!-- Lost password modal -->
-              <b-modal id="lostPasswordModal" hide-footer centered>
+              <b-modal
+                id="lostPasswordModal"
+                hide-footer
+                centered
+                ref="lostPasswordModal"
+              >
                 <template #modal-header
                   ><span class="modalTitle mx-3"
                     >RECUPERAR PASSWORD</span
@@ -257,20 +272,36 @@
 export default {
   name: "Navbar",
   data() {
-    return {
-      logInModalShow: true,
-      registerModalShow: true,
-    };
+    return {};
   },
   methods: {
+    hideModal(modal) {
+      this.$refs[modal].hide();
+    },
+    setActiveNavItem(item) {
+      const items = document.getElementsByClassName("navBarItem");
+      if (item != "home") {
+        for (let i = 0; i < items.length; i++) {
+          if (i === item) {
+            items[i].classList.add("navBarItemActive");
+            console.log("ola");
+          } else {
+            items[i].classList.remove("navBarItemActive");
+          }
+        }
+      } else {
+        for (let i = 0; i < items.length; i++) {
+          items[i].classList.remove("navBarItemActive");
+        }
+      }
+    },
     // Alert that shows when the user makes a successfull log in.
     loginSuccessAlert() {
       this.$swal.fire({
         icon: "success",
         title:
           "<div style='font-family:ChaletComprime CologneEighty;color:#a58c57;font-size:35pt;font-weight:400'>Login efetuado com sucesso!</div>",
-        showConfirmButton: false,
-        timer: 4000,
+        timer: 3000,
         timerProgressBar: true,
       });
 
@@ -286,6 +317,9 @@ export default {
       loggedDiv.classList.remove("invisible");
       loggedDiv.classList.add("hambMenu");
       logInDiv.classList.add("invisible");
+
+      // For both navbars
+      this.hideModal("logInModal");
     },
     // Alert that shows when the user makes a mistake trying to log in.
     loginFailedAlert() {
@@ -385,6 +419,10 @@ export default {
             loggedDiv.classList.remove("hambMenu");
             logInDiv.classList.remove("invisible");
 
+            // For both navbars
+            const logInModal = document.getElementById("logInModal");
+            logInModal.classList.remove("invisible");
+
             this.$router.push({ name: "Home" });
           }
         });
@@ -436,6 +474,10 @@ link.router-link-active {
 .navBarItem:hover {
   color: #a58c57;
   text-decoration: none;
+}
+
+.navBarItemActive {
+  color: #a58c57;
 }
 
 .activeItem {
