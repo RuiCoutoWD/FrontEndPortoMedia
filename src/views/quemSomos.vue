@@ -1,4 +1,5 @@
 <template>
+  <!-- ------------------------------------- Fundo do website ------------------------------------- -->
   <div class="container">
     <img
       src="../assets/Fundosimagem-08.png"
@@ -12,6 +13,9 @@
       src="../assets/Fundosimagem-08.png"
       class="backgroundSmall d-block d-md-none"
     />
+
+
+    <!-- ------------------------------------- Textos do quem somos ------------------------------------- -->
     <div class="mainDiv">
       <b-container class="bv-example-row">
         <b-row>
@@ -64,6 +68,9 @@ export default {
 </script>
 
 <style scoped>
+
+/* ------------------------------------- Estilização das imagens de fundo ------------------------------------- */
+
 .mainDiv {
   position: fixed;
   margin-top: 10rem;
@@ -103,6 +110,8 @@ export default {
   opacity: 40%;
 }
 
+/* ------------------------------------- Títulos da página ------------------------------------- */
+
 .title {
   font-family: ChaletComprime CologneEighty;
   font-size: 45px;
@@ -111,6 +120,8 @@ export default {
   text-align: left;
   /* margin-top: 9rem; */
 }
+
+/* ------------------------------------- Testos da página ------------------------------------- */
 
 .text {
   text-align: left;
