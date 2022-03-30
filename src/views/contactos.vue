@@ -1,10 +1,12 @@
 <template>
   <div class="home">
     <div class="quemsomos">
+      <!-- ------------------------------------- Imagens de fundo ------------------------------------- -->
       <img src="../assets/Fundosimagem-08.png" class="fundo">
       <b-container class="bv-example-row">
         <b-row>
           <b-col>
+            <!-- ------------------------------------- Secção localização ------------------------------------- -->
             <h1 class="header">LOCALIZAÇÃO</h1>
             <div class="contactos">
               <img src="../assets/mapa.png" class="img" />
@@ -13,6 +15,8 @@
                 Nº 391-A, 4430-434, Vila Nova de Gaia
               </p>
             </div>
+
+            <!-- ------------------------------------- Secção contactos ------------------------------------- -->
             <h1 class="header2">CONTACTOS</h1>
             <div class="contactos">
               <img src="../assets/email.png" alt="email" class="icons" />
@@ -23,6 +27,7 @@
             </div>
           </b-col>
           <b-col>
+            <!-- ------------------------------------- Secção do formulário ------------------------------------- -->
             <h1 class="header">CONTACTE-NOS</h1>
             <div class="contactos">
               <input v-model="message" class="edittext" placeholder="Nome*" />
@@ -31,14 +36,12 @@
               <p class="space"></p>
               <input v-model="message" class="edittext" placeholder="Número" />
               <p class="space"></p>
-              <textarea
-                v-model="message"
-                class="edittext2"
-                placeholder="Mensagem"
-              ></textarea>
+              <textarea v-model="message" class="edittext2" placeholder="Mensagem"></textarea>
               <p></p>
               <button class="botao">Enviar</button>
             </div>
+
+            <!-- Secção das redes sociais ------------------------------------- -->
             <div class="redes">
               <h1 class="header2">REDES SOCIAIS</h1>
               <a href="https://www.instagram.com/planetapublicidade/" target="_blank"><img src="../assets/instagram.png" class="icons" /></a>
@@ -64,6 +67,8 @@ export default {
 </script>
 
 <style scoped>
+
+/* ------------------------------------- Imagem de fundo ------------------------------------- */
 .fundo{
   width: 100%;
   height: 100%;
@@ -74,20 +79,25 @@ export default {
   opacity: 40%;
 }
 
+/* ------------------------------------- Ícones dos contactos ------------------------------------- */
 .icons {
   width: 30px;
   height: 30px;
 }
 
+/* ------------------------------------- Ícones das redes sociais ------------------------------------- */
 .facebook {
   width: 30px;
   height: 30px;
   margin-left: 1rem;
 }
 
+/* ------------------------------------- Área dos edittext ------------------------------------- */
 .contactos {
   text-align: left;
 }
+
+/* ------------------------------------- Título das páginas ------------------------------------- */
 .header {
   font-family: Kayak Sans;
   font-size: 35px;
@@ -97,6 +107,7 @@ export default {
   margin-top: 9rem;
 }
 
+/* ------------------------------------- Título das páginas ------------------------------------- */
 .header2 {
   font-family: Kayak Sans;
   font-size: 35px;
@@ -106,30 +117,31 @@ export default {
   margin-top: 2rem;
 }
 
-.historia {
-  text-align: left;
-}
-
+/* ------------------------------------- Área das redes ------------------------------------- */
 .redes {
   text-align: left;
   margin-bottom: 1rem;
 }
 
+/* ------------------------------------- Mapa ------------------------------------- */
 .img {
   width: 450px;
   height: 280px;
 }
 
+/* ------------------------------------- Edittext ------------------------------------- */
 .edittext {
   width: 500px;
   font-weight: bold;
   font-size: 14px;
 }
 
+/* ------------------------------------- Espaço entre objetos ------------------------------------- */
 .space {
   height: 6px;
 }
 
+/* ------------------------------------- Edittext ------------------------------------- */
 .edittext2 {
   width: 500px;
   height: 130px;
@@ -137,11 +149,13 @@ export default {
   font-size: 14px;
 }
 
+/* ------------------------------------- Texto morada ------------------------------------- */
 .morada {
   font-size: 15px;
   text-decoration: none;
 }
 
+/* ------------------------------------- Botão enviar ------------------------------------- */
 .botao {
   background-color: #fcfff7;
   color: #303d7a;
