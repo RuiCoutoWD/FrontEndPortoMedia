@@ -37,28 +37,44 @@
             <p class="space2"></p>
             <b-row class="row">
               <b-col style="width:150px; height:130px;">
-                <div class="card" style="width: 200px; height: 134px">
-                  <a class="card-header">X</a>
+                <div class="card" style="width: 200px; height: 114px">
                   <div class="card-body">
-                    <p class="card-text">O outdoor vai ficar disponível no dia 05/08/22</p>
+                    <div class="cross">
+                      <a>X</a>
+                    </div>
+                    <div class="not">
+                      <p class="card-text">O outdoor vai ficar disponível no dia 05/08/22</p>
+                    </div>
                   </div>
                 </div>
               </b-col>
               <b-col style="width:150px; height:130px;" class="mb-1">
-                <div class="card" style="width: 200px; height: 134px">
-                  <a class="card-header">X</a>
-                  <div class="card-body">
-                    <p class="card-text">O outdoor vai ficar disponível no dia 05/08/22</p>
+                <div class="card" style="width: 200px; height: 114px">
+                  <b-row>
+                    <b-col>
+<div class="card-body">
+                    <div class="cross">
+                      <a>X</a>
+                    </div>
+                    <div class="not">
+                      <p class="card-text">O outdoor vai ficar disponível no dia 05/08/22</p>
+                    </div>
                   </div>
+                    </b-col>
+                  </b-row>
                 </div>
               </b-col>
               <b-col style="width:150px; height:130px;">
-                <div class="card" style="width: 200px; height: 134px">
-                  <a class="card-header">X</a>
+                <div class="card" style="width: 200px; height: 114px">
                   <div class="card-body">
-                    <p class="card-text">O outdoor vai ficar disponível no dia 05/08/22</p>
+                    <div class="cross">
+                      <a>X</a>
+                    </div>
+                    <div class="not">
+                      <p class="card-text">O outdoor vai ficar disponível no dia 05/08/22</p>
+                    </div>
                   </div>
-                </div>
+                </div>  
               </b-col>
             </b-row>
           </b-col>
@@ -311,6 +327,7 @@ export default {
 </script>
 
 <style scoped>
+
 .td:hover{
   cursor: pointer;
 }
@@ -508,9 +525,17 @@ export default {
   font-size: 15px;
 }
 
-.card-header{
+.cross{
+  font-size: 20px;
   text-align: right;
   text-decoration: none;
   color: #e80b0b;
 }
+
+.not{
+  margin-right: 2rem;
+  margin-top: -1rem;
+}
+
+
 </style>
