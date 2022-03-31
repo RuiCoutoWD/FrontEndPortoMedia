@@ -6,34 +6,36 @@
         <b-row>
           <b-col>
             <h1 class="header">ÚLTIMOS ALUGUERES</h1>
+            
 <table class="table">
-  <thead>
+  <thead class="thead">
     <tr>
-      <th scope="col">Face</th>
-      <th scope="col">Data do aluguer</th>
-      <th scope="col">Preço</th>
+      <th scope="col" >Face</th>
+      <th scope="col" >Data do aluguer</th>
+      <th scope="col" >Preço</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Face 006</td>
+      <td @click="showModalFav()" class="td">Face 006</td>
       <td>05/09/22</td>
       <td></td>
     </tr>
     <tr>
-      <td>Face 035</td>
+      <td @click="showModalFav()" class="td">Face 035</td>
       <td>03/10/21</td>
       <td></td>
     </tr>
     <tr>
-      <td>Face 001</td>
+      <td @click="showModalFav()" class="td">Face 001</td>
       <td>22/02/21</td>
       <td></td>
     </tr>
   </tbody>
 </table>
-            <h1 class="header2">NOTIFICAÇÕES</h1>
-            <b-row>
+            <h1 class="header3">NOTIFICAÇÕES</h1>
+            <p class="space2"></p>
+            <b-row class="row">
               <b-col style="width:150px; height:130px;">
                 <div class="card" style="width: 200px; height: 134px">
                   <a class="card-header">X</a>
@@ -238,7 +240,9 @@
         <div class="buttons">
           <b-row>
             <b-col>
-              <img src="../assets/exportar.png" class="export" />
+              <div class="margem">
+                <img src="../assets/exportar.png" class="export" />
+              </div>
             </b-col>
             <b-col>
               <button class="favorito">Remover dos Favoritos</button>
@@ -307,6 +311,22 @@ export default {
 </script>
 
 <style scoped>
+.td:hover{
+  cursor: pointer;
+}
+
+.thead{
+  color: #303d7a;
+}
+
+.margem{
+  text-align: left;
+}
+
+.table{
+  width: 500px;
+}
+
 .buttons {
   text-align: right;
 }
@@ -435,6 +455,15 @@ export default {
   color: #a58c57;
   text-decoration: none;
   text-align: left;
+  /* margin-top: 3rem; */
+}
+
+.header3 {
+  font-family: Kayak Sans;
+  font-size: 35px;
+  color: #a58c57;
+  text-decoration: none;
+  text-align: left;
   margin-top: 3rem;
 }
 
@@ -469,6 +498,10 @@ export default {
 
 .space {
   height: 6px;
+}
+
+.space2 {
+  height: 20px;
 }
 
 .card-text{
