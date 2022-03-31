@@ -23,6 +23,14 @@
             </div>
             <button class="botao">Confirmar</button>
             <h1 class="header2">Alteração de outdoors visíveis</h1>
+            <div class="dropdw">
+            <b-dropdown id="dropdown-left" text="Left align" variant="primary" class="m-2">
+              <b-dropdown-item href="#">Action</b-dropdown-item>
+              <b-dropdown-item href="#">Another action</b-dropdown-item>
+              <b-dropdown-item href="#">Something else here</b-dropdown-item>
+            </b-dropdown>
+            </div>
+
           </b-col>
           <b-col>
             <h1 class="header">Registo de alugueres</h1>
@@ -77,6 +85,10 @@ export default {
 </script>
 
 <style scoped>
+.dropdw{
+  text-align: left;
+}
+
 .header {
   font-family: Kayak Sans;
   font-size: 25px;
