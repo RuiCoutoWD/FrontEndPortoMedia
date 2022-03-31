@@ -6,7 +6,59 @@
         <b-row>
           <b-col>
             <h1 class="header">ÚLTIMOS ALUGUERES</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Face</th>
+      <th scope="col">Data do aluguer</th>
+      <th scope="col">Preço</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Face 006</td>
+      <td>05/09/22</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Face 035</td>
+      <td>03/10/21</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Face 001</td>
+      <td>22/02/21</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
             <h1 class="header2">NOTIFICAÇÕES</h1>
+            <b-row>
+              <b-col style="width:150px; height:130px;">
+                <div class="card" style="width: 200px; height: 134px">
+                  <a class="card-header">X</a>
+                  <div class="card-body">
+                    <p class="card-text">O outdoor vai ficar disponível no dia 05/08/22</p>
+                  </div>
+                </div>
+              </b-col>
+              <b-col style="width:150px; height:130px;" class="mb-1">
+                <div class="card" style="width: 200px; height: 134px">
+                  <a class="card-header">X</a>
+                  <div class="card-body">
+                    <p class="card-text">O outdoor vai ficar disponível no dia 05/08/22</p>
+                  </div>
+                </div>
+              </b-col>
+              <b-col style="width:150px; height:130px;">
+                <div class="card" style="width: 200px; height: 134px">
+                  <a class="card-header">X</a>
+                  <div class="card-body">
+                    <p class="card-text">O outdoor vai ficar disponível no dia 05/08/22</p>
+                  </div>
+                </div>
+              </b-col>
+            </b-row>
           </b-col>
           <b-col>
             <h1 class="header">DADOS PESSOAIS</h1>
@@ -24,9 +76,17 @@
               </div>
               <b-modal ref="my-modal" hide-footer centered class="mod">
                 <template #modal-header>
-            <span class="nome">Editar os seus dados pessoais</span>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="hideModal()">X</button>
-          </template>
+                  <span class="nome">Editar os seus dados pessoais</span>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    @click="hideModal()"
+                  >
+                    X
+                  </button>
+                </template>
                 <input v-model="message" class="edittext2" placeholder="Nome" />
                 <p class="space"></p>
                 <input
@@ -60,9 +120,10 @@
                 />
                 <p></p>
                 <div class="buttons">
-                  <button @click="pedidoAlert()" class="confirmar">Confirmar</button>
+                  <button @click="pedidoAlert()" class="confirmar">
+                    Confirmar
+                  </button>
                 </div>
-                
               </b-modal>
             </div>
             <h1 class="header2">FAVORITOS</h1>
@@ -72,13 +133,37 @@
                 >Veja os seus favoritos</span
               >
             </div>
-            <b-modal
-              ref="my-modal2"
-              hide-footer
-              centered
-              title="Os seus favoritos"
-            >
+            <b-modal ref="my-modal2" hide-footer centered>
+              <template #modal-header>
+                <span class="nome">Os seus favoritos</span>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="hideModal2()">X</button>
+              </template>
               <b-row>
+                <b-col>
+                  <div class="div">
+                    <b-card
+                      no-body
+                      @click="showModalFav()"
+                      title="Image Overlay"
+                      img-alt="Image"
+                      img-height="200px"
+                      img-top
+                      tag="article"
+                      style="
+                        max-width: 200px;
+                        text-align: left;
+                        background-color: #303d7a;
+                      "
+                      class="mb-2 border-0 card"
+                      footer-tag="footer"
+                    >
+                      <img src="../assets/Face1.png" class="face" />
+                      <template #footer>
+                        <span class="foot">Face 001</span>
+                      </template>
+                    </b-card>
+                  </div>
+                </b-col>
                 <b-col>
                   <div class="div">
                     <b-card
@@ -131,6 +216,7 @@
                 </b-col>
               </b-row>
             </b-modal>
+            
           </b-col>
         </b-row>
       </b-container>
@@ -165,6 +251,7 @@
           </b-row>
         </div>
       </b-modal>
+      
     </div>
   </div>
 </template>
@@ -192,6 +279,9 @@ export default {
     hideModal() {
       this.$refs["my-modal"].hide();
     },
+    hideModal2() {
+      this.$refs["my-modal2"].hide();
+    },
     hideModalFav() {
       this.$refs["my-modalfav"].hide();
     },
@@ -217,7 +307,7 @@ export default {
 </script>
 
 <style scoped>
-.buttons{
+.buttons {
   text-align: right;
 }
 
@@ -379,5 +469,15 @@ export default {
 
 .space {
   height: 6px;
+}
+
+.card-text{
+  font-size: 15px;
+}
+
+.card-header{
+  text-align: right;
+  text-decoration: none;
+  color: #e80b0b;
 }
 </style>
