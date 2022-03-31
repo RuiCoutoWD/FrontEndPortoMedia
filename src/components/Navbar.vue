@@ -284,7 +284,6 @@ export default {
         for (let i = 0; i < items.length; i++) {
           if (i === item) {
             items[i].classList.add("navBarItemActive");
-            console.log("ola");
           } else {
             items[i].classList.remove("navBarItemActive");
           }
