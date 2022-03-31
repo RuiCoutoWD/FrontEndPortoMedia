@@ -49,13 +49,13 @@
             </div>
             <p></p>
             <div class="calendar">
-              <b-calendar
-                width="200px"
-                v-model="value"
-                @context="onContext"
-                locale="pt-PT"
-                hide-header="true"
-              ></b-calendar>
+              <label for="example-datepicker">Data de início de aluguer</label>
+              <b-form-datepicker id="example-datepicker" v-model="value" class="mb-2"></b-form-datepicker>
+              <label for="example-datepicker">Data de fim de aluguer</label>
+              <b-form-datepicker id="example-datepicker" v-model="value" class="mb-2"></b-form-datepicker>
+            </div>
+            <div class="d-flex mx-auto justify-content-end">
+              <button @click="showModal" class="btnconfirm">Confirmar</button>
             </div>
           </b-col>
         </b-row>
@@ -104,7 +104,7 @@ export default {
 }
 
 .edittext {
-  width: 500px;
+  width: 100%;
   font-weight: bold;
   font-size: 14px;
 }
@@ -115,9 +115,23 @@ export default {
   width: 100px;
   border-width: 1px;
   margin-right: 34rem;
+  border-radius: 6px;
 }
 
 .botao:hover {
+  background-color: #303d7a;
+  color: #fcfff7;
+}
+
+.btnconfirm{
+  background-color: #fcfff7;
+  color: #303d7a;
+  width: 100px;
+  border-width: 1px;
+  border-radius: 6px;
+}
+
+.btnconfirm:hover {
   background-color: #303d7a;
   color: #fcfff7;
 }
