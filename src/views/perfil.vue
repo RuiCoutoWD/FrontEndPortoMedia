@@ -6,77 +6,80 @@
         <b-row>
           <b-col>
             <h1 class="header">ÚLTIMOS ALUGUERES</h1>
-            
-<table class="table">
-  <thead class="thead">
-    <tr>
-      <th scope="col" >Face</th>
-      <th scope="col" >Data do aluguer</th>
-      <th scope="col" >Preço</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td @click="showModalFav()" class="td">Face 006</td>
-      <td>05/09/22</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td @click="showModalFav()" class="td">Face 035</td>
-      <td>03/10/21</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td @click="showModalFav()" class="td">Face 001</td>
-      <td>22/02/21</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+
+            <table class="table">
+              <thead class="thead">
+                <tr>
+                  <th scope="col">Face</th>
+                  <th scope="col">Data do aluguer</th>
+                  <th scope="col">Preço</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td @click="showModalFav()" class="td">Face 006</td>
+                  <td>05/09/22</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td @click="showModalFav()" class="td">Face 035</td>
+                  <td>03/10/21</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td @click="showModalFav()" class="td">Face 001</td>
+                  <td>22/02/21</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
             <h1 class="header3">NOTIFICAÇÕES</h1>
+            <div class="cardNot" style="width: 80%">
+              <div class="card-body">
+                <b-row>
+                  <div class="col-10">
+                    <p class="card-text">
+                      A Face 06 estará disponível a partir de dia 05/07/22
+                    </p>
+                  </div>
+                  <b-col>
+                    <a href="#" class="card-link">X</a>
+                  </b-col>
+                </b-row>
+              </div>
+            </div>
+            <p></p>
+            <div class="cardNot" style="width: 80%">
+              <div class="card-body">
+                <b-row>
+                  <div class="col-10">
+                    <p class="card-text">
+                      A Face 06 estará disponível a partir de dia 05/07/22
+                    </p>
+                  </div>
+                  <b-col>
+                    <a href="#" class="card-link">X</a>
+                  </b-col>
+                </b-row>
+              </div>
+            </div>
+            <p></p>
+            <div class="cardNot" style="width: 80%">
+              <div class="card-body">
+                <b-row>
+                  <div class="col-10">
+                    <p class="card-text">
+                      A Face 06 estará disponível a partir de dia 05/07/22
+                    </p>
+                  </div>
+                  <b-col>
+                    <a href="#" class="card-link">X</a>
+                  </b-col>
+                </b-row>
+              </div>
+            </div>
+
             <p class="space2"></p>
-            <b-row class="row">
-              <b-col style="width:150px; height:130px;">
-                <div class="card" style="width: 200px; height: 114px">
-                  <div class="card-body">
-                    <div class="cross">
-                      <a>X</a>
-                    </div>
-                    <div class="not">
-                      <p class="card-text">O outdoor vai ficar disponível no dia 05/08/22</p>
-                    </div>
-                  </div>
-                </div>
-              </b-col>
-              <b-col style="width:150px; height:130px;" class="mb-1">
-                <div class="card" style="width: 200px; height: 114px">
-                  <b-row>
-                    <b-col>
-<div class="card-body">
-                    <div class="cross">
-                      <a>X</a>
-                    </div>
-                    <div class="not">
-                      <p class="card-text">O outdoor vai ficar disponível no dia 05/08/22</p>
-                    </div>
-                  </div>
-                    </b-col>
-                  </b-row>
-                </div>
-              </b-col>
-              <b-col style="width:150px; height:130px;">
-                <div class="card" style="width: 200px; height: 114px">
-                  <div class="card-body">
-                    <div class="cross">
-                      <a>X</a>
-                    </div>
-                    <div class="not">
-                      <p class="card-text">O outdoor vai ficar disponível no dia 05/08/22</p>
-                    </div>
-                  </div>
-                </div>  
-              </b-col>
-            </b-row>
           </b-col>
           <b-col>
             <h1 class="header">DADOS PESSOAIS</h1>
@@ -154,7 +157,15 @@
             <b-modal ref="my-modal2" hide-footer centered>
               <template #modal-header>
                 <span class="nome">Os seus favoritos</span>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="hideModal2()">X</button>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                  @click="hideModal2()"
+                >
+                  X
+                </button>
               </template>
               <b-row>
                 <b-col>
@@ -234,7 +245,6 @@
                 </b-col>
               </b-row>
             </b-modal>
-            
           </b-col>
         </b-row>
       </b-container>
@@ -271,7 +281,6 @@
           </b-row>
         </div>
       </b-modal>
-      
     </div>
   </div>
 </template>
@@ -327,20 +336,30 @@ export default {
 </script>
 
 <style scoped>
-
-.td:hover{
-  cursor: pointer;
+.card-link{
+  color: #e80b0b;
+  text-decoration: none;
 }
 
-.thead{
-  color: #303d7a;
-}
-
-.margem{
+.cardNot {
+  background-color: #fcfff7;
+  border-radius: 6px;
   text-align: left;
 }
 
-.table{
+.td:hover {
+  cursor: pointer;
+}
+
+.thead {
+  color: #303d7a;
+}
+
+.margem {
+  text-align: left;
+}
+
+.table {
   width: 500px;
 }
 
@@ -521,21 +540,19 @@ export default {
   height: 20px;
 }
 
-.card-text{
+.card-text {
   font-size: 15px;
 }
 
-.cross{
+.cross {
   font-size: 20px;
   text-align: right;
   text-decoration: none;
   color: #e80b0b;
 }
 
-.not{
+.not {
   margin-right: 2rem;
   margin-top: -1rem;
 }
-
-
 </style>

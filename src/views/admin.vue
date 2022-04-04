@@ -20,28 +20,11 @@
                 placeholder="Repetir Novo Email"
               />
               <p class="space"></p>
+              <button class="botao">Confirmar</button>
             </div>
-            <button class="botao">Confirmar</button>
+            
             <h1 class="header2">Alteração de outdoors visíveis</h1>
-            <div class="overflow-auto">
-              <b-pagination
-              pills
-              align="fill"
-                v-model="currentPage"
-                :total-rows="rows"
-                :per-page="perPage"
-                aria-controls="my-table"
-              ></b-pagination>
-              <p class="mt-3">Current Page: {{ currentPage }}</p>
-
-              <b-table
-                id="my-table"
-                :items="items"
-                :per-page="perPage"
-                :current-page="currentPage"
-                small
-              ></b-table>
-            </div>
+            <button class="botaoAlterar" @click="showModalFav()">Alterar outdoors</button>
           </b-col>
           <b-col>
             <h1 class="header">Registo de alugueres</h1>
@@ -79,9 +62,33 @@
           </b-col>
         </b-row>
       </b-container>
+      <b-modal size="lg" ref="my-modalfav" hide-footer centered class="modal">
+        <template #modal-header>
+          <span class="nome">Face 01</span>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+            @click="hideModalFav()"
+          >
+            X
+          </button>
+        </template>
+              <b-table
+                id="my-table"
+                :items="items"
+                :per-page="pagina"
+                :current-page="currentPage"
+                small
+              ></b-table>
+      </b-modal>
     </div>
   </div>
+  
 </template>
+
+
 
 <script>
 // @ is an alias to /src
@@ -90,24 +97,58 @@
 export default {
   data() {
      return {
-        perPage: 5,
-        currentPage: 1,
+        pagina: 50,
         items: [
-          { id: 1, first_name: 'Fred', last_name: 'Flintstone' },
-          { id: 2, first_name: 'Wilma', last_name: 'Flintstone' },
-          { id: 3, first_name: 'Barney', last_name: 'Rubble' },
-          { id: 4, first_name: 'Betty', last_name: 'Rubble' },
-          { id: 5, first_name: 'Pebbles', last_name: 'Flintstone' },
-          { id: 6, first_name: 'Bamm Bamm', last_name: 'Rubble' },
-          { id: 7, first_name: 'The Great', last_name: 'Gazzoo' },
-          { id: 8, first_name: 'Rockhead', last_name: 'Slate' },
-          { id: 9, first_name: 'Pearl', last_name: 'Slaghoople' },
-          { id: 10, first_name: 'The Great', last_name: 'Gazzoo' },
-          { id: 11, first_name: 'Rockhead', last_name: 'Slate' },
-          { id: 12, first_name: 'Pearl', last_name: 'Slaghoople' },
-          { id: 13, first_name: 'The Great', last_name: 'Gazzoo' },
-          { id: 14, first_name: 'Rockhead', last_name: 'Slate' },
-          { id: 15, first_name: 'Pearl', last_name: 'Slaghoople' },
+          { Face: "01", estado:'Visível', last_name: 'Flintstone' },
+          { Face: "02", estado:'Visível', last_name: 'Flintstone' },
+          { Face: "03", estado:'Visível', last_name: 'Rubble' },
+          { Face: "04", estado:'Visível', last_name: 'Rubble' },
+          { Face: "05", estado:'Visível', last_name: 'Flintstone' },
+          { Face: "06", estado:'Visível', last_name: 'Rubble' },
+          { Face: "07", estado:'Visível', last_name: 'Gazzoo' },
+          { Face: "08", estado:'Visível', last_name: 'Slate' },
+          { Face: "09", estado:'Visível', last_name: 'Slaghoople' },
+          { Face: "10", estado:'Visível', last_name: 'Gazzoo' },
+          { Face: "11", estado:'Visível', last_name: 'Slate' },
+          { Face: "12", estado:'Visível', last_name: 'Slaghoople' },
+          { Face: "13", estado:'Visível', last_name: 'Gazzoo' },
+          { Face: "14", estado:'Visível', last_name: 'Slate' },
+          { Face: "15", estado:'Visível', last_name: 'Slaghoople' },
+          { Face: "16", estado:'Visível', last_name: 'Flintstone' },
+          { Face: "17", estado:'Visível', last_name: 'Flintstone' },
+          { Face: "18", estado:'Visível', last_name: 'Rubble' },
+          { Face: "19", estado:'Visível', last_name: 'Rubble' },
+          { Face: "20", estado:'Visível', last_name: 'Flintstone' },
+          { Face: "21", estado:'Visível', last_name: 'Rubble' },
+          { Face: "22", estado:'Visível', last_name: 'Gazzoo' },
+          { Face: "23", estado:'Visível', last_name: 'Slate' },
+          { Face: "24", estado:'Visível', last_name: 'Slaghoople' },
+          { Face: "25", estado:'Visível', last_name: 'Gazzoo' },
+          { Face: "26", estado:'Visível', last_name: 'Slate' },
+          { Face: "27", estado:'Visível', last_name: 'Slaghoople' },
+          { Face: "28", estado:'Visível', last_name: 'Gazzoo' },
+          { Face: "29", estado:'Visível', last_name: 'Slate' },
+          { Face: "30", estado:'Visível', last_name: 'Slaghoople' },
+          { Face: "31", estado:'Visível', last_name: 'Flintstone' },
+          { Face: "32", estado:'Visível', last_name: 'Flintstone' },
+          { Face: "33", estado:'Visível', last_name: 'Rubble' },
+          { Face: "34", estado:'Visível', last_name: 'Rubble' },
+          { Face: "35", estado:'Visível', last_name: 'Flintstone' },
+          { Face: "36", estado:'Visível', last_name: 'Rubble' },
+          { Face: "37", estado:'Visível', last_name: 'Gazzoo' },
+          { Face: "38", estado:'Visível', last_name: 'Slate' },
+          { Face: "39", estado:'Visível', last_name: 'Slaghoople' },
+          { Face: "40", estado:'Visível', last_name: 'Gazzoo' },
+          { Face: "41", estado:'Visível', last_name: 'Slate' },
+          { Face: "42", estado:'Visível', last_name: 'Slaghoople' },
+          { Face: "43", estado:'Visível', last_name: 'Gazzoo' },
+          { Face: "44", estado:'Visível', last_name: 'Slate' },
+          { Face: "45", estado:'Visível', last_name: 'Slaghoople' },
+          { Face: "46", estado:'Visível', last_name: 'Flintstone' },
+          { Face: "47", estado:'Visível', last_name: 'Flintstone' },
+          { Face: "48", estado:'Visível', last_name: 'Rubble' },
+          { Face: "49", estado:'Visível', last_name: 'Rubble' },
+          { Face: "50", estado:'Visível', last_name: 'Flintstone' },
         ],
       }
     },
@@ -120,7 +161,14 @@ export default {
   components: {
     //Navbar,
   },
-  
+    methods: {
+    showModalFav() {
+      this.$refs["my-modalfav"].show();
+    },
+    hideModalFav() {
+      this.$refs["my-modalfav"].hide();
+    },
+    }
 };
 </script>
 
@@ -166,11 +214,24 @@ export default {
   color: #303d7a;
   width: 100px;
   border-width: 1px;
-  margin-right: 34rem;
   border-radius: 6px;
 }
 
 .botao:hover {
+  background-color: #303d7a;
+  color: #fcfff7;
+}
+
+.botaoAlterar {
+  background-color: #fcfff7;
+  color: #303d7a;
+  width: 150px;
+  border-width: 1px;
+  margin-right: 34rem;
+  border-radius: 6px;
+}
+
+.botaoAlterar:hover {
   background-color: #303d7a;
   color: #fcfff7;
 }
