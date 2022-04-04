@@ -60,7 +60,7 @@
           <div class="col-1 d-flex align-items-center position-relative">
             <img
               src="../assets/arrow.png"
-              class="align-self-center"
+              class="align-self-center arrow"
               width="50px"
               style="transform: rotate(180deg); opacity: 50%"
               @click="next()"
@@ -160,7 +160,7 @@
           <div class="col-1 d-flex justify-content-end position-relative">
             <img
               src="../assets/arrow.png"
-              class="align-self-center"
+              class="align-self-center arrow"
               width="50px"
               style="opacity: 50%"
               @click="prev()"
@@ -195,6 +195,7 @@ export default {
   z-index: -1;
   position: absolute;
   overflow-y: scroll;
+  overflow-y: hidden;
 }
 
 .backgroundLarge {
@@ -252,5 +253,11 @@ export default {
 
 .carouselImg {
   border-radius: 8%;
+}
+
+/* ------------------------------------- Carousel Arrows ------------------------------------- */
+
+.arrow:hover {
+  cursor: pointer;
 }
 </style>
