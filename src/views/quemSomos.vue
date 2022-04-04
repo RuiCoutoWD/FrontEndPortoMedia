@@ -14,13 +14,15 @@
       class="backgroundSmall d-block d-md-none"
     />
 
-
     <!-- ------------------------------------- Textos do quem somos ------------------------------------- -->
     <div class="mainDiv">
       <b-container class="bv-example-row">
         <b-row>
           <div class="col-lg-6">
-            <h1 class="title">A NOSSA HISTÓRIA</h1>
+            <h1 class="title d-none d-lg-block">A NOSSA HISTÓRIA</h1>
+            <h1 class="title d-lg-none d-xl-none text-center">
+              A NOSSA HISTÓRIA
+            </h1>
             <p class="text text-justify">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
@@ -35,7 +37,8 @@
             </p>
           </div>
           <div class="col-lg-6">
-            <h1 class="title">MISSÃO</h1>
+            <h1 class="title d-none d-lg-block">MISSÃO</h1>
+            <h1 class="title d-lg-none d-xl-none text-center">MISSÃO</h1>
             <p class="text text-justify">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
@@ -50,9 +53,119 @@
             </p>
           </div>
         </b-row>
-        <b-row class="mt-4 mb-4">
+        <b-row class="mt-1 mb-2">
           <h1 class="title text-center">PARCEIROS</h1>
-          
+        </b-row>
+        <b-row class="mb-3">
+          <div class="col-1 d-flex align-items-center position-relative">
+            <img
+              src="../assets/arrow.png"
+              class="align-self-center"
+              width="50px"
+              style="transform: rotate(180deg); opacity: 50%"
+              @click="next()"
+            />
+          </div>
+          <div class="col-10">
+            <b-carousel
+              id="multi-item-example"
+              class="carousel slide carousel-multi-item"
+              data-ride="carousel"
+              ref="carousel"
+              fade
+            >
+              <!--Slides-->
+              <div class="carousel-inner" role="listbox">
+                <!--First slide-->
+                <div class="carousel-item active">
+                  <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                      <img
+                        class="img-fluid p-3 carouselImg"
+                        src="../assets/planeta_publicidade.jpg"
+                        width="200px"
+                        height="auto"
+                      />
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                      <img
+                        class="img-fluid p-3 carouselImg"
+                        src="../assets/planeta_publicidade_white.jpg"
+                        width="200px"
+                        height="auto"
+                      />
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                      <img
+                        class="img-fluid p-3 carouselImg"
+                        src="../assets/planeta_publicidade.jpg"
+                        width="200px"
+                        height="auto"
+                      />
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                      <img
+                        class="img-fluid p-3 carouselImg"
+                        src="../assets/planeta_publicidade_white.jpg"
+                        width="200px"
+                        height="auto"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <!--/.First slide-->
+
+                <!--Second slide-->
+                <div class="carousel-item">
+                  <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                      <img
+                        class="img-fluid p-3 carouselImg"
+                        src="../assets/planeta_publicidade_white.jpg"
+                        width="200px"
+                        height="auto"
+                      />
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                      <img
+                        class="img-fluid p-3 carouselImg"
+                        src="../assets/planeta_publicidade.jpg"
+                        width="200px"
+                        height="auto"
+                      />
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                      <img
+                        class="img-fluid p-3 carouselImg"
+                        src="../assets/planeta_publicidade_white.jpg"
+                        width="200px"
+                        height="auto"
+                      />
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                      <img
+                        class="img-fluid p-3 carouselImg"
+                        src="../assets/planeta_publicidade.jpg"
+                        width="200px"
+                        height="auto"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <!--/.Second slide-->
+              </div>
+              <!--/.Slides-->
+            </b-carousel>
+          </div>
+          <div class="col-1 d-flex justify-content-end position-relative">
+            <img
+              src="../assets/arrow.png"
+              class="align-self-center"
+              width="50px"
+              style="opacity: 50%"
+              @click="prev()"
+            />
+          </div>
         </b-row>
       </b-container>
     </div>
@@ -60,25 +173,28 @@
 </template>
 
 <script>
-// @ is an alias to /src
-//import Navbar from "@/components/Navbar.vue";
-
 export default {
   name: "About",
-  components: {
-    //Navbar,
+  components: {},
+  methods: {
+    prev() {
+      this.$refs.carousel.prev();
+    },
+    next() {
+      this.$refs.carousel.next();
+    },
   },
 };
 </script>
 
 <style scoped>
-
 /* ------------------------------------- Estilização das imagens de fundo ------------------------------------- */
 
 .mainDiv {
-  position: absolute;
   margin-top: 10rem;
   z-index: -1;
+  position: absolute;
+  overflow-y: scroll;
 }
 
 .backgroundLarge {
@@ -124,11 +240,17 @@ export default {
   text-align: left;
 }
 
-/* ------------------------------------- Testos da página ------------------------------------- */
+/* ------------------------------------- Textos da página ------------------------------------- */
 
 .text {
   text-align: left;
   font-family: Kayak Sans;
   font-size: 14pt;
+}
+
+/* ------------------------------------- Carousel Image ------------------------------------- */
+
+.carouselImg {
+  border-radius: 8%;
 }
 </style>
