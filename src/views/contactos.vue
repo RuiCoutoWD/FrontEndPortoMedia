@@ -14,20 +14,25 @@
         src="../assets/Fundosimagem-08.png"
         class="backgroundSmall d-block d-md-none"
       />
-      <b-container class="bv-example-row">
+      <!-- ------------------------------------- Container Big Devices ------------------------------------- -->
+      <b-container class="bv-example-row d-none d-xl-block">
         <b-row class="mainRow">
           <b-col>
             <!-- ------------------------------------- Secção localização ------------------------------------- -->
             <div class="contactos">
               <h1 class="header">LOCALIZAÇÃO</h1>
-              <img src="../assets/mapa.png" class="img-fluid img" />
+              <a
+                target="_blank"
+                href="https://www.google.pt/maps/dir//Planeta+Publicidade,+Zona+Industrial+dos+Arcos+do+Sardão+391,+4430-434+Vila+Nova+de+Gaia/@41.1169036,-8.5833931,17z/data=!4m9!4m8!1m0!1m5!1m1!1s0xd247b5073b3d047:0x8e8e208c83d5a844!2m2!1d-8.5811991!2d41.1168996!3e0?hl=pt-PT"
+              >
+                <img src="../assets/mapa.png" class="img-fluid img"
+              /></a>
               <p class="morada">
                 Zona Industrial Arcos do Sardão, Avenida Arcos do Sardão,<br />
                 Nº 391-A, 4430-434, Vila Nova de Gaia
               </p>
-            </div>
-          </b-col>
-          <b-col>
+            </div> </b-col
+          ><b-col>
             <!-- ------------------------------------- Secção do formulário ------------------------------------- -->
             <h1 class="header">CONTACTE-NOS</h1>
             <div class="contactos">
@@ -46,33 +51,94 @@
           </b-col>
         </b-row>
         <b-row class="my-4">
-          <b-col>
+          <!-- ------------------------------------- Secção contactos ------------------------------------- -->
+          <div class="contactos text-center">
+            <h1 class="header2 text-center">CONTACTOS</h1>
+            <img src="../assets/email.png" alt="email" class="icons" />
+            <a> : mail@planetapublicidade.com </a>
+            <p></p>
+            <img src="../assets/telefone.png" alt="telefone" class="icons" />
+            <a> : 22 145 01 20</a>
+            <p></p>
+            <a
+              href="https://www.instagram.com/planetapublicidade/"
+              target="_blank"
+              ><img src="../assets/instagram.png" class="icons"
+            /></a>
+            <a
+              href="https://www.facebook.com/planetapublicidadeexterior/"
+              target="_blank"
+              ><img src="../assets/facebook.png" class="facebook"
+            /></a>
+          </div>
+        </b-row>
+      </b-container>
+      <!-- ------------------------------------- Container Small Devices ------------------------------------- -->
+      <b-container class="bv-example-row d-xl-none">
+        <b-row class="mainRow">
+          <div class="col-lg-6">
+            <!-- ------------------------------------- Secção localização ------------------------------------- -->
+            <div class="contactos text-center">
+              <h1 class="header text-center">LOCALIZAÇÃO</h1>
+              <a
+                target="_blank"
+                href="https://www.google.pt/maps/dir//Planeta+Publicidade,+Zona+Industrial+dos+Arcos+do+Sardão+391,+4430-434+Vila+Nova+de+Gaia/@41.1169036,-8.5833931,17z/data=!4m9!4m8!1m0!1m5!1m1!1s0xd247b5073b3d047:0x8e8e208c83d5a844!2m2!1d-8.5811991!2d41.1168996!3e0?hl=pt-PT"
+              >
+                <img src="../assets/mapa.png" class="img-fluid px-3"
+              /></a>
+              <p class="morada">
+                Zona Industrial Arcos do Sardão, Avenida Arcos do Sardão,<br />
+                Nº 391-A, 4430-434, Vila Nova de Gaia
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-6">
             <!-- ------------------------------------- Secção contactos ------------------------------------- -->
-            <div class="contactos">
-              <h1 class="header2">CONTACTOS</h1>
-              <img src="../assets/email.png" alt="email" class="icons" />
-              <a> : mail@planetapublicidade.com </a>
-              <p></p>
-              <img src="../assets/telefone.png" alt="telefone" class="icons" />
-              <a> : 22 145 01 20</a>
+            <div class="contactos text-center">
+              <h1 class="header2 text-center">CONTACTOS</h1>
+              <div class="mt-lg-5">
+                <img src="../assets/email.png" alt="email" class="icons" />
+                <a> : mail@planetapublicidade.com </a>
+              </div>
+              <div class="mt-4">
+                <img
+                  src="../assets/telefone.png"
+                  alt="telefone"
+                  class="icons"
+                />
+                <a> : 22 145 01 20</a>
+              </div>
+              <div class="mt-4">
+                <a
+                  href="https://www.instagram.com/planetapublicidade/"
+                  target="_blank"
+                  ><img src="../assets/instagram.png" class="icons"
+                /></a>
+                <a
+                  href="https://www.facebook.com/planetapublicidadeexterior/"
+                  target="_blank"
+                  ><img src="../assets/facebook.png" class="facebook"
+                /></a>
+              </div>
             </div>
-          </b-col>
-          <b-col>
-            <!-- Secção das redes sociais ------------------------------------- -->
-            <div class="redes">
-              <h1 class="header2">REDES SOCIAIS</h1>
-              <a
-                href="https://www.instagram.com/planetapublicidade/"
-                target="_blank"
-                ><img src="../assets/instagram.png" class="icons"
-              /></a>
-              <a
-                href="https://www.facebook.com/planetapublicidadeexterior/"
-                target="_blank"
-                ><img src="../assets/facebook.png" class="facebook"
-              /></a>
+          </div>
+        </b-row>
+        <b-row class="my-4">
+          <!-- ------------------------------------- Secção do formulário ------------------------------------- -->
+          <h1 class="header">CONTACTE-NOS</h1>
+          <div class="contactos">
+            <input class="edittext" placeholder="Nome*" />
+            <p class="space"></p>
+            <input class="edittext" placeholder="Email*" />
+            <p class="space"></p>
+            <input class="edittext" placeholder="Número" />
+            <p class="space"></p>
+            <textarea class="edittext2" placeholder="Mensagem"></textarea>
+            <p></p>
+            <div class="divb">
+              <button class="botao">Enviar</button>
             </div>
-          </b-col>
+          </div>
         </b-row>
       </b-container>
     </div>
