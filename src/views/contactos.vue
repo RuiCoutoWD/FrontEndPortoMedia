@@ -255,6 +255,7 @@ export default {
   width: 100%;
   font-weight: bold;
   font-size: 14px;
+  opacity: 80%;
 }
 
 /* ------------------------------------- Espaço entre objetos ------------------------------------- */
@@ -268,6 +269,7 @@ export default {
   height: 130px;
   font-weight: bold;
   font-size: 14px;
+  opacity: 80%;
 }
 
 /* ------------------------------------- Texto morada ------------------------------------- */
