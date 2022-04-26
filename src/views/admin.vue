@@ -4,6 +4,7 @@
       <b-container class="bv-example-row">
         <b-row>
           <b-col>
+            <!-- Alterar email -->
             <h1 class="header">Alteração de Email</h1>
             <div class="contactos">
               <label><b>Email atual:</b> mail@planetapublicidade.pt </label>
@@ -23,9 +24,11 @@
               <button class="botao">Confirmar</button>
             </div>
             
+            <!-- Alterar os outdoors visíveis -->
             <h1 class="header2">Alteração de outdoors visíveis</h1>
             <button class="botaoAlterar" @click="showModalFav()">Alterar outdoors</button>
           </b-col>
+          
           <b-col>
             <h1 class="header">Registo de alugueres</h1>
             <div class="contactos">
@@ -49,6 +52,7 @@
                 placeholder="Preço do aluguer"
               />
             </div>
+            <!--  -->
             <p></p>
             <div class="calendar">
               <label for="example-datepicker">Data de início de aluguer</label>
