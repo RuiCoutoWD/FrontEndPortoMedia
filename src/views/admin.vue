@@ -61,6 +61,7 @@
               <b-form-datepicker id="example-datepicker" v-model="value" class="mb-2"></b-form-datepicker>
             </div>
             <div class="d-flex mx-auto justify-content-end">
+              <button @click="showModal" class="btnexport">Exportar Base de Dados</button>
               <button @click="showModal" class="btnconfirm">Confirmar</button>
             </div>
           </b-col>
@@ -242,6 +243,7 @@ export default {
 
 .btnconfirm{
   background-color: #fcfff7;
+  font-size: 15px;
   color: #303d7a;
   width: 100px;
   border-width: 1px;
@@ -249,6 +251,21 @@ export default {
 }
 
 .btnconfirm:hover {
+  background-color: #303d7a;
+  color: #fcfff7;
+}
+
+.btnexport{
+  margin-right: 1rem;
+  font-size: 15px;
+  background-color: #fcfff7;
+  color: #303d7a;
+  width: 180px;
+  border-width: 1px;
+  border-radius: 6px;
+}
+
+.btnexport:hover {
   background-color: #303d7a;
   color: #fcfff7;
 }
