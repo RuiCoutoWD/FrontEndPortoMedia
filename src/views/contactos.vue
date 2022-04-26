@@ -171,7 +171,7 @@ export default {
 }
 
 .backgroundMedium {
-  transform: translateX(calc((70% - 100vw) / 2));
+  transform: translateX(calc((75% - 100vw) / 2));
   min-width: 100%;
   height: 100%;
   position: fixed;
@@ -194,7 +194,7 @@ export default {
 
 .quemsomos {
   position: absolute;
-  overflow-y: scroll;
+  overflow-y: hidden;
   width: 100%;
   z-index: -1;
   margin-top: 10rem;
