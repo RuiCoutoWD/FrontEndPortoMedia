@@ -157,12 +157,12 @@
             <span class="nome">Face 01</span>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="hideModal3()">X</button>
           </template>
-          <img src="../assets/Face1.png" width="766px" overlay />
+          <img src="../assets/FT1.png" width="766px" overlay />
           <p></p>
           <div class="buttons">
             <b-row>
               <b-col>
-                <img src="../assets/exportar.png" class="export" />
+                <img @click="generateReport" src="../assets/exportar.png" class="export"/>
               </b-col>
               <b-col>
                 <button class="favorito">Adicionar aos Favoritos</button>
@@ -195,17 +195,39 @@
         </b-modal>
       </b-container>
     </div>
+          <div>
+     <VueHtml2pdf
+        :show-layout="false"
+        :float-layout="true"
+        :enable-download="true"
+        :preview-modal="true"
+        :paginate-elements-by-height="1400"
+        filename="myPDF"
+        :pdf-quality="2"
+        :manual-pagination="false"
+        pdf-format="a4"
+        pdf-orientation="landscape"
+        pdf-content-width="800px"
+        ref="html2Pdf"
+    >
+        <section slot="pdf-content">
+            <img src="../assets/FT1.png" >
+        </section>
+    </VueHtml2pdf>
+   </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 //import Navbar from "@/components/Navbar.vue";
+import VueHtml2pdf from 'vue-html2pdf'
 
 export default {
   name: "Outdoors",
   components: {
     //Navbar,
+    VueHtml2pdf
   },
   methods: {
     // ------------------------------------- Abrir modal das faces -------------------------------------
@@ -224,6 +246,9 @@ export default {
     // ------------------------------------- Fechar modal do orçamento -------------------------------------
     hideModal2() {
       this.$refs["my-modal2"].hide();
+    },
+     generateReport () {
+            this.$refs.html2Pdf.generatePdf()
     },
     // ------------------------------------- Função do SweetAlert -------------------------------------
     pedidoAlert() {
@@ -280,6 +305,10 @@ export default {
 /* ------------------------------------- Estilização do botão de exportar ------------------------------------- */
 .export {
   width: 30px;
+}
+
+.export:hover {
+  cursor: pointer;
 }
 
 /* ------------------------------------- Hover das faces ------------------------------------- */
