@@ -53,7 +53,7 @@
             </p>
           </div>
         </b-row>
-        <b-row class="mt-1 mb-2">
+        <!-- <b-row class="mt-1 mb-2">
           <h1 class="title text-center">PARCEIROS</h1>
         </b-row>
         <b-row class="mb-3">
@@ -65,19 +65,19 @@
               style="transform: rotate(180deg); opacity: 50%"
               @click="next()"
             />
-          </div>
-          <div class="col-10">
+          </div> -->
+          <!-- <div class="col-10">
             <b-carousel
               id="multi-item-example"
               class="carousel slide carousel-multi-item"
               data-ride="carousel"
               ref="carousel"
               fade
-            >
+            > -->
               <!--Slides-->
-              <div class="carousel-inner" role="listbox">
+              <!-- <div class="carousel-inner" role="listbox"> -->
                 <!--First slide-->
-                <div class="carousel-item active">
+                <!-- <div class="carousel-item active">
                   <div class="row">
                     <div class="col-md-3 col-sm-6">
                       <img
@@ -112,11 +112,11 @@
                       />
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <!--/.First slide-->
 
                 <!--Second slide-->
-                <div class="carousel-item">
+                <!-- <div class="carousel-item">
                   <div class="row">
                     <div class="col-md-3 col-sm-6">
                       <img
@@ -151,13 +151,13 @@
                       />
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <!--/.Second slide-->
-              </div>
+              <!-- </div> -->
               <!--/.Slides-->
-            </b-carousel>
-          </div>
-          <div class="col-1 d-flex justify-content-end position-relative">
+            <!-- </b-carousel> -->
+          <!-- </div> -->
+          <!-- <div class="col-1 d-flex justify-content-end position-relative">
             <img
               src="../assets/arrow.png"
               class="align-self-center arrow"
@@ -165,8 +165,8 @@
               style="opacity: 50%"
               @click="prev()"
             />
-          </div>
-        </b-row>
+          </div> -->
+        <!-- </b-row> -->
       </b-container>
     </div>
   </div>
