@@ -1,13 +1,26 @@
 <template>
-  <div class="home">
-    <div class="quemsomos">
-      <!-- ------------------------------------- Imagens de fundo ------------------------------------- -->
-      <img src="../assets/Fundosimagem-08.png" class="fundo">
+    <!-- ------------------------------------- Fundo do website ------------------------------------- -->
+  <div class="container">
+    <img
+      src="../assets/Fundosimagem-08.png"
+      class="backgroundLarge d-none d-xl-block"
+    />
+    <img
+      src="../assets/Fundosimagem-08.png"
+      class="backgroundMedium d-none d-md-block d-xl-none"
+    />
+    <img
+      src="../assets/Fundosimagem-08.png"
+      class="backgroundSmall d-block d-md-none"
+    />
+  
+    <div class="mainDiv"> 
       <b-container class="bv-example-row">
         <b-row>
+          <h1 class="header">OS NOSSOS OUTDOORS</h1>
           <!-- ------------------------------------- Cards para as 15 faces ------------------------------------- -->
           <b-col>
-            <h1 class="header">OS NOSSOS OUTDOORS</h1>
+            
 
             <div @click="showModal()" class="div">
               <b-card no-body title="Image Overlay" img-alt="Image" img-height="200px" img-top tag="article" style="max-width: 400.3px; text-align: left; background-color: #303d7a" class="mb-2 border-0 card" footer-tag="footer">
@@ -269,6 +282,47 @@ export default {
 
 <style scoped>
 
+.mainDiv {
+  margin-top: 10rem;
+  z-index: -1;
+  position: absolute;
+  overflow-y: scroll;
+  overflow-y: hidden;
+}
+
+.backgroundLarge {
+  transform: translateX(calc((100% - 100vw) / 2));
+  min-width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -2;
+  bottom: 0;
+  right: 0;
+  opacity: 40%;
+}
+
+.backgroundMedium {
+  transform: translateX(calc((70% - 100vw) / 2));
+  min-width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -2;
+  bottom: 0;
+  right: 0;
+  opacity: 40%;
+}
+
+.backgroundSmall {
+  transform: translateX(calc((50% - 100vw) / 2));
+  min-width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -2;
+  bottom: 0;
+  right: 0;
+  opacity: 40%;
+}
+
 /* ------------------------------------- Estilização da imagem de fundo ------------------------------------- */
 .fundo{
   width: 100%;
@@ -336,10 +390,6 @@ export default {
   height: 280px;
 }
 
-/* ------------------------------------- Espaços entre objetos ------------------------------------- */
-.space {
-  margin-top: 12rem;
-}
 
 /* ------------------------------------- Posição dos cards ------------------------------------- */
 .card {
@@ -348,12 +398,11 @@ export default {
 
 /* ------------------------------------- Título das páginas ------------------------------------- */
 .header {
-  font-family: Kayak Sans;
-  font-size: 35px;
+  font-family: ChaletComprime CologneEighty;
+  font-size: 45px;
   color: #a58c57;
   text-decoration: none;
   text-align: left;
-  margin-top: 8.9rem;
 }
 
 /* ------------------------------------- Botão ------------------------------------- */
