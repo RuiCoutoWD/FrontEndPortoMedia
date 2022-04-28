@@ -477,8 +477,8 @@ export default {
 }
 
 .header {
-  font-family: Kayak Sans;
-  font-size: 35px;
+  font-family: ChaletComprime CologneEighty;
+  font-size: 45px;
   color: #a58c57;
   text-decoration: none;
   text-align: left;
@@ -486,8 +486,8 @@ export default {
 }
 
 .header2 {
-  font-family: Kayak Sans;
-  font-size: 35px;
+  font-family: ChaletComprime CologneEighty;
+  font-size: 45px;
   color: #a58c57;
   text-decoration: none;
   text-align: left;
@@ -495,8 +495,8 @@ export default {
 }
 
 .header3 {
-  font-family: Kayak Sans;
-  font-size: 35px;
+  font-family: ChaletComprime CologneEighty;
+  font-size: 45px;
   color: #a58c57;
   text-decoration: none;
   text-align: left;
