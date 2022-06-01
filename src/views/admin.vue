@@ -12,12 +12,14 @@
               <input
                 v-model="message"
                 class="edittext"
+                id="editEmail"
                 placeholder="Editar Email"
               />
               <p class="space"></p>
               <input
                 v-model="message"
                 class="edittext"
+                id="editEmailAgain"
                 placeholder="Repetir Novo Email"
               />
               <p class="space"></p>
