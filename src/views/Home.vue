@@ -9,10 +9,19 @@
 </template>
 
 <script>
+const axios = require('axios');
+
 export default {
   name: "Home",
   components: {
     // VideoBackground,
+  },
+  mounted: function () {
+    this.$nextTick(function () {
+      axios({
+        
+      })
+    });
   },
 };
 </script>
