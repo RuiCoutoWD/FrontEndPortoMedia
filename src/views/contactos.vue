@@ -127,13 +127,13 @@
           <!-- ------------------------------------- Secção do formulário ------------------------------------- -->
           <h1 class="header">CONTACTE-NOS</h1>
           <div class="contactos">
-            <input class="edittext" placeholder="Nome*" />
+            <input class="edittext" id="inputName" placeholder="Nome*" />
             <p class="space"></p>
-            <input class="edittext" placeholder="Email*" />
+            <input class="edittext" id="inputEmail" placeholder="Email*" />
             <p class="space"></p>
-            <input class="edittext" placeholder="Número" />
+            <input class="edittext" id="inputContact" placeholder="Número" />
             <p class="space"></p>
-            <textarea class="edittext2" placeholder="Mensagem"></textarea>
+            <textarea class="edittext2" id="inputMessage" placeholder="Mensagem"></textarea>
             <p></p>
             <div class="divb">
               <button class="botao">Enviar</button>

@@ -84,13 +84,13 @@
           <b-col>
             <h1 class="header">DADOS PESSOAIS</h1>
             <div class="contactos">
-              <input v-model="message" class="edittext" placeholder="Nome" />
+              <input  class="edittext" placeholder="Nome" />
               <p class="space"></p>
-              <input v-model="message" class="edittext" placeholder="Email" />
+              <input  class="edittext" placeholder="Email" />
               <p class="space"></p>
-              <input v-model="message" class="edittext" placeholder="Número" />
+              <input  class="edittext" placeholder="Número" />
               <p class="space"></p>
-              <input v-model="message" class="edittext" placeholder="Empresa" />
+              <input  class="edittext" placeholder="Empresa" />
               <p></p>
               <div class="d-flex mx-auto justify-content-end">
                 <button class="botao" @click="showModal">Editar</button>
@@ -108,34 +108,34 @@
                     X
                   </button>
                 </template>
-                <input v-model="message" class="edittext2" placeholder="Nome" />
+                <input id="editName" class="edittext2" placeholder="Nome" />
                 <p class="space"></p>
                 <input
-                  v-model="message"
+                  id="editEmail"
                   class="edittext2"
                   placeholder="Email"
                 />
                 <p class="space"></p>
                 <input
-                  v-model="message"
+                  id="editContact"
                   class="edittext2"
                   placeholder="Número"
                 />
                 <p class="space"></p>
                 <input
-                  v-model="message"
+                  id="editCompany"
                   class="edittext2"
                   placeholder="Empresa"
                 />
                 <p class="space"></p>
                 <input
-                  v-model="message"
+                  id="editPassword"
                   class="edittext2"
                   placeholder="Nova Palavra Passe"
                 />
                 <p class="space"></p>
                 <input
-                  v-model="message"
+                  id="editPasswordAgain"
                   class="edittext2"
                   placeholder="Repetir Nova Palavra Passe"
                 />
