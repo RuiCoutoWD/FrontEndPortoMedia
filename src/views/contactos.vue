@@ -136,7 +136,7 @@
             <textarea class="edittext2" id="inputMessage" placeholder="Mensagem"></textarea>
             <p></p>
             <div class="divb">
-              <button class="botao">Enviar</button>
+              <button class="botao" @click="inputForm()">Enviar</button>
             </div>
           </div>
         </b-row>
@@ -148,12 +148,37 @@
 <script>
 // @ is an alias to /src
 //import Navbar from "@/components/Navbar.vue";
+const axios = require("axios");
 
 export default {
   name: "About",
   components: {
     //Navbar,
   },
+  inputForm() {
+      axios({
+        method: "post",
+        url: "https://portomedia.herokuapp.com/contacts",
+        data: {
+          name: document.getElementById("inputName").value,
+          email: document.getElementById("inputEmail").value,
+          phone_number: document.getElementById("inputContact").value,
+          message: document.getElementById("inputMessage").value,
+        },
+        headers: {
+          "x-access-token":
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU0MDkyOTkzLCJleHAiOjE2NTQxNzkzOTN9.pdQyi6XYJv0ImeOxnPN2ziRhj6sADKBvxxjskfehQaQ",
+        },
+      }).then(
+        (reponse) => {
+          console.log(reponse);
+          this.pedidoAlert();
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    },
 };
 </script>
 
