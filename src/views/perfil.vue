@@ -127,21 +127,9 @@
                   class="edittext2"
                   placeholder="Empresa"
                 />
-                <p class="space"></p>
-                <input
-                  id="editPassword"
-                  class="edittext2"
-                  placeholder="Nova Palavra Passe"
-                />
-                <p class="space"></p>
-                <input
-                  id="editPasswordAgain"
-                  class="edittext2"
-                  placeholder="Repetir Nova Palavra Passe"
-                />
                 <p></p>
                 <div class="buttons">
-                  <button @click="pedidoAlert()" class="confirmar">
+                  <button @click="editPersonalData()" class="confirmar">
                     Confirmar
                   </button>
                 </div>
@@ -289,6 +277,7 @@
 <script>
 // @ is an alias to /src
 //import Navbar from "@/components/Navbar.vue";
+const axios = require("axios");
 
 export default {
   name: "Profile",
@@ -330,6 +319,30 @@ export default {
         timer: 4000,
         timerProgressBar: true,
       });
+    },
+      editPersonalData() {
+      axios({
+        method: "put",
+        url: "https://portomedia.herokuapp.com/profile",
+        data: {
+          name: document.getElementById("editName").value,
+          email: document.getElementById("editEmail").value,
+          phone_number: document.getElementById("editContact").value,
+          company: document.getElementById("editCompany").value,
+        },
+        headers: {
+          "x-access-token":
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU0MDkyOTkzLCJleHAiOjE2NTQxNzkzOTN9.pdQyi6XYJv0ImeOxnPN2ziRhj6sADKBvxxjskfehQaQ",
+        },
+      }).then(
+        (reponse) => {
+          console.log(reponse);
+          this.pedidoAlert();
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
     },
   },
 };
