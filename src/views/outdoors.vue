@@ -520,10 +520,12 @@ export default {
         },
         headers: {
           "x-access-token":
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU0MDkyOTkzLCJleHAiOjE2NTQxNzkzOTN9.pdQyi6XYJv0ImeOxnPN2ziRhj6sADKBvxxjskfehQaQ",
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU0MTU5MDIwLCJleHAiOjE2NTQyNDU0MjB9.zl-rD3CKlLdbOOR4yLthGuDBsmOsd1BJr0FDNOWz9Mk",
         },
       }).then(
         (reponse) => {
+          this.pedidoAlert();
+          this.hideModal2();
           console.log(reponse);
         },
         (error) => {
