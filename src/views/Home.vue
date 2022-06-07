@@ -2,7 +2,7 @@
   <div class="container">
     <!-- ------------------------------------- Secção do vídeo ------------------------------------- -->
     <video autoplay muted loop id="myVideo">
-      <source src="../assets/city3.mp4" type="video/mp4" />
+      <source src="../assets/Timeline3.mp4" type="video/mp4"/>
     </video>
     <img src="../assets/logo_portomedia_white.png" class="img" />
   </div>
