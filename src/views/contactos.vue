@@ -140,7 +140,7 @@
             ></textarea>
             <p></p>
             <div class="divb">
-              <button class="botao">Enviar</button>
+              <button class="botao" @click="inputForm()">Enviar</button>
             </div>
           </div>
         </b-row>
@@ -152,37 +152,36 @@
 <script>
 // @ is an alias to /src
 //import Navbar from "@/components/Navbar.vue";
+const axios = require("axios");
 
 export default {
   name: "About",
   components: {
     //Navbar,
   },
-  methods: {
-    contactSuccessAlert() {
-      // this.logInModalShow = false;
-      // this.registerModalShow = false;
-      this.$swal.fire({
-        icon: "success",
-        title:
-          "<div style='font-family:ChaletComprime CologneEighty;color:#a58c57;font-size:35pt;font-weight:400'>Mensagem enviada com sucesso!</div>",
-        showConfirmButton: false,
-        timer: 4000,
-        timerProgressBar: true,
-      });
-    },
-    // Alert that shows when the user makes a mistake trying to log in.
-    contactFailedAlert() {
-      this.$swal.fire({
-        icon: "error",
-        title:
-          "<div style='font-family:ChaletComprime CologneEighty;color:#a58c57;font-size:35pt;font-weight:400'>Oops!</div>",
-        html: "<div style='font-family:Kayak Sans;font-size:16pt'>Ocorreu um erro ao tentar enviar a mensagem, tente novamente mais tarde!</div>",
-        showConfirmButton: false,
-        timer: 4000,
-        timerProgressBar: true,
-      });
-    },
+  inputForm() {
+    axios({
+      method: "post",
+      url: "https://portomedia.herokuapp.com/contacts",
+      data: {
+        name: document.getElementById("inputName").value,
+        email: document.getElementById("inputEmail").value,
+        phone_number: document.getElementById("inputContact").value,
+        message: document.getElementById("inputMessage").value,
+      },
+      headers: {
+        "x-access-token":
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU0MDkyOTkzLCJleHAiOjE2NTQxNzkzOTN9.pdQyi6XYJv0ImeOxnPN2ziRhj6sADKBvxxjskfehQaQ",
+      },
+    }).then(
+      (reponse) => {
+        console.log(reponse);
+        this.pedidoAlert();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   },
 };
 </script>
