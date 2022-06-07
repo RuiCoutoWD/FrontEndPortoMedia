@@ -133,7 +133,11 @@
             <p class="space"></p>
             <input class="edittext" id="inputContact" placeholder="Número" />
             <p class="space"></p>
-            <textarea class="edittext2" id="inputMessage" placeholder="Mensagem"></textarea>
+            <textarea
+              class="edittext2"
+              id="inputMessage"
+              placeholder="Mensagem"
+            ></textarea>
             <p></p>
             <div class="divb">
               <button class="botao">Enviar</button>
@@ -153,6 +157,32 @@ export default {
   name: "About",
   components: {
     //Navbar,
+  },
+  methods: {
+    contactSuccessAlert() {
+      // this.logInModalShow = false;
+      // this.registerModalShow = false;
+      this.$swal.fire({
+        icon: "success",
+        title:
+          "<div style='font-family:ChaletComprime CologneEighty;color:#a58c57;font-size:35pt;font-weight:400'>Mensagem enviada com sucesso!</div>",
+        showConfirmButton: false,
+        timer: 4000,
+        timerProgressBar: true,
+      });
+    },
+    // Alert that shows when the user makes a mistake trying to log in.
+    contactFailedAlert() {
+      this.$swal.fire({
+        icon: "error",
+        title:
+          "<div style='font-family:ChaletComprime CologneEighty;color:#a58c57;font-size:35pt;font-weight:400'>Oops!</div>",
+        html: "<div style='font-family:Kayak Sans;font-size:16pt'>Ocorreu um erro ao tentar enviar a mensagem, tente novamente mais tarde!</div>",
+        showConfirmButton: false,
+        timer: 4000,
+        timerProgressBar: true,
+      });
+    },
   },
 };
 </script>

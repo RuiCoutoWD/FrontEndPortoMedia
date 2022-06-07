@@ -84,13 +84,13 @@
           <b-col>
             <h1 class="header">DADOS PESSOAIS</h1>
             <div class="contactos">
-              <input  class="edittext" placeholder="Nome" />
+              <input class="edittext" placeholder="Nome" />
               <p class="space"></p>
-              <input  class="edittext" placeholder="Email" />
+              <input class="edittext" placeholder="Email" />
               <p class="space"></p>
-              <input  class="edittext" placeholder="Número" />
+              <input class="edittext" placeholder="Número" />
               <p class="space"></p>
-              <input  class="edittext" placeholder="Empresa" />
+              <input class="edittext" placeholder="Empresa" />
               <p></p>
               <div class="d-flex mx-auto justify-content-end">
                 <button class="botao" @click="showModal">Editar</button>
@@ -110,11 +110,7 @@
                 </template>
                 <input id="editName" class="edittext2" placeholder="Nome" />
                 <p class="space"></p>
-                <input
-                  id="editEmail"
-                  class="edittext2"
-                  placeholder="Email"
-                />
+                <input id="editEmail" class="edittext2" placeholder="Email" />
                 <p class="space"></p>
                 <input
                   id="editContact"
@@ -320,7 +316,7 @@ export default {
         timerProgressBar: true,
       });
     },
-      editPersonalData() {
+    editPersonalData() {
       axios({
         method: "put",
         url: "https://portomedia.herokuapp.com/profile",
@@ -332,7 +328,7 @@ export default {
         },
         headers: {
           "x-access-token":
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU0MDkyOTkzLCJleHAiOjE2NTQxNzkzOTN9.pdQyi6XYJv0ImeOxnPN2ziRhj6sADKBvxxjskfehQaQ",
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU0MTYwMTQ2LCJleHAiOjE2NTQyNDY1NDZ9.zT_8lUqQ_tF5f_RjLKXAurNzgoqdoJTjxMS6WTzyUgM",
         },
       }).then(
         (reponse) => {
@@ -349,7 +345,7 @@ export default {
 </script>
 
 <style scoped>
-.card-link{
+.card-link {
   color: #e80b0b;
   text-decoration: none;
 }

@@ -9,7 +9,7 @@
 </template>
 
 <script>
-const axios = require('axios');
+const axios = require("axios");
 
 export default {
   name: "Home",
@@ -17,11 +17,20 @@ export default {
     // VideoBackground,
   },
   mounted: function () {
-    this.$nextTick(function () {
-      axios({
-        
-      })
-    });
+    axios({
+      method: "get",
+      url: "https://portomedia.herokuapp.com/outdoors",
+    }).then(
+      (response) => {
+        this.$store.commit("SET_OUTDOORS", {
+          outdoors: response,
+        });
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   },
 };
 </script>

@@ -519,14 +519,13 @@ export default {
           function: "budget",
         },
         headers: {
-          "x-access-token":
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU0MTU5MDIwLCJleHAiOjE2NTQyNDU0MjB9.zl-rD3CKlLdbOOR4yLthGuDBsmOsd1BJr0FDNOWz9Mk",
+          "x-access-token": this.$store.getters.getToken,
         },
       }).then(
-        (reponse) => {
+        (response) => {
           this.pedidoAlert();
           this.hideModal2();
-          console.log(reponse);
+          console.log(response);
         },
         (error) => {
           console.log(error);

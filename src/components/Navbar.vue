@@ -115,10 +115,7 @@
                     </b-col>
                   </b-row>
                   <b-row class="divModalButton">
-                    <button
-                      class="modalButton mx-3"
-                      @click="loginSuccessAlert()"
-                    >
+                    <button class="modalButton mx-3" @click="logIn()">
                       Entrar
                     </button>
                   </b-row>
@@ -152,10 +149,7 @@
                     </p> -->
                   </b-row>
                   <b-row class="divModalButton">
-                    <button
-                      class="modalButton mx-3 mt-3"
-                      @click="registerFailedAlert()"
-                    >
+                    <button class="modalButton mx-3 mt-3" @click="register()">
                       Registar
                     </button>
                   </b-row>
@@ -182,10 +176,7 @@
                     class="modalInput"
                   /><br />
                   <b-row class="divModalButton mt-3 mb-2">
-                    <button
-                      class="modalButton mx-3"
-                      @click="recoverPasswordFailedAlert()"
-                    >
+                    <button class="modalButton mx-3" @click="recoverPassword()">
                       Recuperar
                     </button>
                   </b-row>
@@ -269,6 +260,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "Navbar",
   data() {
@@ -405,6 +397,10 @@ export default {
               timerProgressBar: true,
             });
 
+            this.$store.commit("SET_TOKEN", {
+              token: "",
+            });
+
             // For big navbar
             const divLogInIcon = document.getElementById("logInIcon");
             const divProfileIcon = document.getElementById("profileIcon");
@@ -425,6 +421,65 @@ export default {
             this.$router.push({ name: "Home" });
           }
         });
+    },
+    logIn() {
+      axios({
+        method: "post",
+        url: "https://portomedia.herokuapp.com/login",
+        data: {
+          email: document.getElementById("emailInput").value,
+          password: document.getElementById("passwordInput").value,
+        },
+      }).then(
+        (response) => {
+          this.$store.commit("SET_TOKEN", {
+            token: response.data.accessToken,
+          });
+          this.loginSuccessAlert();
+          console.log(response);
+        },
+        (error) => {
+          this.loginFailedAlert();
+          console.log(error);
+        }
+      );
+    },
+    register() {
+      axios({
+        method: "post",
+        url: "https://portomedia.herokuapp.com/register",
+        data: {
+          email: document.getElementById("emailInput2").value,
+          repeatEmail: document.getElementById("repeatEmailInput").value,
+        },
+      }).then(
+        (response) => {
+          console.log(response);
+          this.registerSuccessAlert();
+        },
+        (error) => {
+          console.log(error);
+          this.registerFailedAlert();
+        }
+      );
+    },
+    recoverPassword() {
+      axios({
+        method: "post",
+        url: "https://portomedia.herokuapp.com/recoverPassword",
+        data: {
+          email: document.getElementById("lostEmailInput").value,
+        },
+      }).then(
+        (result) => {
+          console.log(result);
+          this.recoverPasswordSuccessAlert();
+        },
+        (error) => {
+          console.log(error);
+          this.recoverPasswordFailedAlert();
+        }
+      );
     },
   },
 };
