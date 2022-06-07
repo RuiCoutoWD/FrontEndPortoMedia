@@ -36,7 +36,7 @@
                 class="mb-2 border-0 card"
                 footer-tag="footer"
               >
-                <img src="../assets/Face1.png" class="face" />
+                <img src="../assets/faces/Face1.png" class="face" />
                 <template #footer>
                   <span class="foot">Face 001</span>
                 </template>
@@ -60,7 +60,7 @@
                 class="mb-2 border-0"
                 footer-bg-variant="transparent"
               >
-                <img src="../assets/Face4.png" class="face" />
+                <img src="../assets/faces/Face4.png" class="face" />
                 <template #footer>
                   <span class="foot">Face 004</span>
                 </template>
@@ -82,7 +82,7 @@
                 class="mb-2 border-0"
                 footer-bg-variant="transparent"
               >
-                <img src="../assets/Face7.png" class="face" />
+                <img src="../assets/faces/Face7.png" class="face" />
                 <template #footer>
                   <span class="foot">Face 007</span>
                 </template>
@@ -104,7 +104,7 @@
                 class="mb-2 border-0"
                 footer-bg-variant="transparent"
               >
-                <img src="../assets/Face10.png" class="face" />
+                <img src="../assets/faces/Face10.png" class="face" />
                 <template #footer>
                   <span class="foot">Face 010</span>
                 </template>
@@ -126,7 +126,7 @@
                 class="mb-2 border-0"
                 footer-bg-variant="transparent"
               >
-                <img src="../assets/Face13.png" class="face" />
+                <img src="../assets/faces/Face13.png" class="face" />
                 <template #footer>
                   <span class="foot">Face 013</span>
                 </template>
@@ -149,7 +149,7 @@
                 class="mb-2 border-0"
                 footer-bg-variant="transparent"
               >
-                <img src="../assets/Face2.png" class="face" />
+                <img src="../assets/faces/Face2.png" class="face" />
                 <template #footer>
                   <span class="foot">Face 002</span>
                 </template>
@@ -171,7 +171,7 @@
                 class="mb-2 border-0"
                 footer-bg-variant="transparent"
               >
-                <img src="../assets/Face5.png" class="face" />
+                <img src="../assets/faces/Face5.png" class="face" />
                 <template #footer>
                   <span class="foot">Face 005</span>
                 </template>
@@ -193,7 +193,7 @@
                 class="mb-2 border-0"
                 footer-bg-variant="transparent"
               >
-                <img src="../assets/Face8.png" class="face" />
+                <img src="../assets/faces/Face8.png" class="face" />
                 <template #footer>
                   <span class="foot">Face 008</span>
                 </template>
@@ -215,7 +215,7 @@
                 class="mb-2 border-0"
                 footer-bg-variant="transparent"
               >
-                <img src="../assets/Face11.png" class="face" />
+                <img src="../assets/faces/Face11.png" class="face" />
                 <template #footer>
                   <span class="foot">Face 011</span>
                 </template>
@@ -237,7 +237,7 @@
                 class="mb-2 border-0"
                 footer-bg-variant="transparent"
               >
-                <img src="../assets/Face14.png" class="face" />
+                <img src="../assets/faces/Face14.png" class="face" />
                 <template #footer>
                   <span class="foot">Face 014</span>
                 </template>
@@ -260,7 +260,7 @@
                 class="mb-2 border-0"
                 footer-bg-variant="transparent"
               >
-                <img src="../assets/Face3.png" class="face" />
+                <img src="../assets/faces/Face3.png" class="face" />
                 <template #footer>
                   <span class="foot">Face 003</span>
                 </template>
@@ -282,7 +282,7 @@
                 class="mb-2 border-0"
                 footer-bg-variant="transparent"
               >
-                <img src="../assets/Face6.png" class="face" />
+                <img src="../assets/faces/Face6.png" class="face" />
                 <template #footer>
                   <span class="foot">Face 006</span>
                 </template>
@@ -304,7 +304,7 @@
                 class="mb-2 border-0"
                 footer-bg-variant="transparent"
               >
-                <img src="../assets/Face9.png" class="face" />
+                <img src="../assets/faces/Face9.png" class="face" />
                 <template #footer>
                   <span class="foot">Face 009</span>
                 </template>
@@ -326,7 +326,7 @@
                 class="mb-2 border-0"
                 footer-bg-variant="transparent"
               >
-                <img src="../assets/Face12.png" class="face" />
+                <img src="../assets/faces/Face12.png" class="face" />
                 <template #footer>
                   <span class="foot">Face 012</span>
                 </template>
@@ -348,7 +348,7 @@
                 class="mb-2 border-0"
                 footer-bg-variant="transparent"
               >
-                <img src="../assets/Face15.png" class="face" />
+                <img src="../assets/faces/Face15.png" class="face" />
                 <template #footer>
                   <span class="foot">Face 015</span>
                 </template>
@@ -493,13 +493,10 @@ export default {
       this.$refs.html2Pdf.generatePdf();
     },
     // ------------------------------------- Função do SweetAlert -------------------------------------
-    pedidoAlert() {
-      // this.logInModalShow = false;
-      // this.registerModalShow = false;
+    pedidoAlert(text) {
       this.$swal.fire({
         icon: "success",
-        title:
-          "<div style='font-family:ChaletComprime CologneEighty;color:#a58c57;font-size:35pt;font-weight:400'>Pedido de orçamento enviado com sucesso!</div>",
+        title: `<div style='font-family:ChaletComprime CologneEighty;color:#a58c57;font-size:35pt;font-weight:400'>${text}</div>`,
         showConfirmButton: false,
         timer: 4000,
         timerProgressBar: true,
@@ -516,14 +513,13 @@ export default {
           contact: document.getElementById("inputContact").value,
           email: document.getElementById("inputEmail").value,
           company: document.getElementById("inputCompany").value,
-          function: "budget",
         },
         headers: {
-          "x-access-token": this.$store.getters.getToken,
+          "x-access-token": this.$store.getters.getToken.token,
         },
       }).then(
         (response) => {
-          this.pedidoAlert();
+          this.pedidoAlert("Pedido de orçamento enviado com sucesso!");
           this.hideModal2();
           console.log(response);
         },
@@ -532,6 +528,9 @@ export default {
         }
       );
     },
+    addAndRemoveFavorite() {
+
+    }
   },
 };
 </script>

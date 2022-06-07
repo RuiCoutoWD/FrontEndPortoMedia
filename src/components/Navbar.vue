@@ -273,9 +273,9 @@ export default {
     }).then(
       (response) => {
         this.$store.commit("SET_OUTDOORS", {
-          outdoors: response,
+          outdoors: response.data,
         });
-        console.log(response);
+        console.log(response.data);
       },
       (error) => {
         console.log(error);

@@ -159,7 +159,7 @@
         ref="html2Pdf"
     >
         <section slot="pdf-content">
-            <img src="../assets/Face10.png" >
+            <img src="../assets/faces/Face10.png" >
         </section>
     </VueHtml2pdf>
    </div>

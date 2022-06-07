@@ -170,7 +170,7 @@
                       class="mb-2 border-0 card"
                       footer-tag="footer"
                     >
-                      <img src="../assets/Face1.png" class="face" />
+                      <img src="../assets/faces/Face1.png" class="face" />
                       <template #footer>
                         <span class="foot">Face 001</span>
                       </template>
@@ -195,7 +195,7 @@
                       class="mb-2 border-0 card"
                       footer-tag="footer"
                     >
-                      <img src="../assets/Face1.png" class="face" />
+                      <img src="../assets/faces/Face1.png" class="face" />
                       <template #footer>
                         <span class="foot">Face 001</span>
                       </template>
@@ -220,7 +220,7 @@
                       class="mb-2 border-0 card"
                       footer-tag="footer"
                     >
-                      <img src="../assets/Face1.png" class="face" />
+                      <img src="../assets/faces/Face1.png" class="face" />
                       <template #footer>
                         <span class="foot">Face 001</span>
                       </template>
@@ -245,7 +245,7 @@
             X
           </button>
         </template>
-        <img src="../assets/Face1.png" width="766px" overlay />
+        <img src="../assets/faces/Face1.png" width="766px" overlay />
         <p></p>
         <div class="buttons">
           <b-row>
