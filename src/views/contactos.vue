@@ -36,16 +36,20 @@
             <!-- ------------------------------------- Secção do formulário ------------------------------------- -->
             <h1 class="header">CONTACTE-NOS</h1>
             <div class="contactos">
-              <input class="edittext" placeholder="Nome*" />
+              <input class="edittext" id="inputName" placeholder="Nome*" />
               <p class="space"></p>
-              <input class="edittext" placeholder="Email*" />
+              <input class="edittext" id="inputEmail" placeholder="Email*" />
               <p class="space"></p>
-              <input class="edittext" placeholder="Número" />
+              <input class="edittext" id="inputContact" placeholder="Número" />
               <p class="space"></p>
-              <textarea class="edittext2" placeholder="Mensagem"></textarea>
+              <textarea
+                class="edittext2"
+                id="inputMessage"
+                placeholder="Mensagem"
+              ></textarea>
               <p></p>
               <div class="divb">
-                <button class="botao">Enviar</button>
+                <button class="botao" @click="inputForm()">Enviar</button>
               </div>
             </div>
           </b-col>
@@ -159,29 +163,50 @@ export default {
   components: {
     //Navbar,
   },
-  inputForm() {
-    axios({
-      method: "post",
-      url: "https://portomedia.herokuapp.com/contacts",
-      data: {
-        name: document.getElementById("inputName").value,
-        email: document.getElementById("inputEmail").value,
-        phone_number: document.getElementById("inputContact").value,
-        message: document.getElementById("inputMessage").value,
-      },
-      headers: {
-        "x-access-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU0MDkyOTkzLCJleHAiOjE2NTQxNzkzOTN9.pdQyi6XYJv0ImeOxnPN2ziRhj6sADKBvxxjskfehQaQ",
-      },
-    }).then(
-      (reponse) => {
-        console.log(reponse);
-        this.pedidoAlert();
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+  methods: {
+    inputForm() {
+      console.log("arroz");
+      axios({
+        method: "post",
+        url: "https://portomedia.herokuapp.com/contacts",
+        data: {
+          name: document.getElementById("inputName").value,
+          email: document.getElementById("inputEmail").value,
+          contact: document.getElementById("inputContact").value,
+          message: document.getElementById("inputMessage").value,
+        },
+      }).then(
+        (reponse) => {
+          this.contactSuccessAlert();
+          console.log(reponse);
+        },
+        (error) => {
+          this.contactFailedAlert();
+          console.log(error);
+        }
+      );
+    },
+    contactSuccessAlert() {
+      this.$swal.fire({
+        icon: "success",
+        title:
+          "<div style='font-family:ChaletComprime CologneEighty;color:#a58c57;font-size:35pt;font-weight:400'>Mensagem enviada com sucesso!</div>",
+        showConfirmButton: false,
+        timer: 4000,
+        timerProgressBar: true,
+      });
+    },
+    contactFailedAlert() {
+      this.$swal.fire({
+        icon: "error",
+        title:
+          "<div style='font-family:ChaletComprime CologneEighty;color:#a58c57;font-size:35pt;font-weight:400'>Oops!</div>",
+        html: "<div style='font-family:Kayak Sans;font-size:16pt'>Ocorreu um erro ao tentar enviar a mensagem, por favor tente novamente mais tarde!</div>",
+        showConfirmButton: false,
+        timer: 4000,
+        timerProgressBar: true,
+      });
+    },
   },
 };
 </script>

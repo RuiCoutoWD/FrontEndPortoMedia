@@ -266,6 +266,22 @@ export default {
   data() {
     return {};
   },
+  mounted: function () {
+    axios({
+      method: "get",
+      url: "https://portomedia.herokuapp.com/outdoors",
+    }).then(
+      (response) => {
+        this.$store.commit("SET_OUTDOORS", {
+          outdoors: response,
+        });
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  },
   methods: {
     hideModal(modal) {
       this.$refs[modal].hide();

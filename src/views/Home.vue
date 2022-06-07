@@ -9,28 +9,10 @@
 </template>
 
 <script>
-const axios = require("axios");
-
 export default {
   name: "Home",
   components: {
     // VideoBackground,
-  },
-  mounted: function () {
-    axios({
-      method: "get",
-      url: "https://portomedia.herokuapp.com/outdoors",
-    }).then(
-      (response) => {
-        this.$store.commit("SET_OUTDOORS", {
-          outdoors: response,
-        });
-        console.log(response);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
   },
 };
 </script>
