@@ -22,7 +22,10 @@
         <b-row>
           <!-- ------------------------------------- Cards para as 15 faces ------------------------------------- -->
           <div class="col-4" v-for="outdoor of outdoors" :key="outdoor.id">
-            <div @click="showModal()" class="div">
+            <div
+              @click="showModal(outdoor.id, outdoor.name, outdoor.number)"
+              class="div"
+            >
               <b-card
                 no-body
                 title="Image Overlay"
@@ -52,7 +55,7 @@
 
         <b-modal size="lg" ref="my-modal" hide-footer centered class="modal">
           <template #modal-header>
-            <span class="nome">Face 01</span>
+            <span class="nome">{{ outdoorName }}</span>
             <button
               type="button"
               class="close"
@@ -63,7 +66,7 @@
               X
             </button>
           </template>
-          <img src="../assets/FT1.png" width="766px" overlay />
+          <img :src="img" width="766px" overlay />
           <p></p>
           <div class="buttons">
             <b-row>
@@ -75,8 +78,12 @@
                 />
               </b-col>
               <b-col>
-                <button @click="addAndRemoveFavorite()" class="favorito">
-                  Adicionar aos Favoritos
+                <button
+                  @click="addAndRemoveFavorite()"
+                  class="favorito"
+                  id="favButton"
+                >
+                  {{ favBtn }}
                 </button>
               </b-col>
               <b-col>
@@ -217,17 +224,42 @@ export default {
         // require("@/assets/faces/Face49.png"),
         // require("@/assets/faces/Face50.png"),
       ],
+      favBtn: "",
+      outdoorName: "",
+      outdoorId: 0,
+      img: "",
     };
   },
   mounted: function () {
     this.outdoors = this.$store.getters.getOutdoors.outdoors;
     console.log(this.outdoors);
-    console.log(this.outdoors[0].photoSrc);
     console.log(this.photosSrc);
   },
   methods: {
     // ------------------------------------- Abrir modal das faces -------------------------------------
-    showModal() {
+    showModal(id, name, number) {
+      let userFavorites = this.$store.getters.getUserFavorites.userFavorites;
+      let count = 0;
+
+      for (const fav of userFavorites) {
+        console.log(fav.outdoorId);
+        console.log(id);
+        if (parseInt(fav.outdoorId) === parseInt(id)) {
+          count = count + 1;
+          console.log(count);
+        }
+      }
+
+      if (count == 1) {
+        this.favBtn = "Remover dos Favoritos";
+      } else {
+        this.favBtn = "Adicionar aos Favoritos";
+      }
+
+      this.outdoorName = name;
+      this.img = this.photosSrc[number - 1];
+      this.outdoorId = id;
+
       this.$refs["my-modal"].show();
     },
     // ------------------------------------- Abrir modal do orçamento e fechar o das faces -------------------------------------
@@ -269,7 +301,7 @@ export default {
     outdoorBudgetRequest() {
       axios({
         method: "post",
-        url: "https://portomedia.herokuapp.com/outdoors/1",
+        url: "https://portomedia.herokuapp.com/outdoors/" + this.outdoorId,
         // + outdoorId,
         data: {
           message: document.getElementById("inputMessage").value,
@@ -295,7 +327,9 @@ export default {
     addAndRemoveFavorite() {
       axios({
         method: "post",
-        url: "https://portomedia.herokuapp.com/outdoors/favorite/1",
+        url:
+          "https://portomedia.herokuapp.com/outdoors/favorite/" +
+          this.outdoorId,
         headers: {
           "x-access-token": this.$store.getters.getToken.token,
         },
@@ -303,9 +337,23 @@ export default {
         (response) => {
           if (response.data.message === "Outdoor adicionado aos favoritos!") {
             this.pedidoAlert(response.data.message, 2000);
+            this.favBtn = "Remover dos Favoritos";
           } else {
             this.failedAlert(response.data.message, 2000);
+            this.favBtn = "Adicionar aos Favoritos";
           }
+          axios({
+            method: "get",
+            url: "https://portomedia.herokuapp.com/profile/favorites",
+            headers: {
+              "x-access-token": this.$store.getters.getToken.token,
+            },
+          }).then((response) => {
+            console.log(response);
+            this.$store.commit("SET_USERFAVORITES", {
+              userFavorites: response.data,
+            });
+          });
           console.log(response);
         },
         (error) => {
