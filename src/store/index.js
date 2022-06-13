@@ -12,6 +12,9 @@ export default new Vuex.Store({
     getToken: (state) => {
       return state.token;
     },
+    getOutdoors: (state) => {
+      return state.outdoors;
+    },
   },
   mutations: {
     SET_OUTDOORS(state, payload) {

@@ -18,8 +18,14 @@
       <b-container class="bv-example-row">
         <b-row>
           <h1 class="header">OS NOSSOS OUTDOORS</h1>
+        </b-row>
+        <b-row>
           <!-- ------------------------------------- Cards para as 15 faces ------------------------------------- -->
-          <b-col>
+          <div
+            class="col-4"
+            v-for="(outdoor, index) of outdoors"
+            :key="outdoor.id"
+          >
             <div @click="showModal()" class="div">
               <b-card
                 no-body
@@ -35,326 +41,15 @@
                 "
                 class="mb-2 border-0 card"
                 footer-tag="footer"
+                :id="outdoor.id"
               >
-                <img src="../assets/faces/Face1.png" class="face" />
+                <img v-bind:src="photosSrc[index]" class="face" />
                 <template #footer>
-                  <span class="foot">Face 001</span>
+                  <span class="foot">{{ outdoor.name }}</span>
                 </template>
               </b-card>
             </div>
-
-            <div @click="showModal()" class="div">
-              <b-card
-                no-body
-                overlay:true
-                title="Image Overlay"
-                img-alt="Image"
-                img-height="200px"
-                img-top
-                tag="article"
-                style="
-                  max-width: 400.3px;
-                  text-align: left;
-                  background-color: #303d7a;
-                "
-                class="mb-2 border-0"
-                footer-bg-variant="transparent"
-              >
-                <img src="../assets/faces/Face4.png" class="face" />
-                <template #footer>
-                  <span class="foot">Face 004</span>
-                </template>
-              </b-card>
-            </div>
-
-            <div @click="showModal()" class="div">
-              <b-card
-                no-body
-                img-alt="Image"
-                img-height="200px"
-                img-top
-                tag="article"
-                style="
-                  max-width: 400.3px;
-                  text-align: left;
-                  background-color: #303d7a;
-                "
-                class="mb-2 border-0"
-                footer-bg-variant="transparent"
-              >
-                <img src="../assets/faces/Face7.png" class="face" />
-                <template #footer>
-                  <span class="foot">Face 007</span>
-                </template>
-              </b-card>
-            </div>
-
-            <div @click="showModal()" class="div">
-              <b-card
-                no-body
-                img-alt="Image"
-                img-height="200px"
-                img-top
-                tag="article"
-                style="
-                  max-width: 400.3px;
-                  text-align: left;
-                  background-color: #303d7a;
-                "
-                class="mb-2 border-0"
-                footer-bg-variant="transparent"
-              >
-                <img src="../assets/faces/Face10.png" class="face" />
-                <template #footer>
-                  <span class="foot">Face 010</span>
-                </template>
-              </b-card>
-            </div>
-
-            <div @click="showModal()" class="div">
-              <b-card
-                no-body
-                img-alt="Image"
-                img-height="200px"
-                img-top
-                tag="article"
-                style="
-                  max-width: 400.3px;
-                  text-align: left;
-                  background-color: #303d7a;
-                "
-                class="mb-2 border-0"
-                footer-bg-variant="transparent"
-              >
-                <img src="../assets/faces/Face13.png" class="face" />
-                <template #footer>
-                  <span class="foot">Face 013</span>
-                </template>
-              </b-card>
-            </div>
-          </b-col>
-          <b-col class="space">
-            <div @click="showModal()" class="div">
-              <b-card
-                no-body
-                img-alt="Image"
-                img-height="200px"
-                img-top
-                tag="article"
-                style="
-                  max-width: 400.3px;
-                  text-align: left;
-                  background-color: #303d7a;
-                "
-                class="mb-2 border-0"
-                footer-bg-variant="transparent"
-              >
-                <img src="../assets/faces/Face2.png" class="face" />
-                <template #footer>
-                  <span class="foot">Face 002</span>
-                </template>
-              </b-card>
-            </div>
-
-            <div @click="showModal()" class="div">
-              <b-card
-                no-body
-                img-alt="Image"
-                img-height="200px"
-                img-top
-                tag="article"
-                style="
-                  max-width: 400.3px;
-                  text-align: left;
-                  background-color: #303d7a;
-                "
-                class="mb-2 border-0"
-                footer-bg-variant="transparent"
-              >
-                <img src="../assets/faces/Face5.png" class="face" />
-                <template #footer>
-                  <span class="foot">Face 005</span>
-                </template>
-              </b-card>
-            </div>
-
-            <div @click="showModal()" class="div">
-              <b-card
-                no-body
-                img-alt="Image"
-                img-height="200px"
-                img-top
-                tag="article"
-                style="
-                  max-width: 400.3px;
-                  text-align: left;
-                  background-color: #303d7a;
-                "
-                class="mb-2 border-0"
-                footer-bg-variant="transparent"
-              >
-                <img src="../assets/faces/Face8.png" class="face" />
-                <template #footer>
-                  <span class="foot">Face 008</span>
-                </template>
-              </b-card>
-            </div>
-
-            <div @click="showModal()" class="div">
-              <b-card
-                no-body
-                img-alt="Image"
-                img-height="200px"
-                img-top
-                tag="article"
-                style="
-                  max-width: 400.3px;
-                  text-align: left;
-                  background-color: #303d7a;
-                "
-                class="mb-2 border-0"
-                footer-bg-variant="transparent"
-              >
-                <img src="../assets/faces/Face11.png" class="face" />
-                <template #footer>
-                  <span class="foot">Face 011</span>
-                </template>
-              </b-card>
-            </div>
-
-            <div @click="showModal()" class="div">
-              <b-card
-                no-body
-                img-alt="Image"
-                img-height="200px"
-                img-top
-                tag="article"
-                style="
-                  max-width: 400.3px;
-                  text-align: left;
-                  background-color: #303d7a;
-                "
-                class="mb-2 border-0"
-                footer-bg-variant="transparent"
-              >
-                <img src="../assets/faces/Face14.png" class="face" />
-                <template #footer>
-                  <span class="foot">Face 014</span>
-                </template>
-              </b-card>
-            </div>
-          </b-col>
-          <b-col class="space">
-            <div @click="showModal()" class="div">
-              <b-card
-                no-body
-                img-alt="Image"
-                img-height="200px"
-                img-top
-                tag="article"
-                style="
-                  max-width: 400.3px;
-                  text-align: left;
-                  background-color: #303d7a;
-                "
-                class="mb-2 border-0"
-                footer-bg-variant="transparent"
-              >
-                <img src="../assets/faces/Face3.png" class="face" />
-                <template #footer>
-                  <span class="foot">Face 003</span>
-                </template>
-              </b-card>
-            </div>
-
-            <div @click="showModal()" class="div">
-              <b-card
-                no-body
-                img-alt="Image"
-                img-height="200px"
-                img-top
-                tag="article"
-                style="
-                  max-width: 400.3px;
-                  text-align: left;
-                  background-color: #303d7a;
-                "
-                class="mb-2 border-0"
-                footer-bg-variant="transparent"
-              >
-                <img src="../assets/faces/Face6.png" class="face" />
-                <template #footer>
-                  <span class="foot">Face 006</span>
-                </template>
-              </b-card>
-            </div>
-
-            <div @click="showModal()" class="div">
-              <b-card
-                no-body
-                img-alt="Image"
-                img-height="200px"
-                img-top
-                tag="article"
-                style="
-                  max-width: 400.3px;
-                  text-align: left;
-                  background-color: #303d7a;
-                "
-                class="mb-2 border-0"
-                footer-bg-variant="transparent"
-              >
-                <img src="../assets/faces/Face9.png" class="face" />
-                <template #footer>
-                  <span class="foot">Face 009</span>
-                </template>
-              </b-card>
-            </div>
-
-            <div @click="showModal()" class="div">
-              <b-card
-                no-body
-                img-alt="Image"
-                img-height="200px"
-                img-top
-                tag="article"
-                style="
-                  max-width: 400.3px;
-                  text-align: left;
-                  background-color: #303d7a;
-                "
-                class="mb-2 border-0"
-                footer-bg-variant="transparent"
-              >
-                <img src="../assets/faces/Face12.png" class="face" />
-                <template #footer>
-                  <span class="foot">Face 012</span>
-                </template>
-              </b-card>
-            </div>
-
-            <div @click="showModal()" class="div">
-              <b-card
-                no-body
-                img-alt="Image"
-                img-height="200px"
-                img-top
-                tag="article"
-                style="
-                  max-width: 400.3px;
-                  text-align: left;
-                  background-color: #303d7a;
-                "
-                class="mb-2 border-0"
-                footer-bg-variant="transparent"
-              >
-                <img src="../assets/faces/Face15.png" class="face" />
-                <template #footer>
-                  <span class="foot">Face 015</span>
-                </template>
-              </b-card>
-            </div>
-          </b-col>
+          </div>
         </b-row>
 
         <!-- ------------------------------------- Modal das faces ------------------------------------- -->
@@ -471,6 +166,34 @@ export default {
   components: {
     VueHtml2pdf,
   },
+  data() {
+    return {
+      outdoors: [],
+      photosSrc: [
+        require("@/assets/faces/Face1.png"),
+        require("@/assets/faces/Face2.png"),
+        require("@/assets/faces/Face3.png"),
+        require("@/assets/faces/Face4.png"),
+        require("@/assets/faces/Face5.png"),
+        require("@/assets/faces/Face6.png"),
+        require("@/assets/faces/Face7.png"),
+        require("@/assets/faces/Face8.png"),
+        require("@/assets/faces/Face9.png"),
+        require("@/assets/faces/Face10.png"),
+        require("@/assets/faces/Face11.png"),
+        require("@/assets/faces/Face12.png"),
+        require("@/assets/faces/Face13.png"),
+        require("@/assets/faces/Face14.png"),
+        require("@/assets/faces/Face15.png"),
+      ],
+    };
+  },
+  mounted: function () {
+    this.outdoors = this.$store.getters.getOutdoors.outdoors;
+    console.log(this.outdoors);
+    console.log(this.outdoors[0].photoSrc);
+    console.log(this.photosSrc);
+  },
   methods: {
     // ------------------------------------- Abrir modal das faces -------------------------------------
     showModal() {
@@ -528,9 +251,7 @@ export default {
         }
       );
     },
-    addAndRemoveFavorite() {
-
-    }
+    addAndRemoveFavorite() {},
   },
 };
 </script>
