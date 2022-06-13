@@ -437,6 +437,19 @@ export default {
           });
           this.loginSuccessAlert();
           console.log(response);
+
+          axios({
+            method: "get",
+            url: "https://portomedia.herokuapp.com/profile/favorites",
+            headers: {
+              "x-access-token": this.$store.getters.getToken.token,
+            },
+          }).then((response) => {
+            console.log(response);
+            this.$store.commit("SET_USERFAVORITES", {
+              userFavorites: response.data,
+            });
+          });
         },
         (error) => {
           this.loginFailedAlert();

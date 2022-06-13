@@ -21,11 +21,7 @@
         </b-row>
         <b-row>
           <!-- ------------------------------------- Cards para as 15 faces ------------------------------------- -->
-          <div
-            class="col-4"
-            v-for="(outdoor, index) of outdoors"
-            :key="outdoor.id"
-          >
+          <div class="col-4" v-for="outdoor of outdoors" :key="outdoor.id">
             <div @click="showModal()" class="div">
               <b-card
                 no-body
@@ -43,7 +39,7 @@
                 footer-tag="footer"
                 :id="outdoor.id"
               >
-                <img v-bind:src="photosSrc[index]" class="face" />
+                <img v-bind:src="photosSrc[outdoor.number - 1]" class="face" />
                 <template #footer>
                   <span class="foot">{{ outdoor.name }}</span>
                 </template>
@@ -79,7 +75,9 @@
                 />
               </b-col>
               <b-col>
-                <button class="favorito">Adicionar aos Favoritos</button>
+                <button @click="addAndRemoveFavorite()" class="favorito">
+                  Adicionar aos Favoritos
+                </button>
               </b-col>
               <b-col>
                 <button @click="hideModal" class="confirmar">
@@ -156,8 +154,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
-//import Navbar from "@/components/Navbar.vue";
 import VueHtml2pdf from "vue-html2pdf";
 const axios = require("axios");
 
@@ -185,6 +181,41 @@ export default {
         require("@/assets/faces/Face13.png"),
         require("@/assets/faces/Face14.png"),
         require("@/assets/faces/Face15.png"),
+        // require("@/assets/faces/Face16.png"),
+        // require("@/assets/faces/Face17.png"),
+        // require("@/assets/faces/Face18.png"),
+        // require("@/assets/faces/Face19.png"),
+        // require("@/assets/faces/Face20.png"),
+        // require("@/assets/faces/Face21.png"),
+        // require("@/assets/faces/Face22.png"),
+        // require("@/assets/faces/Face23.png"),
+        // require("@/assets/faces/Face24.png"),
+        // require("@/assets/faces/Face25.png"),
+        // require("@/assets/faces/Face26.png"),
+        // require("@/assets/faces/Face27.png"),
+        // require("@/assets/faces/Face28.png"),
+        // require("@/assets/faces/Face29.png"),
+        // require("@/assets/faces/Face30.png"),
+        // require("@/assets/faces/Face31.png"),
+        // require("@/assets/faces/Face32.png"),
+        // require("@/assets/faces/Face33.png"),
+        // require("@/assets/faces/Face34.png"),
+        // require("@/assets/faces/Face35.png"),
+        // require("@/assets/faces/Face36.png"),
+        // require("@/assets/faces/Face37.png"),
+        // require("@/assets/faces/Face38.png"),
+        // require("@/assets/faces/Face39.png"),
+        // require("@/assets/faces/Face40.png"),
+        // require("@/assets/faces/Face41.png"),
+        // require("@/assets/faces/Face42.png"),
+        // require("@/assets/faces/Face43.png"),
+        // require("@/assets/faces/Face44.png"),
+        // require("@/assets/faces/Face45.png"),
+        // require("@/assets/faces/Face46.png"),
+        // require("@/assets/faces/Face47.png"),
+        // require("@/assets/faces/Face48.png"),
+        // require("@/assets/faces/Face49.png"),
+        // require("@/assets/faces/Face50.png"),
       ],
     };
   },
@@ -216,12 +247,22 @@ export default {
       this.$refs.html2Pdf.generatePdf();
     },
     // ------------------------------------- Função do SweetAlert -------------------------------------
-    pedidoAlert(text) {
+    pedidoAlert(text, timer) {
       this.$swal.fire({
         icon: "success",
         title: `<div style='font-family:ChaletComprime CologneEighty;color:#a58c57;font-size:35pt;font-weight:400'>${text}</div>`,
         showConfirmButton: false,
-        timer: 4000,
+        timer: timer,
+        timerProgressBar: true,
+      });
+    },
+    // ------------------------------------- Função do SweetAlert -------------------------------------
+    failedAlert(text, timer) {
+      this.$swal.fire({
+        icon: "error",
+        title: `<div style='font-family:ChaletComprime CologneEighty;color:#a58c57;font-size:35pt;font-weight:400'>${text}</div>`,
+        showConfirmButton: false,
+        timer: timer,
         timerProgressBar: true,
       });
     },
@@ -242,7 +283,7 @@ export default {
         },
       }).then(
         (response) => {
-          this.pedidoAlert("Pedido de orçamento enviado com sucesso!");
+          this.pedidoAlert("Pedido de orçamento enviado com sucesso!", 4000);
           this.hideModal2();
           console.log(response);
         },
@@ -251,7 +292,27 @@ export default {
         }
       );
     },
-    addAndRemoveFavorite() {},
+    addAndRemoveFavorite() {
+      axios({
+        method: "post",
+        url: "https://portomedia.herokuapp.com/outdoors/favorite/1",
+        headers: {
+          "x-access-token": this.$store.getters.getToken.token,
+        },
+      }).then(
+        (response) => {
+          if (response.data.message === "Outdoor adicionado aos favoritos!") {
+            this.pedidoAlert(response.data.message, 2000);
+          } else {
+            this.failedAlert(response.data.message, 2000);
+          }
+          console.log(response);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    },
   },
 };
 </script>

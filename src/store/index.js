@@ -7,6 +7,7 @@ export default new Vuex.Store({
   state: {
     outdoors: [],
     token: "",
+    userFavorites: []
   },
   getters: {
     getToken: (state) => {
@@ -15,6 +16,9 @@ export default new Vuex.Store({
     getOutdoors: (state) => {
       return state.outdoors;
     },
+    getUserFavorites: (state) => {
+      return state.userFavorites;
+    }
   },
   mutations: {
     SET_OUTDOORS(state, payload) {
@@ -23,6 +27,9 @@ export default new Vuex.Store({
     SET_TOKEN(state, payload) {
       state.token = payload;
     },
+    SET_USERFAVORITES(state, payload) {
+      state.userFavorites = payload;
+    }
   },
   actions: {},
   modules: {},
