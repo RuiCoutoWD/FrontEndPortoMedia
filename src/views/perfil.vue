@@ -3,8 +3,89 @@
     <div class="quemsomos">
       <img src="../assets/Fundosimagem-08.png" class="fundo" />
       <b-container class="bv-example-row">
-        <b-row>
-          <b-col>
+        <div class="row pt-3">
+          <div class="col-6">
+            <h1 class="header">DADOS PESSOAIS</h1>
+            <div class="contactos">
+              <h1 class="userInfoH1 pt-3">
+                Nome:
+                <span class="userInfoSpan" v-if="user.name == null"
+                  >Ainda não adicionou o seu nome!</span
+                ><span class="userInfoSpan" v-else>{{ user.name }}</span>
+              </h1>
+              <h1 class="userInfoH1 pt-3">
+                Email:
+                <span class="userInfoSpan" v-if="user.email == null"
+                  >Ainda não adicionou o seu email!</span
+                ><span class="userInfoSpan" v-else>{{ user.email }}</span>
+              </h1>
+              <h1 class="userInfoH1 pt-3">
+                Contacto:
+                <span class="userInfoSpan" v-if="user.phone_number == null"
+                  >Ainda não adicionou o seu contacto!</span
+                ><span class="userInfoSpan" v-else>{{
+                  user.phone_number
+                }}</span>
+              </h1>
+              <h1 class="userInfoH1 pt-3">
+                Empresa:
+                <span class="userInfoSpan" v-if="user.company == null"
+                  >Ainda não adicionou a sua empresa!</span
+                ><span class="userInfoSpan" v-else>{{ user.company }}</span>
+              </h1>
+              <div class="d-flex mx-auto justify-content-start pt-3 pb-3">
+                <button class="botao" @click="showModal">Editar</button>
+              </div>
+              <b-modal ref="my-modal" hide-footer centered class="mod">
+                <template #modal-header>
+                  <span class="nome">Editar os seus dados pessoais</span>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    @click="hideModal()"
+                  >
+                    X
+                  </button>
+                </template>
+                <label for="editName" class="editProfileLabel">Nome:</label>
+                <input
+                  id="editName"
+                  class="editProfileInput mb-2"
+                  :placeholder="user.name"
+                />
+                <label for="editEmail" class="editProfileLabel">Email:</label>
+                <input
+                  id="editEmail"
+                  class="editProfileInput mb-2"
+                  :placeholder="user.email"
+                />
+                <label for="editContact" class="editProfileLabel"
+                  >Contacto:</label
+                >
+                <input
+                  id="editContact"
+                  class="editProfileInput mb-2"
+                  :placeholder="user.phone_number"
+                />
+                <label for="editCompany" class="editProfileLabel"
+                  >Empresa:</label
+                >
+                <input
+                  id="editCompany"
+                  class="editProfileInput mb-4"
+                  :placeholder="user.company"
+                />
+                <div class="buttons">
+                  <button @click="editPersonalData()" class="confirmar">
+                    Confirmar
+                  </button>
+                </div>
+              </b-modal>
+            </div>
+          </div>
+          <div class="col-6">
             <h1 class="header">ÚLTIMOS ALUGUERES</h1>
 
             <table class="table">
@@ -33,6 +114,10 @@
                 </tr>
               </tbody>
             </table>
+          </div>
+        </div>
+        <div class="row pt-3">
+          <div class="col-6">
             <h1 class="header3">NOTIFICAÇÕES</h1>
             <div class="cardNot" style="width: 80%">
               <div class="card-body">
@@ -78,59 +163,8 @@
                 </b-row>
               </div>
             </div>
-
-            <p class="space2"></p>
-          </b-col>
-          <b-col>
-            <h1 class="header">DADOS PESSOAIS</h1>
-            <div class="contactos">
-              <input class="edittext" placeholder="Nome" />
-              <p class="space"></p>
-              <input class="edittext" placeholder="Email" />
-              <p class="space"></p>
-              <input class="edittext" placeholder="Número" />
-              <p class="space"></p>
-              <input class="edittext" placeholder="Empresa" />
-              <p></p>
-              <div class="d-flex mx-auto justify-content-end">
-                <button class="botao" @click="showModal">Editar</button>
-              </div>
-              <b-modal ref="my-modal" hide-footer centered class="mod">
-                <template #modal-header>
-                  <span class="nome">Editar os seus dados pessoais</span>
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                    @click="hideModal()"
-                  >
-                    X
-                  </button>
-                </template>
-                <input id="editName" class="edittext2" placeholder="Nome" />
-                <p class="space"></p>
-                <input id="editEmail" class="edittext2" placeholder="Email" />
-                <p class="space"></p>
-                <input
-                  id="editContact"
-                  class="edittext2"
-                  placeholder="Número"
-                />
-                <p class="space"></p>
-                <input
-                  id="editCompany"
-                  class="edittext2"
-                  placeholder="Empresa"
-                />
-                <p></p>
-                <div class="buttons">
-                  <button @click="editPersonalData()" class="confirmar">
-                    Confirmar
-                  </button>
-                </div>
-              </b-modal>
-            </div>
+          </div>
+          <div class="col-6">
             <h1 class="header2">FAVORITOS</h1>
             <div class="span">
               <p></p>
@@ -152,14 +186,16 @@
                 </button>
               </template>
               <b-row>
-                <b-col>
+                <b-col v-for="outdoor in favOutdoors" :key="outdoor.id">
                   <div class="div">
                     <b-card
                       no-body
-                      @click="showModalFav()"
+                      @click="
+                        showModalFav(outdoor.id, outdoor.name, outdoor.number)
+                      "
                       title="Image Overlay"
                       img-alt="Image"
-                      img-height="200px"
+                      img-height="100px"
                       img-top
                       tag="article"
                       style="
@@ -169,72 +205,23 @@
                       "
                       class="mb-2 border-0 card"
                       footer-tag="footer"
+                      :id="outdoor.id"
                     >
-                      <img src="../assets/faces/Face1.png" class="face" />
+                      <img :src="photosSrc[outdoor.number - 1]" class="face" />
                       <template #footer>
-                        <span class="foot">Face 001</span>
-                      </template>
-                    </b-card>
-                  </div>
-                </b-col>
-                <b-col>
-                  <div class="div">
-                    <b-card
-                      no-body
-                      @click="showModalFav()"
-                      title="Image Overlay"
-                      img-alt="Image"
-                      img-height="200px"
-                      img-top
-                      tag="article"
-                      style="
-                        max-width: 200px;
-                        text-align: left;
-                        background-color: #303d7a;
-                      "
-                      class="mb-2 border-0 card"
-                      footer-tag="footer"
-                    >
-                      <img src="../assets/faces/Face1.png" class="face" />
-                      <template #footer>
-                        <span class="foot">Face 001</span>
-                      </template>
-                    </b-card>
-                  </div>
-                </b-col>
-                <b-col>
-                  <div class="div">
-                    <b-card
-                      no-body
-                      @click="showModalFav()"
-                      title="Image Overlay"
-                      img-alt="Image"
-                      img-height="200px"
-                      img-top
-                      tag="article"
-                      style="
-                        max-width: 200px;
-                        text-align: left;
-                        background-color: #303d7a;
-                      "
-                      class="mb-2 border-0 card"
-                      footer-tag="footer"
-                    >
-                      <img src="../assets/faces/Face1.png" class="face" />
-                      <template #footer>
-                        <span class="foot">Face 001</span>
+                        <span class="foot">{{ outdoor.name }}</span>
                       </template>
                     </b-card>
                   </div>
                 </b-col>
               </b-row>
             </b-modal>
-          </b-col>
-        </b-row>
+          </div>
+        </div>
       </b-container>
       <b-modal size="lg" ref="my-modalfav" hide-footer centered class="modal">
         <template #modal-header>
-          <span class="nome">Face 01</span>
+          <span class="nome">{{ outdoorName }}</span>
           <button
             type="button"
             class="close"
@@ -245,7 +232,7 @@
             X
           </button>
         </template>
-        <img src="../assets/faces/Face1.png" width="766px" overlay />
+        <img :src="photosSrc[outdoorNumber - 1]" width="766px" overlay />
         <p></p>
         <div class="buttons">
           <b-row>
@@ -255,7 +242,9 @@
               </div>
             </b-col>
             <b-col>
-              <button class="favorito">Remover dos Favoritos</button>
+              <button class="favorito" @click="addAndRemoveFavorite()">
+                {{ favBtn }}
+              </button>
             </b-col>
             <b-col>
               <button @click="hideModalFav()" class="confirmar2">
@@ -280,8 +269,41 @@ export default {
   components: {
     //Navbar,
   },
+  data() {
+    return {
+      user: {},
+      outdoors: [],
+      userFavorites: [],
+      photosSrc: [],
+      favOutdoors: [],
+      outdoorId: 0,
+      outdoorName: "",
+      outdoorNumber: 0,
+      favBtn: "Remover dos Favoritos",
+    };
+  },
+  mounted: function () {
+    this.user = this.$store.getters.getUser.user;
+    this.outdoors = this.$store.getters.getOutdoors.outdoors;
+    this.userFavorites = this.$store.getters.getUserFavorites.userFavorites;
+    this.photosSrc = this.$store.getters.getPhotosSrc;
+
+    for (const outdoor of this.outdoors) {
+      for (const fav of this.userFavorites) {
+        if (outdoor.id === fav.outdoorId) {
+          this.favOutdoors.push(outdoor);
+        }
+      }
+    }
+
+    console.log(this.favOutdoors);
+  },
   methods: {
-    showModalFav() {
+    showModalFav(id, name, number) {
+      this.outdoorId = id;
+      this.outdoorName = name;
+      this.outdoorNumber = number;
+      this.favBtn = "Remover dos Favoritos";
       this.$refs["my-modalfav"].show();
     },
     showModal() {
@@ -304,36 +326,125 @@ export default {
       // when the modal has hidden
       this.$refs["my-modal"].toggle("#toggle-btn");
     },
-    pedidoAlert() {
-      // this.logInModalShow = false;
-      // this.registerModalShow = false;
+    pedidoAlert(text, timer) {
       this.$swal.fire({
         icon: "success",
-        title:
-          "<div style='font-family:ChaletComprime CologneEighty;color:#a58c57;font-size:35pt;font-weight:400'>Dados editados com sucesso!</div>",
+        title: `<div style='font-family:ChaletComprime CologneEighty;color:#a58c57;font-size:35pt;font-weight:400'>${text}</div>`,
         showConfirmButton: false,
-        timer: 4000,
+        timer: timer,
+        timerProgressBar: true,
+      });
+    },
+    // ------------------------------------- Função do SweetAlert -------------------------------------
+    failedAlert(text, timer) {
+      this.$swal.fire({
+        icon: "error",
+        title: `<div style='font-family:ChaletComprime CologneEighty;color:#a58c57;font-size:35pt;font-weight:400'>${text}</div>`,
+        showConfirmButton: false,
+        timer: timer,
         timerProgressBar: true,
       });
     },
     editPersonalData() {
+      let name = document.getElementById("editName").value;
+      let email = document.getElementById("editEmail").value;
+      let phone_number = document.getElementById("editContact").value;
+      let company = document.getElementById("editCompany").value;
+
+      let data = {};
+
+      if (name != "") {
+        data.name = name;
+      }
+      if (email != "") {
+        data.email = email;
+      }
+      if (phone_number != "") {
+        data.phone_number = phone_number;
+      }
+      if (company != "") {
+        data.company = company;
+      }
+
+      console.log(data);
+
       axios({
         method: "put",
         url: "https://portomedia.herokuapp.com/profile",
-        data: {
-          name: document.getElementById("editName").value,
-          email: document.getElementById("editEmail").value,
-          phone_number: document.getElementById("editContact").value,
-          company: document.getElementById("editCompany").value,
-        },
+        data: data,
         headers: {
-          "x-access-token":
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU0MTYwMTQ2LCJleHAiOjE2NTQyNDY1NDZ9.zT_8lUqQ_tF5f_RjLKXAurNzgoqdoJTjxMS6WTzyUgM",
+          "x-access-token": this.$store.getters.getToken.token,
         },
       }).then(
-        (reponse) => {
-          console.log(reponse);
-          this.pedidoAlert();
+        (response) => {
+          console.log(response);
+          this.pedidoAlert("Dados editados com sucesso!", 4000);
+
+          axios({
+            method: "get",
+            url: "https://portomedia.herokuapp.com/profile/user",
+            headers: {
+              "x-access-token": this.$store.getters.getToken.token,
+            },
+          }).then((response) => {
+            console.log(response);
+            this.$store.commit("SET_USER", {
+              user: response.data,
+            });
+            this.user = this.$store.getters.getUser.user;
+            console.log(this.user);
+          });
+        },
+        (error) => {
+          this.failedAlert(
+            "Ocorreu um erro! Por favor tente mais tarde!",
+            4000
+          );
+          console.log(error);
+        }
+      );
+    },
+    addAndRemoveFavorite() {
+      axios({
+        method: "post",
+        url:
+          "https://portomedia.herokuapp.com/outdoors/favorite/" +
+          this.outdoorId,
+        headers: {
+          "x-access-token": this.$store.getters.getToken.token,
+        },
+      }).then(
+        (response) => {
+          if (response.data.message === "Outdoor adicionado aos favoritos!") {
+            this.pedidoAlert(response.data.message, 2000);
+            this.favBtn = "Remover dos Favoritos";
+          } else {
+            this.failedAlert(response.data.message, 2000);
+            this.favBtn = "Adicionar aos Favoritos";
+          }
+          axios({
+            method: "get",
+            url: "https://portomedia.herokuapp.com/profile/favorites",
+            headers: {
+              "x-access-token": this.$store.getters.getToken.token,
+            },
+          }).then((response) => {
+            console.log(response);
+            this.$store.commit("SET_USERFAVORITES", {
+              userFavorites: response.data,
+            });
+            this.userFavorites = response.data;
+
+            this.favOutdoors = [];
+            for (const outdoor of this.outdoors) {
+              for (const fav of this.userFavorites) {
+                if (outdoor.id === fav.outdoorId) {
+                  this.favOutdoors.push(outdoor);
+                }
+              }
+            }
+          });
+          console.log(response);
         },
         (error) => {
           console.log(error);
@@ -471,18 +582,18 @@ export default {
 
 .confirmar {
   background-color: #fcfff7;
-  color: #e80b0b;
-  width: 180px;
-  border-radius: 6px;
-  border-color: #e80b0b;
+  color: #303d7a;
+  width: 150px;
+  border-radius: 10px;
+  border-color: #303d7a;
   border-width: 1px;
+  font-family: Kayak Sans;
+  font-size: 20px;
 }
 
 .confirmar:hover {
   color: #fcfff7;
-  background-color: #e80b0b;
-  width: 180px;
-  border-radius: 6px;
+  background-color: #303d7a;
 }
 
 .header {
@@ -509,7 +620,6 @@ export default {
   color: #a58c57;
   text-decoration: none;
   text-align: left;
-  margin-top: 3rem;
 }
 
 .contactos {
@@ -522,18 +632,30 @@ export default {
   font-size: 14px;
 }
 
-.edittext2 {
+.editProfileInput {
   width: 100%;
+  font-weight: 0;
+  font-size: 18px;
+  font-family: Kayak Sans;
+  border-radius: 10px;
+  border-width: 1px;
+  padding: 4px;
+}
+
+.editProfileLabel {
+  font-family: Kayak Sans;
+  font-size: 18px;
   font-weight: bold;
-  font-size: 14px;
 }
 
 .botao {
   background-color: #fcfff7;
+  font-family: Kayak Sans;
+  font-size: 20px;
   color: #303d7a;
-  width: 100px;
+  width: 120px;
   border-width: 1px;
-  border-radius: 6px;
+  border-radius: 10px;
 }
 
 .botao:hover {
@@ -563,5 +685,17 @@ export default {
 .not {
   margin-right: 2rem;
   margin-top: -1rem;
+}
+
+.userInfoH1 {
+  font-family: Kayak Sans;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.userInfoSpan {
+  font-family: Kayak Sans;
+  font-weight: lighter;
+  font-size: 22px;
 }
 </style>

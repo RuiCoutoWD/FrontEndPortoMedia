@@ -435,8 +435,10 @@ export default {
           this.$store.commit("SET_TOKEN", {
             token: response.data.accessToken,
           });
+          this.$store.commit("SET_USER", {
+            user: response.data
+          })
           this.loginSuccessAlert();
-          console.log(response);
 
           axios({
             method: "get",
