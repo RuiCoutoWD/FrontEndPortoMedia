@@ -436,8 +436,8 @@ export default {
             token: response.data.accessToken,
           });
           this.$store.commit("SET_USER", {
-            user: response.data
-          })
+            user: response.data,
+          });
           this.loginSuccessAlert();
 
           axios({

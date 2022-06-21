@@ -4,7 +4,7 @@
       <img src="../assets/Fundosimagem-08.png" class="fundo" />
       <b-container class="bv-example-row">
         <div class="row pt-3">
-          <div class="col-6">
+          <div class="col-md-6 col-sm-12">
             <h1 class="header">DADOS PESSOAIS</h1>
             <div class="contactos">
               <h1 class="userInfoH1 pt-3">
@@ -33,9 +33,18 @@
                   >Ainda não adicionou a sua empresa!</span
                 ><span class="userInfoSpan" v-else>{{ user.company }}</span>
               </h1>
-              <div class="d-flex mx-auto justify-content-start pt-3 pb-3">
-                <button class="botao" @click="showModal">Editar</button>
-              </div>
+              <b-row>
+                <div
+                  class="col-3 d-flex mx-auto justify-content-start pt-3 pb-3"
+                >
+                  <button class="botao" @click="showModal">Editar</button>
+                </div>
+                <div class="col-9 pt-3 pb-3">
+                  <button class="botaoPassword" @click="showModalPassword">
+                    Mudar Palavra-Passe
+                  </button>
+                </div>
+              </b-row>
               <b-modal ref="my-modal" hide-footer centered class="mod">
                 <template #modal-header>
                   <span class="nome">Editar os seus dados pessoais</span>
@@ -83,9 +92,45 @@
                   </button>
                 </div>
               </b-modal>
+              <!-- -------------------------------------------------------------------- -->
+              <b-modal ref="modalPassword" hide-footer centered class="mod">
+                <template #modal-header>
+                  <span class="nome">Mudar Palavra-Passe</span>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    @click="hideModal()"
+                  >
+                    X
+                  </button>
+                </template>
+                <label for="password" class="editProfileLabel"
+                  >Nova palavra-passe:</label
+                >
+                <input
+                  id="password"
+                  type="password"
+                  class="editPasswordInput mb-2"
+                />
+                <label for="repeatPassword" class="editProfileLabel"
+                  >Repetir palavra-passe:</label
+                >
+                <input
+                  id="repeatPassword"
+                  type="password"
+                  class="editPasswordInput mb-2"
+                />
+                <div class="buttons">
+                  <button @click="changePassword()" class="confirmar">
+                    Confirmar
+                  </button>
+                </div>
+              </b-modal>
             </div>
           </div>
-          <div class="col-6">
+          <div class="col-md-6 col-sm-12">
             <h1 class="header">ÚLTIMOS ALUGUERES</h1>
 
             <table class="table">
@@ -117,7 +162,7 @@
           </div>
         </div>
         <div class="row pt-3">
-          <div class="col-6">
+          <div class="col-md-6 col-sm-12">
             <h1 class="header3">NOTIFICAÇÕES</h1>
             <div class="cardNot" style="width: 80%">
               <div class="card-body">
@@ -164,15 +209,57 @@
               </div>
             </div>
           </div>
-          <div class="col-6">
+          <div class="col-md-6 col-sm-12">
             <h1 class="header2">FAVORITOS</h1>
-            <div class="span">
-              <p></p>
+            <b-row>
+              <div
+                class="
+                  col-lg-4 col-md-6 col-sm-6 col-xs-12
+                  d-flex
+                  justify-content-center
+                  mb-3
+                "
+                v-for="outdoor in filteredFavorites()"
+                :key="outdoor.id"
+              >
+                <b-card
+                  no-body
+                  @click="
+                    showModalFav(outdoor.id, outdoor.name, outdoor.number)
+                  "
+                  title="Image Overlay"
+                  img-alt="Image"
+                  img-height="100px"
+                  img-top
+                  tag="article"
+                  style="
+                    max-width: 200px;
+                    text-align: left;
+                    background-color: #303d7a;
+                  "
+                  class="border-0 card"
+                  footer-tag="footer"
+                  :id="outdoor.id"
+                >
+                  <img
+                    :src="photosSrc[outdoor.number - 1]"
+                    class="favOutdoorImage"
+                  />
+                  <template #footer>
+                    <span class="foot">{{ outdoor.name }}</span>
+                  </template>
+                </b-card>
+              </div>
+            </b-row>
+            <div class="span" v-if="favOutdoors != null">
               <span @click="showModal2()" class="txt"
-                >Veja os seus favoritos</span
+                >Ver todos os favoritos!</span
               >
             </div>
-            <b-modal ref="my-modal2" hide-footer centered>
+            <div class="span" v-else>
+              Ainda não adicionou nenhum outdoor aos favoritos!
+            </div>
+            <b-modal size="lg" ref="my-modal2" hide-footer centered>
               <template #modal-header>
                 <span class="nome">Os seus favoritos</span>
                 <button
@@ -186,34 +273,44 @@
                 </button>
               </template>
               <b-row>
-                <b-col v-for="outdoor in favOutdoors" :key="outdoor.id">
-                  <div class="div">
-                    <b-card
-                      no-body
-                      @click="
-                        showModalFav(outdoor.id, outdoor.name, outdoor.number)
-                      "
-                      title="Image Overlay"
-                      img-alt="Image"
-                      img-height="100px"
-                      img-top
-                      tag="article"
-                      style="
-                        max-width: 200px;
-                        text-align: left;
-                        background-color: #303d7a;
-                      "
-                      class="mb-2 border-0 card"
-                      footer-tag="footer"
-                      :id="outdoor.id"
-                    >
-                      <img :src="photosSrc[outdoor.number - 1]" class="face" />
-                      <template #footer>
-                        <span class="foot">{{ outdoor.name }}</span>
-                      </template>
-                    </b-card>
-                  </div>
-                </b-col>
+                <div
+                  class="
+                    col-lg-4 col-md-6 col-sm-6 col-xs-12
+                    d-flex
+                    justify-content-center
+                    mb-3
+                  "
+                  v-for="outdoor in favOutdoors"
+                  :key="outdoor.id"
+                >
+                  <b-card
+                    no-body
+                    @click="
+                      showModalFav(outdoor.id, outdoor.name, outdoor.number)
+                    "
+                    title="Image Overlay"
+                    img-alt="Image"
+                    img-height="100px"
+                    img-top
+                    tag="article"
+                    style="
+                      max-width: 200px;
+                      text-align: left;
+                      background-color: #303d7a;
+                    "
+                    class="border-0 card"
+                    footer-tag="footer"
+                    :id="outdoor.id"
+                  >
+                    <img
+                      :src="photosSrc[outdoor.number - 1]"
+                      class="favOutdoorImage"
+                    />
+                    <template #footer>
+                      <span class="foot">{{ outdoor.name }}</span>
+                    </template>
+                  </b-card>
+                </div>
               </b-row>
             </b-modal>
           </div>
@@ -311,6 +408,9 @@ export default {
     },
     showModal2() {
       this.$refs["my-modal2"].show();
+    },
+    showModalPassword() {
+      this.$refs["modalPassword"].show();
     },
     hideModal() {
       this.$refs["my-modal"].hide();
@@ -451,6 +551,34 @@ export default {
         }
       );
     },
+    filteredFavorites() {
+      console.log(this.favOutdoors.slice(0, 3));
+      return this.favOutdoors.slice(0, 3);
+    },
+    changePassword() {
+      axios({
+        method: "put",
+        url: "https://portomedia.herokuapp.com/trocar-password",
+        headers: {
+          "x-access-token": this.$store.getters.getToken.token,
+        },
+        data: {
+          password: document.getElementById("password").value,
+          repeatPassword: document.getElementById("repeatPassword").value,
+        },
+      }).then(
+        (response) => {
+          this.pedidoAlert(response.data.message, 2000);
+          this.$refs["modalPassword"].hide();
+          console.log(response);
+        },
+        (error) => {
+          this.failedAlert(error.response.data.message, 2000);
+          this.$refs["modalPassword"].hide();
+          console.log(error);
+        }
+      );
+    },
   },
 };
 </script>
@@ -495,11 +623,14 @@ export default {
 .txt:hover {
   text-decoration: underline;
   cursor: pointer;
-  color: #303d7a;
+  color: #6b79b6;
 }
 
 .span {
-  text-align: left;
+  text-align: right;
+  font-family: Kayak Sans;
+  font-size: 16pt;
+  text-decoration: none;
 }
 
 .card:hover {
@@ -642,6 +773,15 @@ export default {
   padding: 4px;
 }
 
+.editPasswordInput {
+  width: 100%;
+  font-weight: 0;
+  font-size: 18px;
+  border-radius: 10px;
+  border-width: 1px;
+  padding: 4px;
+}
+
 .editProfileLabel {
   font-family: Kayak Sans;
   font-size: 18px;
@@ -659,6 +799,21 @@ export default {
 }
 
 .botao:hover {
+  background-color: #303d7a;
+  color: #fcfff7;
+}
+
+.botaoPassword {
+  background-color: #fcfff7;
+  font-family: Kayak Sans;
+  font-size: 20px;
+  color: #303d7a;
+  width: 200px;
+  border-width: 1px;
+  border-radius: 10px;
+}
+
+.botaoPassword:hover {
   background-color: #303d7a;
   color: #fcfff7;
 }
@@ -697,5 +852,12 @@ export default {
   font-family: Kayak Sans;
   font-weight: lighter;
   font-size: 22px;
+}
+
+.favOutdoorImage {
+  height: 150px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 6px 6px 0 0;
 }
 </style>

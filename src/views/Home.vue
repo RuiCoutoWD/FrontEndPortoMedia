@@ -35,7 +35,8 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* opacity: 40%; */
+  z-index: -1;
+  /* opacity: 80%; */
   /* filter: brightness(85%); */
 }
 </style>

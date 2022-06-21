@@ -21,7 +21,11 @@
         </b-row>
         <b-row>
           <!-- ------------------------------------- Cards para as 15 faces ------------------------------------- -->
-          <div class="col-4" v-for="outdoor of outdoors" :key="outdoor.id">
+          <div
+            class="col-xs-12 col-sm-12 col-md-6 col-lg-4 mb-4 mx-auto"
+            v-for="outdoor of outdoors"
+            :key="outdoor.id"
+          >
             <div
               @click="showModal(outdoor.id, outdoor.name, outdoor.number)"
               class="div"
@@ -30,11 +34,10 @@
                 no-body
                 title="Image Overlay"
                 img-alt="Image"
-                img-height="200px"
                 img-top
                 tag="article"
                 style="
-                  max-width: 400.3px;
+                  min-width: 100%;
                   text-align: left;
                   background-color: #303d7a;
                 "
@@ -42,7 +45,10 @@
                 footer-tag="footer"
                 :id="outdoor.id"
               >
-                <img v-bind:src="photosSrc[outdoor.number - 1]" class="face" />
+                <img
+                  v-bind:src="photosSrc[outdoor.number - 1]"
+                  class="face img-fluid"
+                />
                 <template #footer>
                   <span class="foot">{{ outdoor.name }}</span>
                 </template>
@@ -191,12 +197,14 @@ export default {
       let userFavorites = this.$store.getters.getUserFavorites.userFavorites;
       let count = 0;
 
-      for (const fav of userFavorites) {
-        console.log(fav.outdoorId);
-        console.log(id);
-        if (parseInt(fav.outdoorId) === parseInt(id)) {
-          count = count + 1;
-          console.log(count);
+      if (this.$store.getters.getUser.user != null) {
+        for (const fav of userFavorites) {
+          console.log(fav.outdoorId);
+          console.log(id);
+          if (parseInt(fav.outdoorId) === parseInt(id)) {
+            count = count + 1;
+            console.log(count);
+          }
         }
       }
 
@@ -248,6 +256,7 @@ export default {
         timerProgressBar: true,
       });
     },
+    // ---------------------------- Função para pedir Budget de um Outdoor ----------------------------
     outdoorBudgetRequest() {
       axios({
         method: "post",
@@ -274,6 +283,7 @@ export default {
         }
       );
     },
+    // ------------------------- Função para adicionar um Outdoor aos favoritos -------------------------
     addAndRemoveFavorite() {
       axios({
         method: "post",
@@ -307,6 +317,14 @@ export default {
           console.log(response);
         },
         (error) => {
+          this.$swal.fire({
+            icon: "error",
+            title: `<div style='font-family:ChaletComprime CologneEighty;color:#a58c57;font-size:35pt;font-weight:400'>Erro!</div>`,
+            html: "<div style='font-family:Kayak Sans;font-size:16pt'>É necessário fazer o LogIn para adicionar um outdoor aos favoritos!</div>",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+          });
           console.log(error);
         }
       );
@@ -420,8 +438,10 @@ export default {
 
 /* ------------------------------------- Faces ------------------------------------- */
 .face {
-  width: 400px;
+  width: 100%;
   height: 280px;
+  object-fit: cover;
+  border-radius: 6px 6px 0 0;
 }
 
 /* ------------------------------------- Posição dos cards ------------------------------------- */
