@@ -261,7 +261,6 @@ export default {
       axios({
         method: "post",
         url: "https://portomedia.herokuapp.com/outdoors/" + this.outdoorId,
-        // + outdoorId,
         data: {
           message: document.getElementById("inputMessage").value,
           name: document.getElementById("inputName").value,
