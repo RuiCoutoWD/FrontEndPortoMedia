@@ -36,7 +36,7 @@
                 <input
                   class="inputRent py-1 px-2"
                   id="inputClName"
-                  placeholder="Nome de Cliente"
+                  placeholder="Empresa Cliente"
                 />
                 <p class="space"></p>
                 <input
@@ -77,6 +77,9 @@
                 <button class="btnconfirm py-1" @click="createOutdoorRent()">
                   Confirmar
                 </button>
+                <button class="btnRent py-1" @click="showModalRents()">
+                  Ver todos os alugueres
+                </button>
                 <button @click="generateReport" class="btnexport">
                   Exportar Base de Dados
                 </button>
@@ -87,11 +90,8 @@
           <!-- Alterar os outdoors visíveis -->
           <div class="col-6">
             <h1 class="header">ALTERAÇÃO DE OUTDOORS VISÍVEIS</h1>
-            <!-- <button class="botaoAlterar" @click="showModalFav()">
-              Alterar outdoors
-            </button> -->
             <p class="d-flex justify-content-start pOutNumber">
-              <b class="mr-1">Outdoors visíveis: </b>
+              <b class="mr-1">Outdoors visíveis: </b><span class="mx-1"></span>
               {{ visibleOutdoorsNumber() }} de 15
             </p>
             <div class="divVisOutdoors">
@@ -144,105 +144,72 @@
         </div>
       </b-container>
     </div>
-    <!-- <b-modal size="lg" ref="my-modalfav" hide-footer centered class="modal">
+    <b-modal size="lg" ref="modalRents" hide-footer centered class="modal">
       <template #modal-header>
-        <span class="nome">Outdoors</span>
+        <span class="nome">REGISTO DE ALGUERES</span>
         <button
           type="button"
           class="close"
           data-dismiss="modal"
           aria-label="Close"
-          @click="hideModalFav()"
+          @click="hideModalRents()"
         >
           X
         </button>
       </template>
-      <p><b>Outdoors visíveis:</b> 3 de 8</p>
+      <p class="d-flex justify-content-start pOutNumber">
+        <b class="mr-1">Alugueres a decorrer:</b><span class="mx-1"></span>
+        {{ runningRentsNumber() }} de {{ rents.length }}
+      </p>
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th scope="col">Face</th>
-            <th scope="col">Estado</th>
-            <th scope="col">Ações</th>
+            <th scope="col" class="text-center tableTxt">Empresa</th>
+            <th scope="col" class="text-center tableTxt">Face</th>
+            <th scope="col" class="text-center tableTxt">Preço (€)</th>
+            <th scope="col" class="text-center tableTxt">Data Início</th>
+            <th scope="col" class="text-center tableTxt">Data Término</th>
+            <th scope="col" class="text-center tableTxt">Estado</th>
+            <th scope="col" class="text-center tableTxt">Mudar Estado</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">001</th>
-            <td>Visível</td>
-            <td>
-              <button type="button" class="btn btn-primary">
-                <i class="far fa-eye"></i><img src="../assets/hide.png" />
-              </button>
+          <tr v-for="rent of rents" :key="rent.id">
+            <td class="text-center pt-3 tableTxt">{{ rent.company }}</td>
+            <td class="text-center pt-3 tableTxt">{{ rent.outdoorNumber }}</td>
+            <td class="text-center pt-3 tableTxt">{{ rent.monthly_price }}</td>
+            <td class="text-center pt-3 tableTxt">{{ rent.begin_date }}</td>
+            <td class="text-center pt-3 tableTxt">{{ rent.end_date }}</td>
+            <td
+              class="text-center pt-3 tableTxt"
+              v-if="rent.status == 'Aceite'"
+              style="color: green"
+            >
+              {{ rent.status }}
             </td>
-          </tr>
-          <tr>
-            <th scope="row">002</th>
-            <td>Não Visível</td>
-            <td>
-              <button type="button" class="btn btn-primary">
-                <i class="far fa-eye"></i><img src="../assets/show.png" />
-              </button>
+            <td
+              class="text-center pt-3 tableTxt"
+              v-else-if="rent.status == 'Terminado'"
+            >
+              {{ rent.status }}
             </td>
-          </tr>
-          <tr>
-            <th scope="row">003</th>
-            <td>Não Visível</td>
-            <td>
-              <button type="button" class="btn btn-primary">
-                <i class="far fa-eye"></i><img src="../assets/show.png" />
-              </button>
+            <td class="text-center pt-3 tableTxt" v-else style="color: #e80b0b">
+              {{ rent.status }}
             </td>
-          </tr>
-          <tr>
-            <th scope="row">004</th>
-            <td>Não Visível</td>
-            <td>
-              <button type="button" class="btn btn-primary">
-                <i class="far fa-eye"></i><img src="../assets/show.png" />
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">005</th>
-            <td>Visível</td>
-            <td>
-              <button type="button" class="btn btn-primary">
-                <i class="far fa-eye"></i><img src="../assets/hide.png" />
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">006</th>
-            <td>Não Visível</td>
-            <td>
-              <button type="button" class="btn btn-primary">
-                <i class="far fa-eye"></i><img src="../assets/show.png" />
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">007</th>
-            <td>Não Visível</td>
-            <td>
-              <button type="button" class="btn btn-primary">
-                <i class="far fa-eye"></i><img src="../assets/show.png" />
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">008</th>
-            <td>Visível</td>
-            <td>
-              <button type="button" class="btn btn-primary">
+            <td class="d-flex justify-content-center">
+              <button
+                type="button"
+                class="btn btn-primary btnExchange"
+                @click="changeRentStatus(rent.id, rent.status)"
+              >
                 <i class="far fa-eye"></i
-                ><img src="../assets/hide.png" id="img" />
+                ><img class="exchangeImg" src="../assets/exchange.png" />
               </button>
             </td>
           </tr>
         </tbody>
       </table>
-    </b-modal> -->
+    </b-modal>
   </div>
 </template>
 
@@ -263,6 +230,7 @@ export default {
     return {
       currentEmail: "",
       outdoors: [],
+      rents: [],
       datePickerBegin: "",
       datePickerEnd: "",
     };
@@ -297,13 +265,29 @@ export default {
         console.log(error);
       }
     );
+
+    axios({
+      method: "get",
+      url: "https://portomedia.herokuapp.com/admin/request",
+      headers: {
+        "x-access-token": this.$store.getters.getToken.token,
+      },
+    }).then(
+      (response) => {
+        this.rents = response.data;
+        console.log(this.rents);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   },
   methods: {
-    showModalFav() {
-      this.$refs["my-modalfav"].show();
+    showModalRents() {
+      this.$refs["modalRents"].show();
     },
-    hideModalFav() {
-      this.$refs["my-modalfav"].hide();
+    hideModalRents() {
+      this.$refs["modalRents"].hide();
     },
     generateReport() {
       this.$refs.html2Pdf.generatePdf();
@@ -437,13 +421,104 @@ export default {
       );
     },
     createOutdoorRent() {
-      // const name = document.getElementById("inputClName").value;
-      // const email = document.getElementById("inputClEmail").value;
-      // const face = document.getElementById("inputClFace").value;
-      // const price = document.getElementById("inputClPrice").value;
+      const name = document.getElementById("inputClName").value;
+      const email = document.getElementById("inputClEmail").value;
+      const face = document.getElementById("inputClFace").value;
+      const price = document.getElementById("inputClPrice").value;
 
+      console.log(name, email, face, price, this.begin_date, this.end_date);
+
+      axios({
+        method: "post",
+        url: "https://portomedia.herokuapp.com/admin/request",
+        headers: {
+          "x-access-token": this.$store.getters.getToken.token,
+        },
+        data: {
+          company: name,
+          userEmail: email,
+          outdoorNumber: parseInt(face),
+          monthly_price: parseInt(price),
+          begin_date: this.datePickerBegin,
+          end_date: this.datePickerEnd,
+        },
+      }).then(
+        (response) => {
+          this.pedidoAlert("Aluguer adicionado com sucesso!", "", 2000);
+          console.log(response);
+        },
+        (error) => {
+          this.failedAlert("Ocorreu um erro!", 2000);
+          console.log(error);
+        }
+      );
+
+      document.getElementById("inputClName").value = "";
+      document.getElementById("inputClEmail").value = "";
+      document.getElementById("inputClFace").value = "";
+      document.getElementById("inputClPrice").value = "";
       this.datePickerBegin = "";
       this.datePickerEnd = "";
+    },
+    runningRentsNumber() {
+      let count = 0;
+
+      for (const rent of this.rents) {
+        if (rent.status == "Aceite") {
+          count += 1;
+        }
+      }
+
+      return count;
+    },
+    changeRentStatus(id, status) {
+      let newStatus = "";
+      switch (status) {
+        case "Aceite":
+          newStatus = "Terminado";
+          break;
+        case "Terminado":
+          newStatus = "Pendente";
+          break;
+        case "Pendente":
+          newStatus = "Aceite";
+          break;
+        default:
+          break;
+      }
+      axios({
+        method: "put",
+        url: "https://portomedia.herokuapp.com/admin/request/" + id,
+        headers: {
+          "x-access-token": this.$store.getters.getToken.token,
+        },
+        data: {
+          status: newStatus,
+        },
+      }).then(
+        (response) => {
+          this.pedidoAlert("Estado mudado para: " + newStatus, "", 2000);
+          console.log(response);
+          axios({
+            method: "get",
+            url: "https://portomedia.herokuapp.com/admin/request",
+            headers: {
+              "x-access-token": this.$store.getters.getToken.token,
+            },
+          }).then(
+            (response) => {
+              this.rents = response.data;
+            },
+            (error) => {
+              console.log(error);
+            }
+          );
+        },
+        (error) => {
+          this.failedAlert("Ocorreu um erro!", 2000);
+          console.log(error);
+        }
+      );
     },
   },
 };
@@ -526,7 +601,8 @@ export default {
 .btnexport {
   font-size: 16px;
   background-color: #fcfff7;
-  color: #303d7a;
+  color: #e80b0b;
+  border-color: #e80b0b;
   width: 180px;
   border-width: 1px;
   border-radius: 6px;
@@ -534,6 +610,22 @@ export default {
 }
 
 .btnexport:hover {
+  background-color: #e80b0b;
+  color: #fcfff7;
+}
+
+.btnRent {
+  font-size: 16px;
+  background-color: #fcfff7;
+  color: #303d7a;
+  width: 180px;
+  border-width: 1px;
+  border-radius: 6px;
+  font-family: Kayak Sans;
+  margin-right: 1rem;
+}
+
+.btnRent:hover {
   background-color: #303d7a;
   color: #fcfff7;
 }
@@ -601,8 +693,22 @@ export default {
   border-color: #303d7a;
 }
 
+.btnExchange {
+  border-radius: 50px;
+}
+
+.btnExchange:hover {
+  background-color: #a58c57;
+  border-color: #a58c57;
+}
+
 .pOutNumber {
   font-family: Kayak Sans;
   font-size: 16pt;
+}
+
+.exchangeImg {
+  width: 28px;
+  height: 28px;
 }
 </style>
