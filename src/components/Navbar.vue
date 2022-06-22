@@ -18,18 +18,34 @@
               /></router-link>
               <!-- Navbar items -->
               <router-link to="/about" class="link"
-                ><span class="navBarItem p-2" @click="setActiveNavItem(0)"
+                ><span
+                  class="navBarItem navBarMargin p-2"
+                  @click="setActiveNavItem(0)"
                   >Quem somos</span
                 ></router-link
               >
               <router-link to="/outdoors" class="link"
-                ><span class="navBarItem p-2" @click="setActiveNavItem(1)"
+                ><span
+                  class="navBarItem navBarMargin p-2"
+                  @click="setActiveNavItem(1)"
                   >Outdoors</span
                 ></router-link
               >
               <router-link to="/contacts" class="link"
-                ><span class="navBarItem p-2" @click="setActiveNavItem(2)"
+                ><span
+                  class="navBarItem navBarMargin p-2"
+                  @click="setActiveNavItem(2)"
                   >Contactos</span
+                ></router-link
+              >
+              <router-link
+                to="/admin"
+                class="link"
+                v-if="user.name != null && user.user_type == 'Admin'"
+                ><span
+                  class="navBarItem navBarMargin p-2"
+                  @click="setActiveNavItem(3)"
+                  >Admin</span
                 ></router-link
               >
             </b-navbar-nav>
@@ -55,19 +71,26 @@
                 </template>
                 <!-- Profile icon dropdown menu -->
                 <b-dropdown-item class="dropdown"
-                  ><router-link to="/profile" class="link"
-                    ><a class="userButton">Perfil</a></router-link
+                  ><router-link to="/profile" class="link navBarItem"
+                    ><a class="userButton" @click="setActiveNavItem(4)"
+                      >Perfil</a
+                    ></router-link
                   ></b-dropdown-item
                 >
                 <b-dropdown-divider></b-dropdown-divider>
                 <b-dropdown-item class="dropdown"
-                  ><router-link to="/support" class="link"
-                    ><a class="userButton">Centro de Apoio</a></router-link
+                  ><router-link to="/support" class="link navBarItem"
+                    ><a class="userButton" @click="setActiveNavItem(5)"
+                      >Centro de Apoio</a
+                    ></router-link
                   ></b-dropdown-item
                 >
                 <b-dropdown-divider></b-dropdown-divider>
                 <b-dropdown-item @click="logOut()"
-                  ><a href="#" class="dropdown userButton logOutButton"
+                  ><a
+                    href="#"
+                    class="dropdown userButton logOutButton navBarItem"
+                    @click="setActiveNavItem(6)"
                     >Sair</a
                   ></b-dropdown-item
                 >
@@ -264,7 +287,9 @@ import axios from "axios";
 export default {
   name: "Navbar",
   data() {
-    return {};
+    return {
+      user: {},
+    };
   },
   methods: {
     hideModal(modal) {
@@ -438,6 +463,9 @@ export default {
           this.$store.commit("SET_USER", {
             user: response.data,
           });
+          this.user = response.data;
+          console.log(this.user);
+
           this.loginSuccessAlert();
 
           axios({
@@ -536,8 +564,11 @@ link.router-link-active {
 .navBarItem {
   font-family: Kayak Sans;
   font-size: 25px;
-  margin-left: 1rem;
   color: #fcfff7;
+}
+
+.navBarMargin {
+  margin-left: 1rem;
 }
 
 .navBarItem:hover {

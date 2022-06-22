@@ -86,14 +86,14 @@
               <b-col>
                 <button
                   @click="addAndRemoveFavorite()"
-                  class="favorito"
+                  class="favorito btnModal"
                   id="favButton"
                 >
                   {{ favBtn }}
                 </button>
               </b-col>
               <b-col>
-                <button @click="hideModal" class="confirmar">
+                <button @click="hideModal" class="confirmar btnModal">
                   Pedir Orçamento
                 </button>
               </b-col>
@@ -117,22 +117,26 @@
             </button>
           </template>
           <div class="contactos">
-            <input id="inputName" class="edittext" placeholder="Nome*" />
+            <input id="inputName" class="edittext px-2" placeholder="Nome*" />
             <p></p>
-            <input id="inputEmail" class="edittext" placeholder="Email*" />
+            <input id="inputEmail" class="edittext px-2" placeholder="Email*" />
             <p></p>
             <input
               id="inputContact"
               type="number"
-              class="edittext"
+              class="edittext px-2"
               placeholder="Contacto"
             />
             <p></p>
-            <input id="inputCompany" class="edittext" placeholder="Empresa" />
+            <input
+              id="inputCompany"
+              class="edittext px-2"
+              placeholder="Empresa"
+            />
             <p></p>
             <textarea
               id="inputMessage"
-              class="edittext"
+              class="edittext px-2"
               placeholder="Mensagem"
             ></textarea>
             <p></p>
@@ -159,7 +163,7 @@
         ref="html2Pdf"
       >
         <section slot="pdf-content">
-          <img src="../assets/FT1.png" />
+          <img :src="img" />
         </section>
       </VueHtml2pdf>
     </div>
@@ -179,6 +183,7 @@ export default {
     return {
       outdoors: [],
       photosSrc: "",
+      ftSrc: [],
       favBtn: "",
       outdoorName: "",
       outdoorId: 0,
@@ -188,8 +193,10 @@ export default {
   mounted: function () {
     this.outdoors = this.$store.getters.getOutdoors.outdoors;
     this.photosSrc = this.$store.getters.getPhotosSrc;
+    this.ftSrc = this.$store.getters.getFTSrc;
     console.log(this.outdoors);
     console.log(this.photosSrc);
+    console.log(this.ftSrc);
   },
   methods: {
     // ------------------------------------- Abrir modal das faces -------------------------------------
@@ -215,7 +222,7 @@ export default {
       }
 
       this.outdoorName = name;
-      this.img = this.photosSrc[number - 1];
+      this.img = this.ftSrc[number - 1];
       this.outdoorId = id;
 
       this.$refs["my-modal"].show();
@@ -431,8 +438,10 @@ export default {
 /* ------------------------------------- EditText ------------------------------------- */
 .edittext {
   width: 100%;
-  font-weight: bold;
-  font-size: 14px;
+  font-family: Kayak Sans;
+  font-size: 16px;
+  border-width: 1px;
+  border-radius: 6px;
 }
 
 /* ------------------------------------- Faces ------------------------------------- */
@@ -502,6 +511,7 @@ export default {
   border-radius: 6px;
   border-color: #e80b0b;
   border-width: 1px;
+  font-family: Kayak Sans;
   align-content: flex-end;
 }
 
@@ -509,5 +519,9 @@ export default {
   color: #fcfff7;
   background-color: #e80b0b;
   border-radius: 6px;
+}
+
+.btnModal {
+  font-family: Kayak Sans;
 }
 </style>

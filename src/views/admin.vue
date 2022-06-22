@@ -236,6 +236,10 @@ export default {
     };
   },
   mounted: function () {
+    if (this.$store.getters.getUser.user.user_type != "Admin") {
+      this.$router.push("/");
+      return;
+    }
     axios({
       method: "get",
       url: "https://portomedia.herokuapp.com/admin/changeEmail",

@@ -36,14 +36,14 @@
             <!-- ------------------------------------- Secção do formulário ------------------------------------- -->
             <h1 class="header">CONTACTE-NOS</h1>
             <div class="contactos">
-              <input class="edittext" id="inputName" placeholder="Nome*" />
+              <input class="edittext px-2" id="inputName" placeholder="Nome*" />
               <p class="space"></p>
-              <input class="edittext" id="inputEmail" placeholder="Email*" />
+              <input class="edittext px-2" id="inputEmail" placeholder="Email*" />
               <p class="space"></p>
-              <input class="edittext" id="inputContact" placeholder="Número" />
+              <input class="edittext px-2" id="inputContact" placeholder="Número" />
               <p class="space"></p>
               <textarea
-                class="edittext2"
+                class="edittext2 px-2"
                 id="inputMessage"
                 placeholder="Mensagem"
               ></textarea>
@@ -56,10 +56,10 @@
         </b-row>
         <b-row class="my-4">
           <!-- ------------------------------------- Secção contactos ------------------------------------- -->
-          <div class="contactos text-center">
+          <div class="contactos2 text-center">
             <h1 class="header2 text-center">CONTACTOS</h1>
             <img src="../assets/email.png" alt="email" class="icons" />
-            <a> : mail@planetapublicidade.com </a>
+            <a> : geral@portomedia.pt </a>
             <p></p>
             <img src="../assets/telefone.png" alt="telefone" class="icons" />
             <a> : 22 145 01 20</a>
@@ -102,7 +102,7 @@
               <h1 class="header2 text-center">CONTACTOS</h1>
               <div class="mt-lg-5">
                 <img src="../assets/email.png" alt="email" class="icons" />
-                <a> : mail@planetapublicidade.com </a>
+                <a> : geral@portomedia.pt </a>
               </div>
               <div class="mt-4">
                 <img
@@ -130,15 +130,15 @@
         <b-row class="my-4">
           <!-- ------------------------------------- Secção do formulário ------------------------------------- -->
           <h1 class="header">CONTACTE-NOS</h1>
-          <div class="contactos">
-            <input class="edittext" id="inputName" placeholder="Nome*" />
+          <div>
+            <input class="edittext px-2" id="inputName" placeholder="Nome*" />
             <p class="space"></p>
-            <input class="edittext" id="inputEmail" placeholder="Email*" />
+            <input class="edittext px-2" id="inputEmail" placeholder="Email*" />
             <p class="space"></p>
-            <input class="edittext" id="inputContact" placeholder="Número" />
+            <input class="edittext px-2" id="inputContact" placeholder="Número" />
             <p class="space"></p>
             <textarea
-              class="edittext2"
+              class="edittext2 px-2"
               id="inputMessage"
               placeholder="Mensagem"
             ></textarea>
@@ -271,7 +271,12 @@ export default {
 .contactos {
   text-align: left;
   font-family: Kayak Sans;
-  font-size: 15pt;
+  font-size: 16px;
+}
+
+.contactos2 {
+  font-family: Kayak Sans;
+  font-size: 20px;
 }
 
 /* ------------------------------------- Título das páginas ------------------------------------- */
@@ -307,9 +312,10 @@ export default {
 /* ------------------------------------- Edittext ------------------------------------- */
 .edittext {
   width: 100%;
-  font-weight: bold;
-  font-size: 14px;
-  opacity: 80%;
+  font-size: 16px;
+  border-radius: 6px;
+  border-width: 1px;
+  /* opacity: 80%; */
 }
 
 /* ------------------------------------- Espaço entre objetos ------------------------------------- */
@@ -321,9 +327,9 @@ export default {
 .edittext2 {
   width: 100%;
   height: 130px;
-  font-weight: bold;
-  font-size: 14px;
-  opacity: 80%;
+  font-size: 16px;
+  border-radius: 6px;
+  border-width: 1px;
 }
 
 /* ------------------------------------- Texto morada ------------------------------------- */

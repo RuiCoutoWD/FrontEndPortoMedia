@@ -101,7 +101,7 @@
                     class="close"
                     data-dismiss="modal"
                     aria-label="Close"
-                    @click="hideModal()"
+                    @click="hideModalPassword()"
                   >
                     X
                   </button>
@@ -136,81 +136,105 @@
             <table class="table">
               <thead class="thead">
                 <tr>
-                  <th scope="col">Face</th>
-                  <th scope="col">Data do aluguer</th>
-                  <th scope="col">Preço</th>
+                  <th scope="col" class="tableTxt">Face</th>
+                  <th scope="col" class="tableTxt">Data Início</th>
+                  <th scope="col" class="tableTxt">Data Término</th>
+                  <th scope="col" class="tableTxt">Preço (€)</th>
+                  <th scope="col" class="tableTxt">Estado</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td @click="showModalFav()" class="td">Face 006</td>
-                  <td>05/09/22</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td @click="showModalFav()" class="td">Face 035</td>
-                  <td>03/10/21</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td @click="showModalFav()" class="td">Face 001</td>
-                  <td>22/02/21</td>
-                  <td></td>
+                <tr v-for="rent in rents" :key="rent.id">
+                  <td class="tableTxt">Face {{ rent.outdoorNumber }}</td>
+                  <td class="tableTxt">{{ rent.begin_date }}</td>
+                  <td class="tableTxt">{{ rent.end_date }}</td>
+                  <td class="tableTxt">{{ rent.monthly_price }}</td>
+                  <td
+                    class="text-center tableTxt"
+                    v-if="rent.status == 'Aceite'"
+                    style="color: green"
+                  >
+                    {{ rent.status }}
+                  </td>
+                  <td
+                    class="text-center tableTxt"
+                    v-else-if="rent.status == 'Terminado'"
+                  >
+                    {{ rent.status }}
+                  </td>
+                  <td
+                    class="text-center tableTxt"
+                    v-else
+                    style="color: #e80b0b"
+                  >
+                    {{ rent.status }}
+                  </td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
         <div class="row pt-3">
-          <div class="col-md-6 col-sm-12">
-            <h1 class="header3">NOTIFICAÇÕES</h1>
-            <div class="cardNot" style="width: 80%">
-              <div class="card-body">
-                <b-row>
-                  <div class="col-10">
-                    <p class="card-text">
-                      A Face 06 estará disponível a partir de dia 05/07/22
-                    </p>
-                  </div>
-                  <b-col>
-                    <a href="#" class="card-link">X</a>
-                  </b-col>
-                </b-row>
-              </div>
+          <h1 class="header2">FAVORITOS</h1>
+          <b-row>
+            <div
+              class="
+                col-lg-2 col-md-4 col-sm-4 col-xs-6
+                d-flex
+                justify-content-center
+                mb-3
+              "
+              v-for="outdoor in filteredFavorites()"
+              :key="outdoor.id"
+            >
+              <b-card
+                no-body
+                @click="showModalFav(outdoor.id, outdoor.name, outdoor.number)"
+                title="Image Overlay"
+                img-alt="Image"
+                img-height="100px"
+                img-top
+                tag="article"
+                style="
+                  max-width: 200px;
+                  text-align: left;
+                  background-color: #303d7a;
+                "
+                class="border-0 card"
+                footer-tag="footer"
+                :id="outdoor.id"
+              >
+                <img
+                  :src="photosSrc[outdoor.number - 1]"
+                  class="favOutdoorImage"
+                />
+                <template #footer>
+                  <span class="foot">{{ outdoor.name }}</span>
+                </template>
+              </b-card>
             </div>
-            <p></p>
-            <div class="cardNot" style="width: 80%">
-              <div class="card-body">
-                <b-row>
-                  <div class="col-10">
-                    <p class="card-text">
-                      A Face 06 estará disponível a partir de dia 05/07/22
-                    </p>
-                  </div>
-                  <b-col>
-                    <a href="#" class="card-link">X</a>
-                  </b-col>
-                </b-row>
-              </div>
-            </div>
-            <p></p>
-            <div class="cardNot" style="width: 80%">
-              <div class="card-body">
-                <b-row>
-                  <div class="col-10">
-                    <p class="card-text">
-                      A Face 06 estará disponível a partir de dia 05/07/22
-                    </p>
-                  </div>
-                  <b-col>
-                    <a href="#" class="card-link">X</a>
-                  </b-col>
-                </b-row>
-              </div>
-            </div>
+          </b-row>
+          <div class="span" v-if="favOutdoors.length > 6">
+            <span @click="showModal2()" class="txt"
+              >Ver todos os favoritos!</span
+            >
           </div>
-          <div class="col-md-6 col-sm-12">
-            <h1 class="header2">FAVORITOS</h1>
+          <div class="span" v-else-if="favOutdoors.length == 0">
+            Ainda não adicionou nenhum outdoor aos favoritos!
+          </div>
+          <b-modal size="lg" ref="my-modal2" hide-footer centered>
+            <template #modal-header>
+              <span class="nome">Os seus favoritos</span>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+                @click="hideModal2()"
+              >
+                X
+              </button>
+            </template>
             <b-row>
               <div
                 class="
@@ -219,7 +243,7 @@
                   justify-content-center
                   mb-3
                 "
-                v-for="outdoor in filteredFavorites()"
+                v-for="outdoor in favOutdoors"
                 :key="outdoor.id"
               >
                 <b-card
@@ -251,69 +275,7 @@
                 </b-card>
               </div>
             </b-row>
-            <div class="span" v-if="favOutdoors != null">
-              <span @click="showModal2()" class="txt"
-                >Ver todos os favoritos!</span
-              >
-            </div>
-            <div class="span" v-else>
-              Ainda não adicionou nenhum outdoor aos favoritos!
-            </div>
-            <b-modal size="lg" ref="my-modal2" hide-footer centered>
-              <template #modal-header>
-                <span class="nome">Os seus favoritos</span>
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                  @click="hideModal2()"
-                >
-                  X
-                </button>
-              </template>
-              <b-row>
-                <div
-                  class="
-                    col-lg-4 col-md-6 col-sm-6 col-xs-12
-                    d-flex
-                    justify-content-center
-                    mb-3
-                  "
-                  v-for="outdoor in favOutdoors"
-                  :key="outdoor.id"
-                >
-                  <b-card
-                    no-body
-                    @click="
-                      showModalFav(outdoor.id, outdoor.name, outdoor.number)
-                    "
-                    title="Image Overlay"
-                    img-alt="Image"
-                    img-height="100px"
-                    img-top
-                    tag="article"
-                    style="
-                      max-width: 200px;
-                      text-align: left;
-                      background-color: #303d7a;
-                    "
-                    class="border-0 card"
-                    footer-tag="footer"
-                    :id="outdoor.id"
-                  >
-                    <img
-                      :src="photosSrc[outdoor.number - 1]"
-                      class="favOutdoorImage"
-                    />
-                    <template #footer>
-                      <span class="foot">{{ outdoor.name }}</span>
-                    </template>
-                  </b-card>
-                </div>
-              </b-row>
-            </b-modal>
-          </div>
+          </b-modal>
         </div>
       </b-container>
       <b-modal size="lg" ref="my-modalfav" hide-footer centered class="modal">
@@ -355,7 +317,6 @@
   </div>
 </template>
 
-
 <script>
 // @ is an alias to /src
 //import Navbar from "@/components/Navbar.vue";
@@ -373,6 +334,7 @@ export default {
       userFavorites: [],
       photosSrc: [],
       favOutdoors: [],
+      rents: [],
       outdoorId: 0,
       outdoorName: "",
       outdoorNumber: 0,
@@ -393,6 +355,17 @@ export default {
       }
     }
 
+    axios({
+      method: "get",
+      url: "https://portomedia.herokuapp.com/profile/rents",
+      headers: {
+        "x-access-token": this.$store.getters.getToken.token,
+      },
+    }).then((response) => {
+      this.rents = response.data;
+      console.log(this.rents);
+    });
+
     console.log(this.favOutdoors);
   },
   methods: {
@@ -411,6 +384,9 @@ export default {
     },
     showModalPassword() {
       this.$refs["modalPassword"].show();
+    },
+    hideModalPassword() {
+      this.$refs["modalPassword"].hide();
     },
     hideModal() {
       this.$refs["my-modal"].hide();
@@ -552,8 +528,7 @@ export default {
       );
     },
     filteredFavorites() {
-      console.log(this.favOutdoors.slice(0, 3));
-      return this.favOutdoors.slice(0, 3);
+      return this.favOutdoors.slice(0, 6);
     },
     changePassword() {
       axios({
@@ -595,20 +570,12 @@ export default {
   text-align: left;
 }
 
-.td:hover {
-  cursor: pointer;
-}
-
 .thead {
   color: #303d7a;
 }
 
 .margem {
   text-align: left;
-}
-
-.table {
-  width: 500px;
 }
 
 .buttons {
@@ -793,6 +760,7 @@ export default {
   font-family: Kayak Sans;
   font-size: 20px;
   color: #303d7a;
+  border-color: #303d7a;
   width: 120px;
   border-width: 1px;
   border-radius: 10px;
@@ -808,6 +776,7 @@ export default {
   font-family: Kayak Sans;
   font-size: 20px;
   color: #303d7a;
+  border-color: #303d7a;
   width: 200px;
   border-width: 1px;
   border-radius: 10px;
@@ -859,5 +828,10 @@ export default {
   width: 100%;
   object-fit: cover;
   border-radius: 6px 6px 0 0;
+}
+
+.tableTxt {
+  font-family: Kayak Sans;
+  font-size: 18px;
 }
 </style>
