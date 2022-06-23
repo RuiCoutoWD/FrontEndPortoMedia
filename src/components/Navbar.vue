@@ -539,6 +539,7 @@ export default {
   margin-top: 3rem;
   width: 100%;
   position: fixed;
+  z-index: 999;
 }
 
 /* Logo */
