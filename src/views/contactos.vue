@@ -38,9 +38,17 @@
             <div class="contactos">
               <input class="edittext px-2" id="inputName" placeholder="Nome*" />
               <p class="space"></p>
-              <input class="edittext px-2" id="inputEmail" placeholder="Email*" />
+              <input
+                class="edittext px-2"
+                id="inputEmail"
+                placeholder="Email*"
+              />
               <p class="space"></p>
-              <input class="edittext px-2" id="inputContact" placeholder="Número" />
+              <input
+                class="edittext px-2"
+                id="inputContact"
+                placeholder="Número"
+              />
               <p class="space"></p>
               <textarea
                 class="edittext2 px-2"
@@ -135,7 +143,11 @@
             <p class="space"></p>
             <input class="edittext px-2" id="inputEmail" placeholder="Email*" />
             <p class="space"></p>
-            <input class="edittext px-2" id="inputContact" placeholder="Número" />
+            <input
+              class="edittext px-2"
+              id="inputContact"
+              placeholder="Número"
+            />
             <p class="space"></p>
             <textarea
               class="edittext2 px-2"
@@ -314,6 +326,7 @@ export default {
   width: 100%;
   font-size: 16px;
   border-radius: 6px;
+  font-family: Kayak Sans;
   border-width: 1px;
   /* opacity: 80%; */
 }

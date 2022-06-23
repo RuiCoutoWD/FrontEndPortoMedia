@@ -258,7 +258,7 @@
             </div>
             <div id="loggedDiv" class="invisible">
               <b-nav-item href="#"
-                ><router-link to="/perfil" class="routerSmallNav"
+                ><router-link to="/profile" class="routerSmallNav"
                   ><span class="smallNavbarItem">Perfil</span></router-link
                 ></b-nav-item
               >
@@ -694,16 +694,13 @@ link.router-link-active {
 .navbarSmallDiv {
   width: 100%;
   position: fixed;
+  z-index: 999;
 }
 
 .navbarSmall {
   background-color: #000000;
   height: 65px;
   opacity: 79%;
-}
-
-/* Hamburguer menu */
-#navbar-toggle-collapse {
 }
 
 .hambMenu {

@@ -1,11 +1,23 @@
 <template>
   <div class="home">
-    <div class="quemsomos">
-      <img src="../assets/Fundosimagem-08.png" class="fundo" />
+    <div>
+      <!-- ------------------------------------- Imagens de fundo ------------------------------------- -->
+      <img
+        src="../assets/Fundosimagem-08.png"
+        class="backgroundLarge d-none d-xl-block"
+      />
+      <img
+        src="../assets/Fundosimagem-08.png"
+        class="backgroundMedium d-none d-md-block d-xl-none"
+      />
+      <img
+        src="../assets/Fundosimagem-08.png"
+        class="backgroundSmall d-block d-md-none"
+      />
       <b-container class="bv-example-row">
         <div class="row pt-3">
-          <div class="col-md-6 col-sm-12">
-            <h1 class="header">DADOS PESSOAIS</h1>
+          <div class="col-md-6 col-sm-12 mb-4">
+            <h1 class="header firstRow">DADOS PESSOAIS</h1>
             <div class="contactos">
               <h1 class="userInfoH1 pt-3">
                 Nome:
@@ -130,7 +142,7 @@
               </b-modal>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12">
+          <div class="col-md-6 col-sm-12 mb-4">
             <h1 class="header">ÚLTIMOS ALUGUERES</h1>
 
             <table class="table">
@@ -174,16 +186,11 @@
             </table>
           </div>
         </div>
-        <div class="row pt-3">
+        <div class="row pt-3 divFav">
           <h1 class="header2">FAVORITOS</h1>
           <b-row>
             <div
-              class="
-                col-lg-2 col-md-4 col-sm-4 col-xs-6
-                d-flex
-                justify-content-center
-                mb-3
-              "
+              class="col-lg-2 col-md-4 col-sm-4 col-xs-6 d-flex justify-content-center mb-3"
               v-for="outdoor in filteredFavorites()"
               :key="outdoor.id"
             >
@@ -237,12 +244,7 @@
             </template>
             <b-row>
               <div
-                class="
-                  col-lg-4 col-md-6 col-sm-6 col-xs-12
-                  d-flex
-                  justify-content-center
-                  mb-3
-                "
+                class="col-lg-4 col-md-6 col-sm-6 col-xs-12 d-flex justify-content-center mb-3"
                 v-for="outdoor in favOutdoors"
                 :key="outdoor.id"
               >
@@ -559,6 +561,43 @@ export default {
 </script>
 
 <style scoped>
+.backgroundLarge {
+  transform: translateX(calc((100% - 100vw) / 2));
+  min-width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -2;
+  bottom: 0;
+  right: 0;
+  opacity: 40%;
+}
+
+.backgroundMedium {
+  transform: translateX(calc((75% - 100vw) / 2));
+  min-width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -2;
+  bottom: 0;
+  right: 0;
+  opacity: 40%;
+}
+
+.backgroundSmall {
+  transform: translateX(calc((50% - 100vw) / 2));
+  min-width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -2;
+  bottom: 0;
+  right: 0;
+  opacity: 40%;
+}
+
+.firstRow {
+  margin-top: 9rem;
+}
+
 .card-link {
   color: #e80b0b;
   text-decoration: none;
@@ -657,16 +696,6 @@ export default {
   width: 30px;
 }
 
-.fundo {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  z-index: -1;
-  top: 0;
-  right: 0;
-  opacity: 40%;
-}
-
 .foot {
   color: #fcfff7;
   font-family: Kayak Sans;
@@ -700,7 +729,6 @@ export default {
   color: #a58c57;
   text-decoration: none;
   text-align: left;
-  margin-top: 9rem;
 }
 
 .header2 {
@@ -833,5 +861,9 @@ export default {
 .tableTxt {
   font-family: Kayak Sans;
   font-size: 18px;
+}
+
+.divFav {
+  z-index: -1 !important;
 }
 </style>
