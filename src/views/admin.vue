@@ -3,7 +3,7 @@
     <div class="quemsomos">
       <b-container class="bv-example-row pt-3">
         <div class="row">
-          <div class="col-6">
+          <div class="col-sm-12 col-xs-6 col-md-6 col-lg-6 col-xl-6 pb-5">
             <!-- Alterar email -->
             <h1 class="header">ALTERAÇÃO DE EMAIL</h1>
             <div class="contactos">
@@ -88,7 +88,7 @@
           </div>
 
           <!-- Alterar os outdoors visíveis -->
-          <div class="col-6">
+          <div class="col-sm-12 col-xs-6 col-md-6 col-lg-6 col-xl-6">
             <h1 class="header">ALTERAÇÃO DE OUTDOORS VISÍVEIS</h1>
             <p class="d-flex justify-content-start pOutNumber">
               <b class="mr-1">Outdoors visíveis: </b><span class="mx-1"></span>

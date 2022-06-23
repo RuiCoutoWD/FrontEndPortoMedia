@@ -269,6 +269,14 @@
                   ></router-link
                 ></b-nav-item
               >
+              <b-nav-item href="#">
+                <router-link
+                  to="/admin"
+                  class="routerSmallNav"
+                  v-if="user.name != null && user.user_type == 'Admin'"
+                  ><span class="smallNavbarItem">Admin</span></router-link
+                ></b-nav-item
+              >
               <b-nav-item href="#" class="logOutSmallNavItem" @click="logOut()"
                 ><span class="smallNavbarItem logOutSmallNav"
                   >Sair</span

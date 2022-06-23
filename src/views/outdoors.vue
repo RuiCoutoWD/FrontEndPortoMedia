@@ -72,18 +72,19 @@
               X
             </button>
           </template>
-          <img :src="img" width="766px" overlay />
+          <img :src="img" width="100%" overlay />
           <p></p>
-          <div class="buttons">
+          <!-- Layout butões para dispositivos grandes -->
+          <div class="buttons d-none d-lg-block d-xl-block">
             <b-row>
-              <b-col>
+              <div class="col-5">
                 <img
                   @click="generateReport"
                   src="../assets/exportar.png"
                   class="export"
                 />
-              </b-col>
-              <b-col>
+              </div>
+              <div class="col-4 d-flex justify-content-end">
                 <button
                   @click="addAndRemoveFavorite()"
                   class="favorito btnModal"
@@ -91,12 +92,64 @@
                 >
                   {{ favBtn }}
                 </button>
-              </b-col>
-              <b-col>
+              </div>
+              <div class="col-3 d-flex justify-content-end">
                 <button @click="hideModal" class="confirmar btnModal">
                   Pedir Orçamento
                 </button>
-              </b-col>
+              </div>
+            </b-row>
+          </div>
+          <!-- Layout butões para dispositivos medios -->
+          <div class="buttons d-none d-md-block d-lg-none d-xl-none">
+            <b-row>
+              <div class="col-2">
+                <img
+                  @click="generateReport"
+                  src="../assets/exportar.png"
+                  class="export"
+                />
+              </div>
+              <div class="col-5 d-flex justify-content-end">
+                <button
+                  @click="addAndRemoveFavorite()"
+                  class="favorito btnModal"
+                  id="favButton"
+                >
+                  {{ favBtn }}
+                </button>
+              </div>
+              <div class="col-5 d-flex justify-content-end">
+                <button @click="hideModal" class="confirmar btnModal">
+                  Pedir Orçamento
+                </button>
+              </div>
+            </b-row>
+          </div>
+          <!-- Layout butões para dispositivos pequenos -->
+          <div class="buttons d-md-none d-lg-none d-xl-none">
+            <b-row>
+              <div class="col-2">
+                <img
+                  @click="generateReport"
+                  src="../assets/exportar.png"
+                  class="export"
+                />
+              </div>
+              <div class="col-5 d-flex justify-content-end">
+                <button
+                  @click="addAndRemoveFavorite()"
+                  class="favorito btnModal"
+                  id="favButton"
+                >
+                  {{ favBtn }}
+                </button>
+              </div>
+              <div class="col-5 d-flex justify-content-end">
+                <button @click="hideModal" class="confirmar btnModal">
+                  Pedir Orçamento
+                </button>
+              </div>
             </b-row>
           </div>
         </b-modal>
@@ -417,6 +470,7 @@ export default {
 /* ------------------------------------- Estilização do botão de exportar ------------------------------------- */
 .export {
   width: 30px;
+  padding-top: 0.5rem;
 }
 
 .export:hover {
@@ -487,7 +541,6 @@ export default {
 .favorito {
   background-color: #fcfff7;
   color: #a58c57;
-  margin-left: 15.6rem;
   width: 200px;
   border-radius: 6px;
   border-color: #a58c57;

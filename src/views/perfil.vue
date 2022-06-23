@@ -16,181 +16,188 @@
       />
       <b-container class="bv-example-row">
         <div class="row pt-3">
-          <div class="col-md-6 col-sm-12 mb-4">
-            <h1 class="header firstRow">DADOS PESSOAIS</h1>
-            <div class="contactos">
-              <h1 class="userInfoH1 pt-3">
-                Nome:
-                <span class="userInfoSpan" v-if="user.name == null"
-                  >Ainda não adicionou o seu nome!</span
-                ><span class="userInfoSpan" v-else>{{ user.name }}</span>
-              </h1>
-              <h1 class="userInfoH1 pt-3">
-                Email:
-                <span class="userInfoSpan" v-if="user.email == null"
-                  >Ainda não adicionou o seu email!</span
-                ><span class="userInfoSpan" v-else>{{ user.email }}</span>
-              </h1>
-              <h1 class="userInfoH1 pt-3">
-                Contacto:
-                <span class="userInfoSpan" v-if="user.phone_number == null"
-                  >Ainda não adicionou o seu contacto!</span
-                ><span class="userInfoSpan" v-else>{{
-                  user.phone_number
-                }}</span>
-              </h1>
-              <h1 class="userInfoH1 pt-3">
-                Empresa:
-                <span class="userInfoSpan" v-if="user.company == null"
-                  >Ainda não adicionou a sua empresa!</span
-                ><span class="userInfoSpan" v-else>{{ user.company }}</span>
-              </h1>
-              <b-row>
-                <div
-                  class="col-3 d-flex mx-auto justify-content-start pt-3 pb-3"
-                >
-                  <button class="botao" @click="showModal">Editar</button>
-                </div>
-                <div class="col-9 pt-3 pb-3">
-                  <button class="botaoPassword" @click="showModalPassword">
-                    Mudar Palavra-Passe
-                  </button>
-                </div>
-              </b-row>
-              <b-modal ref="my-modal" hide-footer centered class="mod">
-                <template #modal-header>
-                  <span class="nome">Editar os seus dados pessoais</span>
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                    @click="hideModal()"
+          <div class="firstRow">
+            <div class="col-md-6 col-sm-12 mb-4 pb-4">
+              <h1 class="header">DADOS PESSOAIS</h1>
+              <div class="contactos">
+                <h1 class="userInfoH1 pt-3">
+                  Nome:
+                  <span class="userInfoSpan" v-if="user.name == null"
+                    >Ainda não adicionou o seu nome!</span
+                  ><span class="userInfoSpan" v-else>{{ user.name }}</span>
+                </h1>
+                <h1 class="userInfoH1 pt-3">
+                  Email:
+                  <span class="userInfoSpan" v-if="user.email == null"
+                    >Ainda não adicionou o seu email!</span
+                  ><span class="userInfoSpan" v-else>{{ user.email }}</span>
+                </h1>
+                <h1 class="userInfoH1 pt-3">
+                  Contacto:
+                  <span class="userInfoSpan" v-if="user.phone_number == null"
+                    >Ainda não adicionou o seu contacto!</span
+                  ><span class="userInfoSpan" v-else>{{
+                    user.phone_number
+                  }}</span>
+                </h1>
+                <h1 class="userInfoH1 pt-3">
+                  Empresa:
+                  <span class="userInfoSpan" v-if="user.company == null"
+                    >Ainda não adicionou a sua empresa!</span
+                  ><span class="userInfoSpan" v-else>{{ user.company }}</span>
+                </h1>
+                <b-row>
+                  <div
+                    class="col-3 d-flex mx-auto justify-content-start pt-3 pb-3"
                   >
-                    X
-                  </button>
-                </template>
-                <label for="editName" class="editProfileLabel">Nome:</label>
-                <input
-                  id="editName"
-                  class="editProfileInput mb-2"
-                  :placeholder="user.name"
-                />
-                <label for="editEmail" class="editProfileLabel">Email:</label>
-                <input
-                  id="editEmail"
-                  class="editProfileInput mb-2"
-                  :placeholder="user.email"
-                />
-                <label for="editContact" class="editProfileLabel"
-                  >Contacto:</label
-                >
-                <input
-                  id="editContact"
-                  class="editProfileInput mb-2"
-                  :placeholder="user.phone_number"
-                />
-                <label for="editCompany" class="editProfileLabel"
-                  >Empresa:</label
-                >
-                <input
-                  id="editCompany"
-                  class="editProfileInput mb-4"
-                  :placeholder="user.company"
-                />
-                <div class="buttons">
-                  <button @click="editPersonalData()" class="confirmar">
-                    Confirmar
-                  </button>
-                </div>
-              </b-modal>
-              <!-- -------------------------------------------------------------------- -->
-              <b-modal ref="modalPassword" hide-footer centered class="mod">
-                <template #modal-header>
-                  <span class="nome">Mudar Palavra-Passe</span>
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                    @click="hideModalPassword()"
+                    <button class="botao" @click="showModal">Editar</button>
+                  </div>
+                  <div class="col-9 pt-3 pb-3">
+                    <button class="botaoPassword" @click="showModalPassword">
+                      Mudar Palavra-Passe
+                    </button>
+                  </div>
+                </b-row>
+                <b-modal ref="my-modal" hide-footer centered class="mod">
+                  <template #modal-header>
+                    <span class="nome">Editar os seus dados pessoais</span>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                      @click="hideModal()"
+                    >
+                      X
+                    </button>
+                  </template>
+                  <label for="editName" class="editProfileLabel">Nome:</label>
+                  <input
+                    id="editName"
+                    class="editProfileInput mb-2"
+                    :placeholder="user.name"
+                  />
+                  <label for="editEmail" class="editProfileLabel">Email:</label>
+                  <input
+                    id="editEmail"
+                    class="editProfileInput mb-2"
+                    :placeholder="user.email"
+                  />
+                  <label for="editContact" class="editProfileLabel"
+                    >Contacto:</label
                   >
-                    X
-                  </button>
-                </template>
-                <label for="password" class="editProfileLabel"
-                  >Nova palavra-passe:</label
-                >
-                <input
-                  id="password"
-                  type="password"
-                  class="editPasswordInput mb-2"
-                />
-                <label for="repeatPassword" class="editProfileLabel"
-                  >Repetir palavra-passe:</label
-                >
-                <input
-                  id="repeatPassword"
-                  type="password"
-                  class="editPasswordInput mb-2"
-                />
-                <div class="buttons">
-                  <button @click="changePassword()" class="confirmar">
-                    Confirmar
-                  </button>
-                </div>
-              </b-modal>
+                  <input
+                    id="editContact"
+                    class="editProfileInput mb-2"
+                    :placeholder="user.phone_number"
+                  />
+                  <label for="editCompany" class="editProfileLabel"
+                    >Empresa:</label
+                  >
+                  <input
+                    id="editCompany"
+                    class="editProfileInput mb-4"
+                    :placeholder="user.company"
+                  />
+                  <div class="buttons">
+                    <button @click="editPersonalData()" class="confirmar">
+                      Confirmar
+                    </button>
+                  </div>
+                </b-modal>
+                <!-- -------------------------------------------------------------------- -->
+                <b-modal ref="modalPassword" hide-footer centered class="mod">
+                  <template #modal-header>
+                    <span class="nome">Mudar Palavra-Passe</span>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                      @click="hideModalPassword()"
+                    >
+                      X
+                    </button>
+                  </template>
+                  <label for="password" class="editProfileLabel"
+                    >Nova palavra-passe:</label
+                  >
+                  <input
+                    id="password"
+                    type="password"
+                    class="editPasswordInput mb-2"
+                  />
+                  <label for="repeatPassword" class="editProfileLabel"
+                    >Repetir palavra-passe:</label
+                  >
+                  <input
+                    id="repeatPassword"
+                    type="password"
+                    class="editPasswordInput mb-2"
+                  />
+                  <div class="buttons">
+                    <button @click="changePassword()" class="confirmar">
+                      Confirmar
+                    </button>
+                  </div>
+                </b-modal>
+              </div>
             </div>
-          </div>
-          <div class="col-md-6 col-sm-12 mb-4">
-            <h1 class="header">ÚLTIMOS ALUGUERES</h1>
+            <div class="col-md-6 col-sm-12 mb-4 pb-4">
+              <h1 class="header">ÚLTIMOS ALUGUERES</h1>
 
-            <table class="table">
-              <thead class="thead">
-                <tr>
-                  <th scope="col" class="tableTxt">Face</th>
-                  <th scope="col" class="tableTxt">Data Início</th>
-                  <th scope="col" class="tableTxt">Data Término</th>
-                  <th scope="col" class="tableTxt">Preço (€)</th>
-                  <th scope="col" class="tableTxt">Estado</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="rent in rents" :key="rent.id">
-                  <td class="tableTxt">Face {{ rent.outdoorNumber }}</td>
-                  <td class="tableTxt">{{ rent.begin_date }}</td>
-                  <td class="tableTxt">{{ rent.end_date }}</td>
-                  <td class="tableTxt">{{ rent.monthly_price }}</td>
-                  <td
-                    class="text-center tableTxt"
-                    v-if="rent.status == 'Aceite'"
-                    style="color: green"
-                  >
-                    {{ rent.status }}
-                  </td>
-                  <td
-                    class="text-center tableTxt"
-                    v-else-if="rent.status == 'Terminado'"
-                  >
-                    {{ rent.status }}
-                  </td>
-                  <td
-                    class="text-center tableTxt"
-                    v-else
-                    style="color: #e80b0b"
-                  >
-                    {{ rent.status }}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+              <table class="table">
+                <thead class="thead">
+                  <tr>
+                    <th scope="col" class="tableTxt">Face</th>
+                    <th scope="col" class="tableTxt">Data Início</th>
+                    <th scope="col" class="tableTxt">Data Término</th>
+                    <th scope="col" class="tableTxt">Preço (€)</th>
+                    <th scope="col" class="tableTxt">Estado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="rent in rents" :key="rent.id">
+                    <td class="tableTxt">Face {{ rent.outdoorNumber }}</td>
+                    <td class="tableTxt">{{ rent.begin_date }}</td>
+                    <td class="tableTxt">{{ rent.end_date }}</td>
+                    <td class="tableTxt">{{ rent.monthly_price }}</td>
+                    <td
+                      class="text-center tableTxt"
+                      v-if="rent.status == 'Aceite'"
+                      style="color: green"
+                    >
+                      {{ rent.status }}
+                    </td>
+                    <td
+                      class="text-center tableTxt"
+                      v-else-if="rent.status == 'Terminado'"
+                    >
+                      {{ rent.status }}
+                    </td>
+                    <td
+                      class="text-center tableTxt"
+                      v-else
+                      style="color: #e80b0b"
+                    >
+                      {{ rent.status }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
         <div class="row pt-3 divFav">
           <h1 class="header2">FAVORITOS</h1>
           <b-row>
             <div
-              class="col-lg-2 col-md-4 col-sm-4 col-xs-6 d-flex justify-content-center mb-3"
+              class="
+                col-xl-2 col-lg-3 col-md-4 col-sm-4 col-xs-6
+                d-flex
+                justify-content-center
+                mb-3
+              "
               v-for="outdoor in filteredFavorites()"
               :key="outdoor.id"
             >
@@ -221,7 +228,7 @@
               </b-card>
             </div>
           </b-row>
-          <div class="span" v-if="favOutdoors.length > 6">
+          <div class="span pb-5" v-if="favOutdoors.length > 6">
             <span @click="showModal2()" class="txt"
               >Ver todos os favoritos!</span
             >
@@ -244,7 +251,12 @@
             </template>
             <b-row>
               <div
-                class="col-lg-4 col-md-6 col-sm-6 col-xs-12 d-flex justify-content-center mb-3"
+                class="
+                  col-lg-4 col-md-6 col-sm-6 col-xs-12
+                  d-flex
+                  justify-content-center
+                  mb-3
+                "
                 v-for="outdoor in favOutdoors"
                 :key="outdoor.id"
               >
@@ -293,26 +305,19 @@
             X
           </button>
         </template>
-        <img :src="photosSrc[outdoorNumber - 1]" width="766px" overlay />
+        <img :src="ftSrc[outdoorNumber - 1]" width="100%" overlay />
         <p></p>
         <div class="buttons">
-          <b-row>
-            <b-col>
-              <div class="margem">
-                <img src="../assets/exportar.png" class="export" />
-              </div>
-            </b-col>
-            <b-col>
+          <div class="row">
+            <div class="col-2 d-flex justify-content-start">
+              <img src="../assets/exportar.png" class="export" />
+            </div>
+            <div class="col-10 d-flex justify-content-end">
               <button class="favorito" @click="addAndRemoveFavorite()">
                 {{ favBtn }}
               </button>
-            </b-col>
-            <b-col>
-              <button @click="hideModalFav()" class="confirmar2">
-                Pedir Orçamento
-              </button>
-            </b-col>
-          </b-row>
+            </div>
+          </div>
         </div>
       </b-modal>
     </div>
@@ -335,6 +340,7 @@ export default {
       outdoors: [],
       userFavorites: [],
       photosSrc: [],
+      ftSrc: [],
       favOutdoors: [],
       rents: [],
       outdoorId: 0,
@@ -348,6 +354,7 @@ export default {
     this.outdoors = this.$store.getters.getOutdoors.outdoors;
     this.userFavorites = this.$store.getters.getUserFavorites.userFavorites;
     this.photosSrc = this.$store.getters.getPhotosSrc;
+    this.ftSrc = this.$store.getters.getFTSrc;
 
     for (const outdoor of this.outdoors) {
       for (const fav of this.userFavorites) {
@@ -613,10 +620,6 @@ export default {
   color: #303d7a;
 }
 
-.margem {
-  text-align: left;
-}
-
 .buttons {
   text-align: right;
 }
@@ -650,16 +653,20 @@ export default {
   border-radius: 6px;
   border-color: #e80b0b;
   border-width: 1px;
+  font-family: Kayak Sans;
+  font-size: 16px;
 }
 
 .favorito {
   background-color: #fcfff7;
   color: #a58c57;
-  margin-left: 15.6rem;
   width: 200px;
+  height: 30px;
   border-radius: 6px;
   border-color: #a58c57;
   border-width: 1px;
+  font-family: Kayak Sans;
+  font-size: 16px;
 }
 
 .favorito:hover {
@@ -675,6 +682,7 @@ export default {
   color: #fcfff7;
   background-color: #e80b0b;
   width: 180px;
+  height: 30px;
   border-radius: 6px;
 }
 
@@ -694,6 +702,7 @@ export default {
 
 .export {
   width: 30px;
+  height: 30px;
 }
 
 .foot {
