@@ -15,9 +15,9 @@
         class="backgroundSmall d-block d-md-none"
       />
       <b-container class="bv-example-row">
-        <div class="row pt-3">
-          <div class="firstRow">
-            <div class="col-md-6 col-sm-12 mb-4 pb-4">
+        <div class="row">
+          <div class="row pt-3 firstRow">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-4 pb-4">
               <h1 class="header">DADOS PESSOAIS</h1>
               <div class="contactos">
                 <h1 class="userInfoH1 pt-3">
@@ -143,7 +143,7 @@
                 </b-modal>
               </div>
             </div>
-            <div class="col-md-6 col-sm-12 mb-4 pb-4">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-4 pb-4">
               <h1 class="header">ÚLTIMOS ALUGUERES</h1>
 
               <table class="table">
