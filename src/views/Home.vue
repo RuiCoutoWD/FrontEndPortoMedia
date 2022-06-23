@@ -18,6 +18,16 @@ export default {
 </script>
 
 <style scoped>
+@font-face {
+  font-family: Kayak Sans;
+  src: url(../fonts/Kayak_Sans_Regular.otf);
+}
+
+@font-face {
+  font-family: ChaletComprime CologneEighty;
+  src: url(../fonts/ChaletComprime_CologneEighty.otf);
+}
+
 /* ------------------------------------- Estilização de vídeo ------------------------------------- */
 #myVideo {
   position: fixed;
